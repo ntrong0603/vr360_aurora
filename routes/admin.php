@@ -8,7 +8,6 @@ use App\Http\Controllers\Auth\LoginController;
 | Admin Routes
 |--------------------------------------------------------------------------
 */
-
 // Login
 Route::get('/login', [LoginController::class, 'showAdminLoginForm'])->middleware('guest:admin');
 Route::post('/login', [LoginController::class, 'adminLogin'])->name('admin.login');
