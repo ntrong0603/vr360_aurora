@@ -46,6 +46,12 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'update'])->name('utilities.update');
         Route::delete('/delete/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'destroy'])->name('utilities.delete');
     });
+    Route::group(['prefix' => 'reservation'], function () {
+        Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservation.index');
+        Route::get('/edit/{reservation}', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');
+        Route::delete('/delete/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])
+            ->name('reservation.delete');
+    });
     Route::group(['prefix' => 'language'], function () {
         Route::get('/', [App\Http\Controllers\LanguageController::class, 'index'])->name('language.index');
         Route::get('/create', [App\Http\Controllers\LanguageController::class, 'create'])->name('language.create');

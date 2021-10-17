@@ -1,7 +1,13 @@
 @extends('admin.layout')
-@section('title', 'Quản lý quốc gia')
+@section('title', 'Quản lý đăng ký')
 @push('styles')
 <style>
+    .new {
+        color: #fff;
+        background-color: red;
+        padding: 3px 5px;
+        border-radius: 5px;
+    }
 </style>
 @endpush
 @section('content')
@@ -24,7 +30,7 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">Quản lý quốc gia</h3>
+                    <h3 class="card-title title-custom">Quản lý đăng ký</h3>
                 </div>
 
                 <!-- /.card-header -->
@@ -38,17 +44,32 @@
                         <form class="form-horizontal" action="" method="GET">
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Nhập tên quốc gia</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" name="name" id="inputName" placeholder="Nhập tên quốc gia..." value="{{ Request::get('name') }}">
+                                    <div class="col-sm-2">
+                                        <label for="inputName" class="col-form-label">Nhập tên khách hàng</label>
+                                        <input type="text" class="form-control" name="ten_dk" id="inputName" placeholder="Nhập tên khách hàng..." value="{{ Request::get('ten_dk') }}">
                                     </div>
-                                    <div class="col-sm-7">
-                                        <button type="submit" class="btn btn-info">Tìm kiếm</button>
-                                        <a href="{{route('country.index')}}" class="btn btn-secondary">Reset</a>
+                                    <div class="col-sm-2">
+                                        <label for="inputName" class="col-form-label">Nhập số email</label>
+                                        <input type="text" class="form-control" name="email" id="inputName" placeholder="Nhập số email..." value="{{ Request::get('sdt') }}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="inputName" class="col-form-label">Nhập số điện thoại</label>
+                                        <input type="text" class="form-control" name="sdt" id="inputName" placeholder="Nhập số điện thoại..." value="{{ Request::get('sdt') }}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="inputName" class="col-form-label">Loại đăng ký</label>
+                                        <select name="loai" class="form-control">
+                                            <option value="">Chọn loại đăng ký</option>
+                                            <option value="1" {{ Request::get('loai')==1 ? 'selected' : '' }}>Đặt giữ chỗ</option>
+                                            <option value="2" {{ Request::get('loai')==2 ? 'selected' : '' }}>Đăng ký tham quan</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <a href="{{route('country.create')}}" class="btn btn-success">Thêm mới</a>
+                                    <div class="col-sm-2">
+                                        <button type="submit" class="btn btn-info">Tìm kiếm</button>
+                                        <a href="{{route('reservation.index')}}" class="btn btn-secondary">Reset</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -58,8 +79,14 @@
                         <thead>
                             <tr class="text-center">
                                 <th style="width: 50px">STT</th>
-                                <th style="width: 70%">TÊN</th>
-                                <th style="width: 50px">SỬA</th>
+                                <th>TÊN KHÁCH HÀNG</th>
+                                <th>ĐIỆN THOẠI</th>
+                                <th>EMAIL</th>
+                                <th>TÊN DOANH NGHIỆP</th>
+                                <th>QUỐC GIA</th>
+                                <th>NGÀNH NGHỀ</th>
+                                <th>LOẠI ĐĂNG KÝ</th>
+                                <th style="width: 50px">XEM</th>
                                 <th style="width: 50px">XÓA</th>
                             </tr>
                         </thead>
@@ -71,15 +98,42 @@
                                     {{ (($datas->currentPage() - 1) * 20) + $key + 1 }}
                                 </td>
                                 <td>
-                                    {{$data->name}}
+                                    <a href="{{ route('reservation.edit', ['reservation' => $data->id]) }}">
+                                        {{$data->ten_dk}}
+                                        @if ($data->new == 0)
+                                        <span class="new">NEW</span>
+                                        @endif
+                                    </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('country.edit', ['country' => $data->id]) }}">
+                                    {{$data->sdt}}
+                                </td>
+                                <td>
+                                    {{$data->email}}
+                                </td>
+                                <td>
+                                    {{$data->ten_doanh_nghiep}}
+                                </td>
+                                <td>
+                                    {{$data->country->name ?? ''}}
+                                </td>
+                                <td>
+                                    {{$data->business->name ?? ''}}
+                                </td>
+                                <td>
+                                    @if ($data->loai == 1)
+                                    Đặt giữ chỗ
+                                    @else
+                                    Đăng ký tham quan
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('reservation.edit', ['reservation' => $data->id]) }}">
                                         <i class="fas fa-pencil-alt text-warning"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="delete-row" href="javascript:;" data-href="{{ route('country.delete', ['country' => $data->id]) }}">
+                                    <a class="delete-row" href="javascript:;" data-href="{{ route('reservation.delete', ['reservation' => $data->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
                                 </td>

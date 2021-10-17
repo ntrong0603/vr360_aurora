@@ -21,10 +21,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
-                            Quản lý đăng ký tham quan
+                            Quản lý đăng ký
                         </p>
                     </a>
                 </li>

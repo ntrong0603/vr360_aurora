@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title', 'Quản lý ngôn ngữ')
-@push('style')
+@push('styles')
 <style>
 </style>
 @endpush

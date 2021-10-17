@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title', 'Quản lý ngành nghề kinh doanh')
-@push('style')
+@push('styles')
 <style>
 </style>
 @endpush

@@ -5,13 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductModel extends Model
+class Product extends Model
 {
     use HasFactory;
-
-    protected $table = 'product';
-    const CREATED_AT = 'created_date';
-    const UPDATED_AT = 'updated_date';
 
     /**
      * Function update info product

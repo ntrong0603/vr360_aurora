@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title', 'Quản lý tiện ích')
-@push('style')
+@push('styles')
 <style>
 </style>
 @endpush
