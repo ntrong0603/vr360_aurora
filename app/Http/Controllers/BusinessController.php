@@ -127,20 +127,20 @@ class BusinessController extends Controller
         ];
         $business->fill($dataBusiness);
         $business->save();
-        foreach ($business->BusinessLanguages as $BusinessLanguage) {
+        foreach ($business->businessLanguages as $businessLanguage) {
             $name = "";
-            if (empty($request['name_' . $BusinessLanguage->lang])) {
+            if (empty($request['name_' . $businessLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
             } else {
-                $name = $request['name_' . $BusinessLanguage->lang];
+                $name = $request['name_' . $businessLanguage->lang];
             }
 
             $dataBusinessLang = [
                 'name' => $name
             ];
 
-            $BusinessLanguage->fill($dataBusinessLang);
-            $BusinessLanguage->save();
+            $businessLanguage->fill($dataBusinessLang);
+            $businessLanguage->save();
         }
         return redirect(route('business.index'));
     }
@@ -148,11 +148,20 @@ class BusinessController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  App\Models\Business $business
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Business $business)
     {
-        //
+        if (!empty($business)) {
+            BusinessLanguage::where('business_id', $business->id)->delete();
+            $business->delete();
+            return response()->json([
+                'status' => 1
+            ]);
+        }
+        return response()->json([
+            'status' => 0
+        ]);
     }
 }

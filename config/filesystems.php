@@ -58,6 +58,11 @@ return [
             'root' => storage_path('app/public/language_image'),
         ],
 
+        'utilities_image' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/utilities_image'),
+        ],
+
     ],
 
     /*

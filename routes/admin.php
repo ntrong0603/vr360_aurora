@@ -38,6 +38,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{business}', [App\Http\Controllers\BusinessController::class, 'update'])->name('business.update');
         Route::delete('/delete/{business}', [App\Http\Controllers\BusinessController::class, 'destroy'])->name('business.delete');
     });
+    Route::group(['prefix' => 'utilities'], function () {
+        Route::get('/', [App\Http\Controllers\UtilitiesController::class, 'index'])->name('utilities.index');
+        Route::get('/create', [App\Http\Controllers\UtilitiesController::class, 'create'])->name('utilities.create');
+        Route::post('/store', [App\Http\Controllers\UtilitiesController::class, 'store'])->name('utilities.store');
+        Route::get('/edit/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'edit'])->name('utilities.edit');
+        Route::post('/update/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'update'])->name('utilities.update');
+        Route::delete('/delete/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'destroy'])->name('utilities.delete');
+    });
     Route::group(['prefix' => 'language'], function () {
         Route::get('/', [App\Http\Controllers\LanguageController::class, 'index'])->name('language.index');
         Route::get('/create', [App\Http\Controllers\LanguageController::class, 'create'])->name('language.create');
