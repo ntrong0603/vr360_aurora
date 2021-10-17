@@ -46,6 +46,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'update'])->name('utilities.update');
         Route::delete('/delete/{utilities}', [App\Http\Controllers\UtilitiesController::class, 'destroy'])->name('utilities.delete');
     });
+    Route::group(['prefix' => 'scene'], function () {
+        Route::get('/', [App\Http\Controllers\SceneController::class, 'index'])->name('scene.index');
+        Route::get('/create', [App\Http\Controllers\SceneController::class, 'create'])->name('scene.create');
+        Route::post('/store', [App\Http\Controllers\SceneController::class, 'store'])->name('scene.store');
+        Route::get('/edit/{scene}', [App\Http\Controllers\SceneController::class, 'edit'])->name('scene.edit');
+        Route::post('/update/{scene}', [App\Http\Controllers\SceneController::class, 'update'])->name('scene.update');
+        Route::delete('/delete/{scene}', [App\Http\Controllers\SceneController::class, 'destroy'])->name('scene.delete');
+    });
     Route::group(['prefix' => 'reservation'], function () {
         Route::get('/', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservation.index');
         Route::get('/edit/{reservation}', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');

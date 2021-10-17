@@ -16,7 +16,10 @@ class SceneLanguage extends Model
      */
     protected $fillable = [
         'name',
-        'name_scene'
+        'scene_id',
+        'lang',
+        'content',
+        'photo',
     ];
 
     public function scene()

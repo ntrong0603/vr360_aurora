@@ -29,6 +29,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('scene.index') }}" class="nav-link {{ (request()->is('admin/scene*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý cảnh VR
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('utilities.index') }}" class="nav-link {{ (request()->is('admin/utilities*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>

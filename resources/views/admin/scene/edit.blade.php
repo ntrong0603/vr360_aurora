@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Sửa thông tin tiện ích')
+@section('title', 'Sửa thông tin cảnh')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Quản lý tiện ích</a></li>
+                        <li class="breadcrumb-item"><a href="#">Quản lý cảnh VR</a></li>
                         <li class="breadcrumb-item active">Sửa thông tin</li>
                     </ol>
                 </div>
@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">SỬA THÔNG TIN TIỆN ÍCH</h3>
+                    <h3 class="card-title title-custom">SỬA THÔNG TIN CẢNH</h3>
                 </div>
                 <!-- /.card-header -->
-                <form class="form-horizontal form-brand" action="{{ route('utilities.update', ['utilities' => $utilities->id]) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal form-brand" action="{{ route('scene.update', ['scene' => $scene->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
@@ -46,36 +46,14 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
-                                        @foreach ($utilities->utilitiesLanguages as $utilitiesLanguage)
-                                        @if($utilitiesLanguage->lang == $language->code)
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $utilitiesLanguage->name)}}">
+                                        @foreach ($scene->sceneLanguages as $sceneLanguage)
+                                        @if($sceneLanguage->lang == $language->code)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $sceneLanguage->name)}}">
                                         @endif
                                         @endforeach
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-sm-2">
-                                        Ảnh đại diện ({{$language->name}}):
-                                        <br>
-                                        <span style="font-size: 13px; color: red;">Kích thước: 438px x 255px</span>
-                                    </label>
-                                    <div class="col-sm-4">
-                                        @foreach ($utilities->utilitiesLanguages as $utilitiesLanguage)
-                                        @if($utilitiesLanguage->lang == $language->code && !empty($utilitiesLanguage->photo))
-                                        <div style="margin-bottom: 10px;">
-                                            <img src="{{asset('storage/utilities_image/'.$utilitiesLanguage->photo)}}" alt="{{$utilitiesLanguage->name}}" style="width: 250px;">
-                                        </div>
-                                        @endif
-                                        @endforeach
-                                        <div>
-                                            <input type="file" class="form-control @error('photo_'.$language->code) is-invalid @enderror" name="photo_{{$language->code}}" value="{{old('photo_'.$language->code)}}">
-                                            @error('photo_'.$language->code)
-                                            <span class="error invalid-feedback">{{ $message }}</span>
-                                            @enderror
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +64,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-danger btn-submit">Cập nhật</button>
-                        <a href="{{ route('utilities.index') }}" class="btn btn-info">Quay lại</a>
+                        <a href="{{ route('scene.index') }}" class="btn btn-info">Quay lại</a>
                     </div>
                 </form>
             </div>
