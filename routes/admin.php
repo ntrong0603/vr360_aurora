@@ -30,6 +30,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{country}', [App\Http\Controllers\CountryController::class, 'update'])->name('country.update');
         Route::delete('/delete/{country}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.delete');
     });
+    Route::group(['prefix' => 'business'], function () {
+        Route::get('/', [App\Http\Controllers\BusinessController::class, 'index'])->name('business.index');
+        Route::get('/create', [App\Http\Controllers\BusinessController::class, 'create'])->name('business.create');
+        Route::post('/store', [App\Http\Controllers\BusinessController::class, 'store'])->name('business.store');
+        Route::get('/edit/{business}', [App\Http\Controllers\BusinessController::class, 'edit'])->name('business.edit');
+        Route::post('/update/{business}', [App\Http\Controllers\BusinessController::class, 'update'])->name('business.update');
+        Route::delete('/delete/{business}', [App\Http\Controllers\BusinessController::class, 'destroy'])->name('business.delete');
+    });
     Route::group(['prefix' => 'language'], function () {
         Route::get('/', [App\Http\Controllers\LanguageController::class, 'index'])->name('language.index');
         Route::get('/create', [App\Http\Controllers\LanguageController::class, 'create'])->name('language.create');

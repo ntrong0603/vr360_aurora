@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CountryLanguage extends Model
+class BusinessLanguage extends Model
 {
     use HasFactory;
 
@@ -16,11 +16,12 @@ class CountryLanguage extends Model
      */
     protected $fillable = [
         'name',
-        'country_id',
+        'business_id',
         'lang'
     ];
-    public function country()
+
+    public function business()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Business::class);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CountryLanguage;
-use App\Models\Country;
+use App\Models\Business;
+use App\Models\BusinessLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class CountryController extends Controller
+class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
-        $items = (new Country())->getDatas($request->all());
-        return view('admin.country.index', ['datas' => $items]);
+        $items = (new Business())->getDatas($request->all());
+        return view('admin.business.index', ['datas' => $items]);
     }
 
     /**
@@ -28,7 +28,7 @@ class CountryController extends Controller
     public function create()
     {
         $languages = getLanguage();
-        return view('admin.country.create', ['languages' => $languages]);
+        return view('admin.business.create', ['languages' => $languages]);
     }
 
     /**
@@ -46,15 +46,15 @@ class CountryController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('country.create'))->with(['data' => []])
+            return redirect(route('business.create'))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }
-        $dataCountry = [
+        $dataBusiness = [
             'name' => $request['name_' . $languages[0]->code],
             'status' => $request['status'],
         ];
-        $country = Country::create($dataCountry);
+        $business = Business::create($dataBusiness);
         foreach ($languages as $language) {
             $name = "";
             if (empty($request['name_' . $language->code])) {
@@ -63,15 +63,15 @@ class CountryController extends Controller
                 $name = $request['name_' . $language->code];
             }
 
-            $dataCountryLang = [
+            $dataBusinessLang = [
                 'name' => $name,
-                'country_id' => $country->id,
+                'business_id' => $business->id,
                 'lang' => $language->code
             ];
 
-            CountryLanguage::create($dataCountryLang);
+            BusinessLanguage::create($dataBusinessLang);
         }
-        return redirect(route('country.index'));
+        return redirect(route('business.index'));
     }
 
     /**
@@ -88,27 +88,27 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Country $country
+     * @param  App\Models\Business $business
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Business $business)
     {
         $languages = getLanguage();
         $data = [
-            'country' => $country,
+            'business' => $business,
             'languages' => $languages,
         ];
-        return view('admin.country.edit', $data);
+        return view('admin.business.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Models\Country $country
+     * @param  App\Models\Business $business
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Country $country, Request $request)
+    public function update(Business $business, Request $request)
     {
         $languages = getLanguage();
         $validator = Validator::make($request->all(), [
@@ -117,51 +117,42 @@ class CountryController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('country.edit'))->with(['data' => []])
+            return redirect(route('business.edit'))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }
-        $dataCountry = [
+        $dataBusiness = [
             'name' => $request['name_' . $languages[0]->code],
             'status' => $request['status'],
         ];
-        $country->fill($dataCountry);
-        $country->save();
-        foreach ($country->countryLanguages as $countryLanguage) {
+        $business->fill($dataBusiness);
+        $business->save();
+        foreach ($business->BusinessLanguages as $BusinessLanguage) {
             $name = "";
-            if (empty($request['name_' . $countryLanguage->lang])) {
+            if (empty($request['name_' . $BusinessLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
             } else {
-                $name = $request['name_' . $countryLanguage->lang];
+                $name = $request['name_' . $BusinessLanguage->lang];
             }
 
-            $dataCountryLang = [
+            $dataBusinessLang = [
                 'name' => $name
             ];
 
-            $countryLanguage->fill($dataCountryLang);
-            $countryLanguage->save();
+            $BusinessLanguage->fill($dataBusinessLang);
+            $BusinessLanguage->save();
         }
-        return redirect(route('country.index'));
+        return redirect(route('business.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Country $country
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy($id)
     {
-        if (!empty($country)) {
-            CountryLanguage::where('country_id', $country->id)->delete();
-            $country->delete();
-            return response()->json([
-                'status' => 1
-            ]);
-        }
-        return response()->json([
-            'status' => 0
-        ]);
+        //
     }
 }

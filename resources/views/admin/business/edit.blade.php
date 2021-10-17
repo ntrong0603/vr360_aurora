@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Sửa thông tin quốc gia')
+@section('title', 'Sửa thông ngành nghề kinh doanh')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Quản lý quốc gia</a></li>
+                        <li class="breadcrumb-item"><a href="#">Quản lý ngành nghề kinh doanh</a></li>
                         <li class="breadcrumb-item active">Sửa thông tin</li>
                     </ol>
                 </div>
@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">SỬA THÔNG TIN QUỐC GIA</h3>
+                    <h3 class="card-title title-custom">SỬA THÔNG TIN NGÀNH NGHỀ KINH DOANH</h3>
                 </div>
                 <!-- /.card-header -->
-                <form class="form-horizontal form-brand" action="{{ route('country.update', ['country' => $country->id]) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal form-brand" action="{{ route('business.update', ['business' => $business->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
@@ -46,9 +46,9 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
-                                        @foreach ($country->countryLanguages as $countryLanguage)
-                                        @if($countryLanguage->lang == $language->code)
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $countryLanguage->name)}}">
+                                        @foreach ($business->businessLanguages as $businessLanguage)
+                                        @if($businessLanguage->lang == $language->code)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $businessLanguage->name)}}">
                                         @endif
                                         @endforeach
                                         @error('name_'.$language->code)
@@ -74,7 +74,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-danger btn-submit">Cập nhật</button>
-                        <a href="{{ route('country.index') }}" class="btn btn-info">Quay lại</a>
+                        <a href="{{ route('business.index') }}" class="btn btn-info">Quay lại</a>
                     </div>
                 </form>
             </div>
