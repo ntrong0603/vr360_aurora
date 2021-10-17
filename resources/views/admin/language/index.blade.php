@@ -36,8 +36,8 @@
                         <thead>
                             <tr class="text-center">
                                 <th style="width: 120px">STT</th>
-                                <th style="width: 120px">Tên</th>
-                                <th style="width: 120px">Ký hiệu</th>
+                                <th style="width: 120px">TÊN</th>
+                                <th style="width: 120px">KÝ HIỆU</th>
                                 <th style="width: 120px">SỬA</th>
                                 <th style="width: 50px">XÓA</th>
                             </tr>
@@ -61,9 +61,11 @@
                                     </a>
                                 </td>
                                 <td>
+                                    @if ($data->is_delete == 1)
                                     <a class="delete-row" href="javascript:;" data-href="{{ route('language.delete', ['language' => $data->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

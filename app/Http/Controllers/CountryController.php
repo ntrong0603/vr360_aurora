@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CountryModel;
+use App\Models\CountryLanguage;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
 {
@@ -12,57 +14,10 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = (new CountryModel())->paginate(25);
-        return view('admin.country.index', ['data' => $items]);
-    }
-
-    public function editView($id)
-    {
-        $item = (new CountryModel())->find($id);
-        return view('back_end.country.edit', ['item' => $item]);
-    }
-
-    public function addView()
-    {
-        return view('back_end.country.add');
-    }
-
-    public function save(Request $request)
-    {
-        $rules = [
-            'country'    => 'required',
-            'country_en' => 'required',
-        ];
-        $rulesMessage = [];
-        if (isset($request->id)) {
-            $item = (new CountryModel())->find($request->id);
-        } else {
-            $item = new CountryModel();
-        }
-
-        $this->validate(
-            $request,
-            $rules,
-            $rulesMessage
-        );
-
-        $item->country    = $request->country;
-        $item->country_en = $request->country_en;
-        $item->save();
-        if (isset($request->id)) {
-            return redirect(route('country.view_edit', ['id' => $request->id]))->with('thongbao', 'Sửa thông tin thành công');
-        } else {
-            return redirect(route('country'))->with('thongbao', 'Thêm thông tin thành công');
-        }
-    }
-
-    public function delete($id)
-    {
-        $item = (new CountryModel())->find($id);
-        $item->delete();
-        return redirect(route('country'))->with('thongbao', 'Xóa "' . $item->country . '" thành công');
+        $items = (new Country())->getDatas($request->all());
+        return view('admin.country.index', ['datas' => $items]);
     }
 
     /**
@@ -72,7 +27,8 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        $languages = getLanguage();
+        return view('admin.country.create', ['languages' => $languages]);
     }
 
     /**
@@ -83,7 +39,39 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $languages = getLanguage();
+        $validator = Validator::make($request->all(), [
+            'name_' . $languages[0]->code => 'required'
+        ], [
+            'name_' . $languages[0]->code . '.required' => "Tên không được trống"
+        ]);
+        if ($validator->fails()) {
+            return redirect(route('country.create'))->with(['data' => []])
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $dataCountry = [
+            'name' => $request['name_' . $languages[0]->code],
+            'status' => $request['status'],
+        ];
+        $country = Country::create($dataCountry);
+        foreach ($languages as $language) {
+            $name = "";
+            if (empty($request['name_' . $language->code])) {
+                $name = $request['name_' . $languages[0]->code];
+            } else {
+                $name = $request['name_' . $language->code];
+            }
+
+            $dataCountryLang = [
+                'name' => $name,
+                'country_id' => $country->id,
+                'lang' => $language->code
+            ];
+
+            CountryLanguage::create($dataCountryLang);
+        }
+        return redirect(route('country.index'));
     }
 
     /**
@@ -100,34 +88,80 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  App\Models\Country $country
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
-        //
+        $languages = getLanguage();
+        $data = [
+            'country' => $country,
+            'languages' => $languages,
+        ];
+        return view('admin.country.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  App\Models\Country $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Country $country, Request $request)
     {
-        //
+        $languages = getLanguage();
+        $validator = Validator::make($request->all(), [
+            'name_' . $languages[0]->code => 'required'
+        ], [
+            'name_' . $languages[0]->code . '.required' => "Tên không được trống"
+        ]);
+        if ($validator->fails()) {
+            return redirect(route('country.edit'))->with(['data' => []])
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $dataCountry = [
+            'name' => $request['name_' . $languages[0]->code],
+            'status' => $request['status'],
+        ];
+        $country->fill($dataCountry);
+        $country->save();
+        foreach ($country->countryLanguages as $countryLanguage) {
+            $name = "";
+            if (empty($request['name_' . $countryLanguage->lang])) {
+                $name = $request['name_' . $languages[0]->code];
+            } else {
+                $name = $request['name_' . $countryLanguage->lang];
+            }
+
+            $dataCountryLang = [
+                'name' => $name
+            ];
+
+            $countryLanguage->fill($dataCountryLang);
+            $countryLanguage->save();
+        }
+        return redirect(route('country.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param \App\Models\Country $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Country $country)
     {
-        //
+        if (!empty($country)) {
+            CountryLanguage::where('country_id', $country->id)->delete();
+            $country->delete();
+            return response()->json([
+                'status' => 1
+            ]);
+        }
+        return response()->json([
+            'status' => 0
+        ]);
     }
 }

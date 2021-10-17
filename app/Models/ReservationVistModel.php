@@ -42,12 +42,12 @@ class ReservationVistModel extends Model
 
     public function country()
     {
-        return $this->hasOne('App\Models\CountryModel', 'id', 'quoc_gia');
+        return $this->hasOne('App\Models\Country', 'id', 'quoc_gia');
     }
 
     public function business()
     {
-        return $this->hasOne('App\Models\BusinessModel', 'id', 'nganh_nghe');
+        return $this->hasOne('App\Models\BusinessService', 'id', 'nganh_nghe');
     }
 
     public function datChoThue()

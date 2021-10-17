@@ -29,6 +29,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('country.index') }}" class="nav-link {{ (request()->is('admin/country*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý quốc gia
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('language.index') }}" class="nav-link {{ (request()->is('admin/language*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>

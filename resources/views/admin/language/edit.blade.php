@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Quản lý Brand')
+@section('title', 'Quản lý ngôn ngữ')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Quản lý Place</a></li>
-                        <li class="breadcrumb-item active">Quản lý Brand</li>
+                        <li class="breadcrumb-item active">Chi tiết</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">CHI TIẾT BRAND</h3>
+                    <h3 class="card-title title-custom">CHI TIẾT NGÔN NGỮ</h3>
                 </div>
                 <!-- /.card-header -->
                 <form class="form-horizontal form-brand" action="{{ route('language.update', ['language' => $language->id]) }}" method="POST" enctype="multipart/form-data">

@@ -24,10 +24,11 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
     });
     Route::group(['prefix' => 'country'], function () {
         Route::get('/', [App\Http\Controllers\CountryController::class, 'index'])->name('country.index');
-        Route::get('/edit/{id}', [App\Http\Controllers\CountryController::class, 'editView'])->name('country.view_edit');
-        Route::get('/add', [App\Http\Controllers\CountryController::class, 'addView'])->name('country.view_add');
-        Route::post('/save', [App\Http\Controllers\CountryController::class, 'save'])->name('country.save');
-        Route::get('/delete/{id}', [App\Http\Controllers\CountryController::class, 'delete'])->name('country.delete');
+        Route::get('/create', [App\Http\Controllers\CountryController::class, 'create'])->name('country.create');
+        Route::post('/store', [App\Http\Controllers\CountryController::class, 'store'])->name('country.store');
+        Route::get('/edit/{country}', [App\Http\Controllers\CountryController::class, 'edit'])->name('country.edit');
+        Route::post('/update/{country}', [App\Http\Controllers\CountryController::class, 'update'])->name('country.update');
+        Route::delete('/delete/{country}', [App\Http\Controllers\CountryController::class, 'destroy'])->name('country.delete');
     });
     Route::group(['prefix' => 'language'], function () {
         Route::get('/', [App\Http\Controllers\LanguageController::class, 'index'])->name('language.index');
@@ -35,7 +36,7 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/store', [App\Http\Controllers\LanguageController::class, 'store'])->name('language.store');
         Route::get('/edit/{language}', [App\Http\Controllers\LanguageController::class, 'edit'])->name('language.edit');
         Route::post('/update/{language}', [App\Http\Controllers\LanguageController::class, 'update'])->name('language.update');
-        Route::delete('/delete/{language}', [App\Http\Controllers\LanguageController::class, 'destroye'])
+        Route::delete('/delete/{language}', [App\Http\Controllers\LanguageController::class, 'destroy'])
             ->name('language.delete');
     });
 });

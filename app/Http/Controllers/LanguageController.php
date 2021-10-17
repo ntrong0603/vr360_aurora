@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LanguageModel;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +18,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        $datas = LanguageModel::paginate(20);
+        $datas = Language::paginate(20);
         return view('admin.language.index', [
             'datas' => $datas
         ]);
@@ -65,7 +65,7 @@ class LanguageController extends Controller
             $data['photo'] = $fileName;
         }
 
-        $language = LanguageModel::create($data);
+        $language = Language::create($data);
 
         return redirect(route('language.index'));
     }
@@ -84,10 +84,10 @@ class LanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\LanguageModel $language
+     * @param  App\Models\Language $language
      * @return \Illuminate\Http\Response
      */
-    public function edit(LanguageModel $language)
+    public function edit(Language $language)
     {
         $data = [
             'language' => $language,
@@ -98,11 +98,11 @@ class LanguageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Models\LanguageModel $language
+     * @param  App\Models\Language $language
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(LanguageModel $language, Request $request)
+    public function update(Language $language, Request $request)
     {
         $validator = Validator::make($request->all(), [
             'photo' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -135,12 +135,12 @@ class LanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\LanguageModel $language
+     * @param  App\Models\Language $language
      * @return \Illuminate\Http\Response
      */
-    public function destroye(LanguageModel $language)
+    public function destroy(Language $language)
     {
-        if (!empty($language)) {
+        if (!empty($language) &&  $language->is_delete == 1) {
             $language->delete();
             return response()->json([
                 'status' => 1
