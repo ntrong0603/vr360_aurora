@@ -37,6 +37,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('land.index') }}" class="nav-link {{ (request()->is('admin/land*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý lô đất
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('utilities.index') }}" class="nav-link {{ (request()->is('admin/utilities*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
