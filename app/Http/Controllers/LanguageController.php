@@ -113,7 +113,7 @@ class LanguageController extends Controller
             'code.required' => "Ký hiệu không được trống",
         ]);
         if ($validator->fails()) {
-            return redirect(route('language.create'))->with(['data' => []])
+            return redirect(route('language.edit', ['language' => $language->id]))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }

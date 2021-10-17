@@ -28,11 +28,6 @@ class LoginSuccessful
      */
     public function handle(Login $event)
     {
-        $arrPlace = [];
-        // if ((auth('admin')->user()->hasRole('agency') || auth('admin')->user()->hasRole('member')) && auth('customer')->user()) {
-        if (auth('admin') && (auth('admin')->user()->hasRole('agency') || auth('admin')->user()->hasRole('member'))) {
-            $arrPlace = $event->user->places->pluck('id')->all() ?? [];
-        }
-        session(['places' => $arrPlace]);
+
     }
 }

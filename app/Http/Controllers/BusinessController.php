@@ -117,7 +117,7 @@ class BusinessController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('business.edit'))->with(['data' => []])
+            return redirect(route('business.edit', ['business' => $business->id]))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }

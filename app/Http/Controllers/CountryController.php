@@ -117,7 +117,7 @@ class CountryController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('country.edit'))->with(['data' => []])
+            return redirect(route('country.edit', ['country' => $country->id]))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }

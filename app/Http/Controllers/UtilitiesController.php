@@ -125,7 +125,7 @@ class UtilitiesController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('utilities.edit'))->with(['data' => []])
+            return redirect(route('utilities.edit', ['utilities' => $utilities->id]))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }
