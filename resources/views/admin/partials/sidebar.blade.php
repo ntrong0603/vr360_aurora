@@ -37,6 +37,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('category.index') }}" class="nav-link {{ (request()->is('admin/category*')) ? 'active' : '' }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý danh mục
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('scene.index') }}" class="nav-link {{ (request()->is('admin/scene*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
