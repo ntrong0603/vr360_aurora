@@ -15,8 +15,10 @@ Route::get('/logout', [LoginController::class, 'adminLogout'])->name('admin.logo
 // End Login
 
 Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
-    Route::get('/', function () {
-        return view('admin.dashboard.index');
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
+    Route::group(['prefix' => 'dashboard'], function () {
+        Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/getDataView', [App\Http\Controllers\DashboardController::class, 'getDataView'])->name('dashboard.getDataView');
     });
     Route::group(['prefix' => 'setting'], function () {
         Route::get('/', [App\Http\Controllers\SettingController::class, 'index'])->name('setting.index');

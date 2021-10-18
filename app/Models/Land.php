@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Land extends Model
 {
@@ -22,10 +23,19 @@ class Land extends Model
         'view',
     ];
 
-    public function getDatas($request)
+    /**
+     * Function get list data land
+     *
+     * @param array $arrCol list column need get
+     * @param \Illuminate\Http\Request $request
+     * @param int $limit limit get
+     * @param array $arrOrderBy
+     * @param Boolean $paginate
+     * @return collection
+     */
+    public function getDatas( $request, $limit = 20, $arrOrderBy = [],  $paginate = true)
     {
         $datas = $this;
-
         if (!empty($request['name'])) {
             $datas = $datas->where('name', 'like', "%{$request['name']}%");
         }
@@ -35,7 +45,29 @@ class Land extends Model
         if (!empty($request['status'])) {
             $datas = $datas->where('status', $request['status']);
         }
-        return $datas->orderBy('id', 'DESC')->paginate(20)->appends($request);
+
+        if (!empty($arrOrderBy)) {
+            foreach ($arrOrderBy as $sort) {
+                if (!empty($sort['column']) && !empty($sort['value'])) {
+                    $datas = $datas->orderBy($sort['column'], $sort['value']);
+                }
+            }
+        }
+        if ($limit == 1) {
+            $datas = $datas->first();
+        } else {
+            if ($paginate) {
+                $datas = $datas->paginate($limit)->appends($request);
+            } else {
+                if ($limit == 0) {
+                    $datas = $datas->get();
+                } else {
+                    $datas = $datas->limit($limit)->get();
+                }
+            }
+        }
+
+        return $datas;
     }
     public function landLanguages()
     {
