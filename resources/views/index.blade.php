@@ -37,7 +37,21 @@
             embedpano({swf:"{{asset('tour/tour.swf')}}", xml:"{{asset('tour/tour.xml')}}", target:"pano", html5:"auto", mobilescale:1.0, passQueryParameters:true});
         </script>
     </div>
-
+    <div class="loading">
+        <div class="loader">
+        </div>
+    </div>
+    <!-- -->
+    @include('include.nav')
+    @include('include.language')
+    <!-- popup -->
+    @include('include.content')
+    @include('include.contact')
+    @include('include.register')
+    <!-- -->
+    <script>
+        var urlReservationContact="{{route('reservationContact')}}" ;
+    </script>
     <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{ asset('frontend/js/jquery-ui.js')}}"></script>
     <script src="{{ asset('frontend/js/sweetalert2.all.min.js')}}"></script>

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Visiting extends Model
+class BusinessStyle extends Model
 {
     use HasFactory;
 
@@ -27,8 +27,8 @@ class Visiting extends Model
         }
         return $datas->orderBy('id', 'DESC')->paginate(20)->appends($request);
     }
-    public function visitingLanguages()
+    public function businessStyleLanguages()
     {
-        return $this->hasMany(VisitingLanguage::class);
+        return $this->hasMany(BusinessStyleLanguage::class);
     }
 }

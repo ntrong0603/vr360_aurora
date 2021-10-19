@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Sửa thông tin quốc gia')
+@section('title', 'Thêm loại doanh nghiệp')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Quản lý quốc gia</a></li>
-                        <li class="breadcrumb-item active">Sửa thông tin</li>
+                        <li class="breadcrumb-item"><a href="#">Quản lý loại doanh nghiệp</a></li>
+                        <li class="breadcrumb-item active">Thêm mới</li>
                     </ol>
                 </div>
             </div>
@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">SỬA THÔNG TIN QUỐC GIA</h3>
+                    <h3 class="card-title title-custom">THÊM MỚI LOẠI DOANH NGHIỆP</h3>
                 </div>
                 <!-- /.card-header -->
-                <form class="form-horizontal form-brand" action="{{ route('country.update', ['country' => $country->id]) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal form-brand" action="{{ route('businessStyle.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
@@ -46,20 +46,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
-                                        @php
-                                        $notIssetLang = true;
-                                        @endphp
-                                        @foreach ($country->countryLanguages as $countryLanguage)
-                                        @if($countryLanguage->lang == $language->code)
-                                        @php
-                                        $notIssetLang = false;
-                                        @endphp
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $countryLanguage->name)}}">
-                                        @endif
-                                        @endforeach
-                                        @if($notIssetLang)
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $country->name)}}">
-                                        @endif
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code)}}">
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -73,7 +60,7 @@
                             <label class="col-form-label col-sm-2">Hiển thị:</label>
                             <div class="col-sm-2">
                                 <div class="icheck-success d-inline">
-                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (old('status', $country->status)) ? 'checked' : '' }}>
+                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (!old() || old('status')) ? 'checked' : '' }}>
                                     <label for="checkboxStatus">
                                     </label>
                                 </div>
@@ -82,8 +69,8 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-danger btn-submit">Cập nhật</button>
-                        <a href="{{ route('country.index') }}" class="btn btn-info">Quay lại</a>
+                        <button type="submit" class="btn btn-danger btn-submit">Thêm mới</button>
+                        <a href="{{ route('businessStyle.index') }}" class="btn btn-info">Quay lại</a>
                     </div>
                 </form>
             </div>

@@ -63,7 +63,7 @@
                                     has-error
                                     @endif">
                             <label for="exampleInputEmail1">Tên dự án</label>
-                            <input type="text" name="company_name" class="form-control" id="exampleInputEmail1" placeholder="Tên dự án" value="{{ getSetting(" company_name") }}">
+                            <input type="text" name="company_name" class="form-control" id="exampleInputEmail1" placeholder="Tên dự án" value="{{ getSetting('company_name') }}">
                             @if ($errors->get('company_name'))
                             @foreach ($errors->get('company_name') as $error)
                             <span class="help-block">
@@ -76,7 +76,7 @@
                                 has-error
                                 @endif">
                             <label for="exampleInputEmail1">Email</label>
-                            <input type="text" name="to_email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="{{ getSetting(" to_email") }}">
+                            <input type="text" name="to_email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="{{ getSetting('to_email') }}">
                             @if ($errors->get('to_email'))
                             @foreach ($errors->get('to_email') as $error)
                             <span class="help-block">
@@ -89,7 +89,7 @@
                                     has-error
                                     @endif">
                             <label for="exampleInputEmail1">Hotline</label>
-                            <input type="text" name="hotline" class="form-control" id="exampleInputEmail1" placeholder="Hotline" value="{{ getSetting(" hotline") }}">
+                            <input type="text" name="hotline" class="form-control" id="exampleInputEmail1" placeholder="Hotline" value="{{ getSetting('hotline') }}">
                             @if ($errors->get('hotline'))
                             @foreach ($errors->get('hotline') as $error)
                             <span class="help-block">
@@ -102,7 +102,7 @@
                                     has-error
                                     @endif">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title" value="{{ getSetting(" title") }}">
+                            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title" value="{{ getSetting('title') }}">
                             @if ($errors->get('title'))
                             @foreach ($errors->get('title') as $error)
                             <span class="help-block">
@@ -115,7 +115,7 @@
                                     has-error
                                     @endif">
                             <label for="exampleInputEmail1">Keywork</label>
-                            <input type="text" name="keywork" class="form-control" id="exampleInputEmail1" placeholder="Tên hotspot" value="{{ getSetting(" keywork") }}">
+                            <input type="text" name="keywork" class="form-control" id="exampleInputEmail1" placeholder="Tên hotspot" value="{{ getSetting('keywork') }}">
                             @if ($errors->get('keywork'))
                             @foreach ($errors->get('keywork') as $error)
                             <span class="help-block">
@@ -128,7 +128,7 @@
                                     has-error
                                     @endif">
                             <label for="exampleInputEmail1">Description</label>
-                            <textarea class="form-control" id="editor2" name="description" rows="10" cols="80">{{ getSetting("description") }}</textarea>
+                            <textarea class="form-control" id="editor2" name="description" rows="10" cols="80">{{ getSetting('description') }}</textarea>
                         </div>
                     </div>
                     <!-- /.box-body -->

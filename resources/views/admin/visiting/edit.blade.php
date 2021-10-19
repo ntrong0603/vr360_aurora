@@ -69,6 +69,16 @@
                             @endforeach
                             @endif
                         </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-2">Hiển thị:</label>
+                            <div class="col-sm-2">
+                                <div class="icheck-success d-inline">
+                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (old('status', $visiting->status)) ? 'checked' : '' }}>
+                                    <label for="checkboxStatus">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">

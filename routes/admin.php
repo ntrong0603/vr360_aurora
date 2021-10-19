@@ -72,6 +72,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{land}', [App\Http\Controllers\LandController::class, 'update'])->name('land.update');
         Route::delete('/delete/{land}', [App\Http\Controllers\LandController::class, 'destroy'])->name('land.delete');
     });
+    Route::group(['prefix' => 'businessStyle'], function () {
+        Route::get('/', [App\Http\Controllers\BusinessStyleController::class, 'index'])->name('businessStyle.index');
+        Route::get('/create', [App\Http\Controllers\BusinessStyleController::class, 'create'])->name('businessStyle.create');
+        Route::post('/store', [App\Http\Controllers\BusinessStyleController::class, 'store'])->name('businessStyle.store');
+        Route::get('/edit/{businessStyle}', [App\Http\Controllers\BusinessStyleController::class, 'edit'])->name('businessStyle.edit');
+        Route::post('/update/{businessStyle}', [App\Http\Controllers\BusinessStyleController::class, 'update'])->name('businessStyle.update');
+        Route::delete('/delete/{businessStyle}', [App\Http\Controllers\BusinessStyleController::class, 'destroy'])->name('businessStyle.delete');
+    });
     Route::group(['prefix' => 'landStyle'], function () {
         Route::get('/', [App\Http\Controllers\LandStyleController::class, 'index'])->name('landStyle.index');
         Route::get('/create', [App\Http\Controllers\LandStyleController::class, 'create'])->name('landStyle.create');
@@ -87,6 +95,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::get('/edit/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'edit'])->name('enquiry.edit');
         Route::post('/update/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'update'])->name('enquiry.update');
         Route::delete('/delete/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'destroy'])->name('enquiry.delete');
+    });
+    Route::group(['prefix' => 'text'], function () {
+        Route::get('/', [App\Http\Controllers\TextController::class, 'index'])->name('text.index');
+        Route::get('/create', [App\Http\Controllers\TextController::class, 'create'])->name('text.create');
+        Route::post('/store', [App\Http\Controllers\TextController::class, 'store'])->name('text.store');
+        Route::get('/edit/{text}', [App\Http\Controllers\TextController::class, 'edit'])->name('text.edit');
+        Route::post('/update/{text}', [App\Http\Controllers\TextController::class, 'update'])->name('text.update');
+        Route::delete('/delete/{text}', [App\Http\Controllers\TextController::class, 'destroy'])->name('text.delete');
     });
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');

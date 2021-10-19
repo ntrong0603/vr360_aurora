@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Visiting extends Model
+class Text extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,7 @@ class Visiting extends Model
      */
     protected $fillable = [
         'name',
-        'status'
+        'code'
     ];
 
     public function getDatas($request)
@@ -27,8 +27,8 @@ class Visiting extends Model
         }
         return $datas->orderBy('id', 'DESC')->paginate(20)->appends($request);
     }
-    public function visitingLanguages()
+    public function textLanguages()
     {
-        return $this->hasMany(VisitingLanguage::class);
+        return $this->hasMany(TextLanguage::class);
     }
 }

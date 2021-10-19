@@ -51,7 +51,8 @@ class VisitingController extends Controller
                 ->withInput();
         }
         $dataVisiting = [
-            'name' => $request['name_' . $languages[0]->code]
+            'name' => $request['name_' . $languages[0]->code],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $visiting = Visiting::create($dataVisiting);
         foreach ($languages as $language) {
@@ -120,6 +121,7 @@ class VisitingController extends Controller
         }
         $dataVisiting = [
             'name' => $request['name_' . $languages[0]->code],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $visiting->fill($dataVisiting);
         $visiting->save();

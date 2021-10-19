@@ -85,10 +85,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('business.index') }}" class="nav-link {{ (request()->is('admin/business*')) ? 'active' : '' }}">
+                    <a href="{{ route('business.index') }}" class="nav-link {{ (request()->is('admin/business*') && !request()->is('admin/businessStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý ngành kinh doanh
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('businessStyle.index') }}" class="nav-link {{ (request()->is('admin/businessStyle*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý loại doanh nghiệp
                         </p>
                     </a>
                 </li>
@@ -113,6 +121,14 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý ngôn ngữ
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('text.index') }}" class="nav-link {{ (request()->is('admin/text*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý tiêu đề
                         </p>
                     </a>
                 </li>
