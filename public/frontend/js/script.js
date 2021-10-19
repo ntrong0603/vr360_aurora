@@ -34,6 +34,27 @@ function updateInfoScene()
         krpano.call(`set(layer['${scene['nameScene']}'].title, '${scene['name']}'] + "')`);
     }
 }
+
+function updateInfoUtilities()
+{
+    for (let index = 0; index < utilities.length; index++)
+    {
+        let util = utilities[index];
+        if (util['photo'] == '')
+        {
+            krpano.call(`set(hotspot['${util['nameHotspot']}'].onhover, showtext('${util['name']}',hotspottextstyle))`);
+        } else
+        {
+            krpano.call(`set(hotspot['${util['nameHotspot']}'].onhover, showimage('${util['photo']}',hotspottextstyle))`);
+        }
+    }
+}
+
+function eventVR()
+{
+    updateInfoScene();
+    updateInfoUtilities();
+}
 $("#tham_quan_tu_ngay").datepicker();
 $("#tham_quan_den_ngay").datepicker();
 

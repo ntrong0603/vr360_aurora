@@ -15,6 +15,8 @@ use App\Models\Scene;
 use App\Models\SceneLanguage;
 use App\Models\Setting;
 use App\Models\Text;
+use App\Models\Utilities;
+use App\Models\UtilitiesLanguage;
 use App\Models\Visiting;
 use App\Models\VisitingLanguage;
 
@@ -226,6 +228,37 @@ if (!function_exists('getScene')) {
                 'name' => $name,
                 'content' => $content,
                 'nameScene' => $nameScene
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getUtilities')) {
+    function getUtilities()
+    {
+        $model = new UtilitiesLanguage();
+        $data = [];
+        $list = (new Utilities())->get();
+        foreach ($list as $item) {
+            $id = $item->id;
+            $name = $item->name;
+            $nameHotspot = $item->name_hotspot;
+            $photo = '';
+            $sceneLanguage = $model
+                ->where('lang', \Session::get('website_language'))
+                ->where('utilities_id', $item->id)->first();
+            if (!empty($sceneLanguage)) {
+                $name = $sceneLanguage->name;
+                if (!empty($sceneLanguage->photo)) {
+                    $photo =  asset('storage/utilities_image/') . $sceneLanguage->photo;
+                }
+            }
+            $data[] = [
+                'id' => $id,
+                'name' => $name,
+                'photo' => $photo,
+                'nameHotspot' => $nameHotspot
             ];
         }
         return $data;
