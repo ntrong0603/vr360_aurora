@@ -101,7 +101,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-form-label col-sm-2">Loại lô đất:</label>
                             <div class="col-sm-4">
                                 <select class="form-control @error('style') is-invalid @enderror" name="style" id="" value="{{old('style')}}">
@@ -112,7 +112,7 @@
                                 <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">

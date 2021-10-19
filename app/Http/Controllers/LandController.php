@@ -53,6 +53,7 @@ class LandController extends Controller
         $dataLand = [
             'name' => $request['name_' . $languages[0]->code],
             'name_land' => $request['name_land'],
+            // 'style' => $request['style'],
         ];
         $land = Land::create($dataLand);
         foreach ($languages as $language) {
@@ -122,6 +123,7 @@ class LandController extends Controller
         }
         $dataLand = [
             'name' => $request['name_' . $languages[0]->code],
+            // 'style' => $request['style'],
         ];
         $land->fill($dataLand);
         $land->save();

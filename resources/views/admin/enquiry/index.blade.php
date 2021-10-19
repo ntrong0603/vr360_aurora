@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Quản lý lô đất')
+@section('title', 'Quản lý nhu cầu liên hệ')
 @push('styles')
 <style>
 </style>
@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">Quản lý lô đất</h3>
+                    <h3 class="card-title title-custom">Quản lý nhu cầu liên hệ</h3>
                 </div>
 
                 <!-- /.card-header -->
@@ -38,34 +38,17 @@
                         <form class="form-horizontal" action="" method="GET">
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <div class="col-sm-2">
-                                        <label for="inputName" class="col-form-label">Nhập tên lô đất</label>
-                                        <input type="text" class="form-control" name="name" id="inputName" placeholder="Nhập tên lô đất..." value="{{ Request::get('name') }}">
+                                    <label for="inputName" class="col-sm-2 col-form-label">Nhập tên nhu cầu</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" name="name" id="inputName" placeholder="Nhập tên nhu cầu..." value="{{ Request::get('name') }}">
                                     </div>
-                                    {{-- <div class="col-sm-2">
-                                        <label for="inputName" class="col-form-label">Loại đất</label>
-                                        <select name="style" class="form-control">
-                                            <option value="">Chọn loại</option>
-                                            <option value="1" {{ Request::get('style')==1 ? 'selected' : '' }}>Lô đất</option>
-                                            <option value="2" {{ Request::get('style')==2 ? 'selected' : '' }}>Nhà xưởng xây sẵn</option>
-                                        </select>
-                                    </div> --}}
-                                    <div class="col-sm-2">
-                                        <label for="inputName" class="col-form-label">Tình trạn</label>
-                                        <select name="status" class="form-control">
-                                            <option value="">Chọn loại</option>
-                                            <option value="1" {{ Request::get('status')==1 ? 'selected' : '' }}>Còn trống</option>
-                                            <option value="2" {{ Request::get('status')==2 ? 'selected' : '' }}>Đang giữ chỗ</option>
-                                            <option value="2" {{ Request::get('status')==3 ? 'selected' : '' }}>Đã cho thuê</option>
-                                        </select>
+                                    <div class="col-sm-7">
+                                        <button type="submit" class="btn btn-info">Tìm kiếm</button>
+                                        <a href="{{route('enquiry.index')}}" class="btn btn-secondary">Reset</a>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    {{-- <a href="{{route('land.create')}}" class="btn btn-success">Thêm mới</a> --}}
-                                    <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-info">Tìm kiếm</button>
-                                        <a href="{{route('land.index')}}" class="btn btn-secondary">Reset</a>
-                                    </div>
+                                    <a href="{{route('enquiry.create')}}" class="btn btn-success">Thêm mới</a>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -75,12 +58,9 @@
                         <thead>
                             <tr class="text-center">
                                 <th style="width: 50px">STT</th>
-                                <th>TÊN</th>
-                                {{-- <th>LOẠI ĐẤT</th> --}}
-                                <th>TÌNH TRẠNG</th>
-                                <th style="width: 120px">LƯỢT XEM</th>
+                                <th style="width: 70%">TÊN</th>
                                 <th style="width: 50px">SỬA</th>
-                                {{-- <th style="width: 50px">XÓA</th> --}}
+                                <th style="width: 50px">XÓA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,35 +73,16 @@
                                 <td>
                                     {{$data->name}}
                                 </td>
-                                {{-- <td>
-                                    @if($data->style==1)
-                                    Lô đất
-                                    @elseif($data->style==2)
-                                    Nhà xưởng xây sẵn
-                                    @endif
-                                </td> --}}
                                 <td>
-                                    @if($data->status==1)
-                                    Còn trống
-                                    @elseif($data->status==2)
-                                    Đang giữ chỗ
-                                    @elseif($data->status==2)
-                                    Đã cho thuê
-                                    @endif
-                                </td>
-                                <td>
-                                    {{$data->view}}
-                                </td>
-                                <td>
-                                    <a href="{{ route('land.edit', ['land' => $data->id]) }}">
+                                    <a href="{{ route('enquiry.edit', ['enquiry' => $data->id]) }}">
                                         <i class="fas fa-pencil-alt text-warning"></i>
                                     </a>
                                 </td>
-                                {{-- <td>
-                                    <a class="delete-row" href="javascript:;" data-href="{{ route('land.delete', ['land' => $data->id]) }}">
+                                <td>
+                                    <a class="delete-row" href="javascript:;" data-href="{{ route('enquiry.delete', ['enquiry' => $data->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
-                                </td> --}}
+                                </td>
                             </tr>
                             @endforeach
                             @else

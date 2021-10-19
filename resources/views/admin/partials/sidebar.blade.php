@@ -60,14 +60,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('landStyle.index') }}" class="nav-link {{ (request()->is('admin/landStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý loại đất
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('utilities.index') }}" class="nav-link {{ (request()->is('admin/utilities*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
@@ -97,6 +97,14 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý mục đích tham quan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('enquiry.index') }}" class="nav-link {{ (request()->is('admin/enquiry*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý nhu cầu liên hệ
                         </p>
                     </a>
                 </li>

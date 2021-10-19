@@ -80,6 +80,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{landStyle}', [App\Http\Controllers\LandStyleController::class, 'update'])->name('landStyle.update');
         Route::delete('/delete/{landStyle}', [App\Http\Controllers\LandStyleController::class, 'destroy'])->name('landStyle.delete');
     });
+    Route::group(['prefix' => 'enquiry'], function () {
+        Route::get('/', [App\Http\Controllers\EnquiryController::class, 'index'])->name('enquiry.index');
+        Route::get('/create', [App\Http\Controllers\EnquiryController::class, 'create'])->name('enquiry.create');
+        Route::post('/store', [App\Http\Controllers\EnquiryController::class, 'store'])->name('enquiry.store');
+        Route::get('/edit/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'edit'])->name('enquiry.edit');
+        Route::post('/update/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'update'])->name('enquiry.update');
+        Route::delete('/delete/{enquiry}', [App\Http\Controllers\EnquiryController::class, 'destroy'])->name('enquiry.delete');
+    });
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
         Route::get('/create', [App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');

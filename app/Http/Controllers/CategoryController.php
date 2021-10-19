@@ -66,7 +66,7 @@ class CategoryController extends Controller
             'style_event' => $request['style_event'],
             'name_scene' => $request['name_scene'],
             'category_id' => $request['category_id'],
-            'status' => $request['status'],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $category = Category::create($dataCategory);
         foreach ($languages as $language) {
@@ -144,7 +144,7 @@ class CategoryController extends Controller
             'style_event' => $request['style_event'],
             'name_scene' => $request['name_scene'],
             'category_id' => $request['category_id'],
-            'status' => $request['status'],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $category->fill($dataCategory);
         $category->save();

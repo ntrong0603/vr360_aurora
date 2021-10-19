@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Sửa thông tin quốc gia')
+@section('title', 'Sửa thông tin nhu cầu liên hệ')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Quản lý quốc gia</a></li>
+                        <li class="breadcrumb-item"><a href="#">Quản lý nhu cầu liên hệ</a></li>
                         <li class="breadcrumb-item active">Sửa thông tin</li>
                     </ol>
                 </div>
@@ -24,10 +24,10 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">SỬA THÔNG TIN QUỐC GIA</h3>
+                    <h3 class="card-title title-custom">SỬA THÔNG TIN NHU CẦU LIÊN HỆ</h3>
                 </div>
                 <!-- /.card-header -->
-                <form class="form-horizontal form-brand" action="{{ route('country.update', ['country' => $country->id]) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal form-brand" action="{{ route('enquiry.update', ['enquiry' => $enquiry->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="custom-content-below-tab" role="tablist">
@@ -49,18 +49,40 @@
                                         @php
                                         $notIssetLang = true;
                                         @endphp
-                                        @foreach ($country->countryLanguages as $countryLanguage)
-                                        @if($countryLanguage->lang == $language->code)
+                                        @foreach ($enquiry->enquiryLanguages as $enquiryLanguage)
+                                        @if($enquiryLanguage->lang == $language->code)
                                         @php
                                         $notIssetLang = false;
                                         @endphp
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $countryLanguage->name)}}">
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $enquiryLanguage->name)}}">
                                         @endif
                                         @endforeach
                                         @if($notIssetLang)
-                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $country->name)}}">
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $enquiry->name)}}">
                                         @endif
                                         @error('name_'.$language->code)
+                                        <span class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-2">Ghi chú ({{$language->name}}):</label>
+                                    <div class="col-sm-4">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
+                                        @foreach ($enquiry->enquiryLanguages as $enquiryLanguage)
+                                        @if($enquiryLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
+                                        <input type="text" class="form-control @error('note_'.$language->code) is-invalid @enderror" name="note_{{$language->code}}" value="{{old('note_'.$language->code, $enquiryLanguage->note)}}">
+                                        @endif
+                                        @endforeach
+                                        @if($notIssetLang)
+                                        <input type="text" class="form-control @error('note_'.$language->code) is-invalid @enderror" name="note_{{$language->code}}" value="{{old('note_'.$language->code)}}">
+                                        @endif
+                                        @error('note_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -73,7 +95,7 @@
                             <label class="col-form-label col-sm-2">Hiển thị:</label>
                             <div class="col-sm-2">
                                 <div class="icheck-success d-inline">
-                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (old('status')) ? 'checked' : '' }}>
+                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (old('status', $enquiry->status)) ? 'checked' : '' }}>
                                     <label for="checkboxStatus">
                                     </label>
                                 </div>
@@ -83,7 +105,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-danger btn-submit">Cập nhật</button>
-                        <a href="{{ route('country.index') }}" class="btn btn-info">Quay lại</a>
+                        <a href="{{ route('enquiry.index') }}" class="btn btn-info">Quay lại</a>
                     </div>
                 </form>
             </div>

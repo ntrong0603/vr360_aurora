@@ -73,7 +73,7 @@
                             <label class="col-form-label col-sm-2">Hiển thị:</label>
                             <div class="col-sm-2">
                                 <div class="icheck-success d-inline">
-                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ (!old() || old('status')) ? 'checked' : '' }}>
+                                    <input type="checkbox" id="checkboxStatus" value="1" name="status" {{ ( old('status')) ? 'checked' : '' }}>
                                     <label for="checkboxStatus">
                                     </label>
                                 </div>

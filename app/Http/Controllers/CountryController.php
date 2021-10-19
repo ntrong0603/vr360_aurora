@@ -52,7 +52,7 @@ class CountryController extends Controller
         }
         $dataCountry = [
             'name' => $request['name_' . $languages[0]->code],
-            'status' => $request['status'],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $country = Country::create($dataCountry);
         foreach ($languages as $language) {
@@ -123,7 +123,7 @@ class CountryController extends Controller
         }
         $dataCountry = [
             'name' => $request['name_' . $languages[0]->code],
-            'status' => $request['status'],
+            'status' => !empty($request['status']) ? $request->status : 0,
         ];
         $country->fill($dataCountry);
         $country->save();

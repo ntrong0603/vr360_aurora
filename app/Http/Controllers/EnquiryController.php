@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Business;
-use App\Models\BusinessLanguage;
+use App\Models\Enquiry;
+use App\Models\EnquiryLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class BusinessController extends Controller
+class EnquiryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BusinessController extends Controller
      */
     public function index(Request $request)
     {
-        $items = (new Business())->getDatas($request->all());
-        return view('admin.business.index', ['datas' => $items]);
+        $items = (new Enquiry())->getDatas($request->all());
+        return view('admin.enquiry.index', ['datas' => $items]);
     }
 
     /**
@@ -28,7 +28,7 @@ class BusinessController extends Controller
     public function create()
     {
         $languages = getLanguage();
-        return view('admin.business.create', ['languages' => $languages]);
+        return view('admin.enquiry.create', ['languages' => $languages]);
     }
 
     /**
@@ -46,15 +46,15 @@ class BusinessController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('business.create'))->with(['data' => []])
+            return redirect(route('enquiry.create'))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }
-        $dataBusiness = [
+        $dataEnquiry = [
             'name' => $request['name_' . $languages[0]->code],
             'status' => !empty($request['status']) ? $request->status : 0,
         ];
-        $business = Business::create($dataBusiness);
+        $enquiry = Enquiry::create($dataEnquiry);
         foreach ($languages as $language) {
             $name = "";
             if (empty($request['name_' . $language->code])) {
@@ -62,16 +62,15 @@ class BusinessController extends Controller
             } else {
                 $name = $request['name_' . $language->code];
             }
-
-            $dataBusinessLang = [
+            $dataEnquiryLang = [
                 'name' => $name,
-                'business_id' => $business->id,
+                'enquiry_id' => $enquiry->id,
+                'note' => $request['note_' . $language->code],
                 'lang' => $language->code
             ];
-
-            BusinessLanguage::create($dataBusinessLang);
+            EnquiryLanguage::create($dataEnquiryLang);
         }
-        return redirect(route('business.index'));
+        return redirect(route('enquiry.index'));
     }
 
     /**
@@ -88,27 +87,27 @@ class BusinessController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Business $business
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Business $business)
+    public function edit(Enquiry $enquiry)
     {
         $languages = getLanguage();
         $data = [
-            'business' => $business,
+            'enquiry' => $enquiry,
             'languages' => $languages,
         ];
-        return view('admin.business.edit', $data);
+        return view('admin.enquiry.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Models\Business $business
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Business $business, Request $request)
+    public function update(Enquiry $enquiry, Request $request)
     {
         $languages = getLanguage();
         $validator = Validator::make($request->all(), [
@@ -117,31 +116,31 @@ class BusinessController extends Controller
             'name_' . $languages[0]->code . '.required' => "Tên không được trống"
         ]);
         if ($validator->fails()) {
-            return redirect(route('business.edit', ['business' => $business->id]))->with(['data' => []])
+            return redirect(route('enquiry.edit', ['landStyle' => $enquiry->id]))->with(['data' => []])
                 ->withErrors($validator)
                 ->withInput();
         }
-        $dataBusiness = [
+        $dataEnquiry = [
             'name' => $request['name_' . $languages[0]->code],
             'status' => !empty($request['status']) ? $request->status : 0,
         ];
-        $business->fill($dataBusiness);
-        $business->save();
+        $enquiry->fill($dataEnquiry);
+        $enquiry->save();
         $arrLang = [];
-        foreach ($business->businessLanguages as $businessLanguage) {
-            $arrLang[] = $businessLanguage->lang;
+        foreach ($enquiry->enquiryLanguages as $enquiryLanguage) {
+            $arrLang[] = $enquiryLanguage->lang;
             $name = "";
-            if (empty($request['name_' . $businessLanguage->lang])) {
+            if (empty($request['name_' . $enquiryLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
             } else {
-                $name = $request['name_' . $businessLanguage->lang];
+                $name = $request['name_' . $enquiryLanguage->lang];
             }
-            $dataBusinessLang = [
-                'name' => $name
+            $dataEnquiryLang = [
+                'name' => $name,
+                'note' => $request['note_' . $enquiryLanguage->lang],
             ];
-
-            $businessLanguage->fill($dataBusinessLang);
-            $businessLanguage->save();
+            $enquiryLanguage->fill($dataEnquiryLang);
+            $enquiryLanguage->save();
         }
         // created
         if (count($languages) != count($arrLang)) {
@@ -159,30 +158,32 @@ class BusinessController extends Controller
                     } else {
                         $name = $request['name_' . $language->code];
                     }
-
-                    $dataBusinessLang = [
+                    $dataEnquiryLang = [
                         'name' => $name,
-                        'business_id' => $business->id,
-                        'lang' => $language->code
+                        'enquiry_id' => $enquiry->id,
+                        'lang' => $language->code,
+                        'note' => $request['note_' . $language->code],
                     ];
-                    BusinessLanguage::create($dataBusinessLang);
+                    EnquiryLanguage::create($dataEnquiryLang);
                 }
             }
         }
-        return redirect(route('business.index'));
+        return redirect(route('enquiry.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  App\Models\Business $business
+     * @param  App\Models\LandStyle $landStyle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Business $business)
+    public function destroy(Enquiry $enquiry)
     {
-        if (!empty($business)) {
-            BusinessLanguage::where('business_id', $business->id)->delete();
-            $business->delete();
+        if (!empty($enquiry)) {
+            foreach ($enquiry->enquiryLanguages as $enquiryLanguage) {
+                $enquiryLanguage->delete();
+            }
+            $enquiry->delete();
             return response()->json([
                 'status' => 1
             ]);
