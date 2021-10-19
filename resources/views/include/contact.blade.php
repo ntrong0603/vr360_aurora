@@ -1,7 +1,7 @@
-<div class="popup popup-contact active">
+<div class="popup popup-contact">
     <div class="popup-info">
         <div class="popup-title">
-            <h1>Contact</h1>
+            <h1>{{getTitle('lh')}}</h1>
         </div>
         <div class="popup-form-contact">
             <form method="POST">

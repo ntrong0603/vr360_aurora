@@ -2090,6 +2090,62 @@ textarea {
   }
 }
 
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.top-right {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.top-right #map {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.top-right #language ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.top-right #language ul li {
+  padding: 0 5px;
+}
+
+.top-right #language ul li:not(:last-child) {
+  border-right: 1px solid #b4bcbc;
+}
+
+.top-right #language ul li a {
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #b4bcbc;
+  cursor: pointer;
+}
+
+.top-right #language ul li.active a {
+  color: #124141;
+}
+
 @media only screen and (max-width: 767px) {
   .ms-d-none {
     display: none !important;

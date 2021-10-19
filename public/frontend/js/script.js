@@ -18,6 +18,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 {
     checkMobile = false;
 }
+$('#map').on('click', function(e){
+    krpano.call('openmap();');
+});
 
 $("#tham_quan_tu_ngay").datepicker();
 $("#tham_quan_den_ngay").datepicker();

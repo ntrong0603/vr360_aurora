@@ -1991,6 +1991,56 @@ textarea {
     }
 }
 
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.top-right {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    #map {
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+    #language {
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                padding: 0 5px;
+
+                &:not(:last-child) {
+                    border-right: 1px solid #b4bcbc;
+                }
+
+                a {
+                    display: block;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    color: #b4bcbc;
+                    cursor: pointer;
+                }
+
+                &.active {
+                    a {
+                        color: #124141
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .ms-d-none {
         display: none !important;

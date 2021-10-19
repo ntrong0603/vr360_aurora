@@ -51,4 +51,73 @@
     <plugin name="soundinterface" url="%SWFPATH%/plugins/soundinterface.swf" alturl="%SWFPATH%/plugins/soundinterface.js" rootpath="%CURRENTXML%" preload="true" keep="true" volume="0.3" />
     <plugin name="snd" url="soundonoff.png" keep="true" align="leftbottom" x="10" y="100" alpha="0.5" scale="1.0" onover="tween(alpha,1);" onout="tween(alpha,0.5);" crop="0|0|50|50" onclick="switch(soundinterface.mute); switch(crop, 0|0|50|50, 0|50|50|50);" />
     <!--End Speaker-->
+    <!--Sơ đồ mặt bằng -->
+    <!-- <layer name="bando" title="Bản Đồ" url="%SWFPATH%/images/maps_icon.png" x="10" y="10" keep="true" handcursor="false" capture="false" align="lefttop" scale="0.25" scalechildren="true" onclick="openmap();" onhover="showtext('Sơ Đồ',hotspottextstyle);" /> -->
+    <layer name="map" title="Ban Do" url="%SWFPATH%/images/map.png" x="20" y="20" keep="true" handcursor="false" capture="false" align="righttop" scale="0.0" scalechildren="true" onclick="openmap();" />
+    <action name="openmap">
+        set(layer[map].onclick, closemap(); );
+        layer[map].changeorigin(center,center);
+
+        set(bigscale,1);
+        if(layer[map].imagewidth GT stagewidth, div(bigscale, stagewidth, layer[map].imagewidth); );
+
+        tween(layer[map].x, 0);
+        tween(layer[map].y, -10);
+        tween(layer[map].scale, get(bigscale));
+    </action>
+    <action name="closemap">
+        set(layer[map].onclick, openmap(); );
+        layer[map].changeorigin(righttop,righttop);
+
+        tween(layer[map].x, 20);
+        tween(layer[map].y, 20);
+        tween(layer[map].scale, 0.0);
+    </action>
+    <style name="mapspot" keep="true" url="%SWFPATH%/images/camicon.png" parent="map" align="lefttop" scale="1.0" scale.mobile="2" edge="center" />
+
+    <layer name="scene_view_1" style="mapspot" x="1005" y="185" zorder="1" onhover="showtext('scene_view_1',hotspottextstyle);" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+    <layer name="scene_view_2" style="mapspot" x="609" y="393" zorder="1" onhover="showtext('scene_view_2',hotspottextstyle);" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+    <layer name="scene_view_3" style="mapspot" x="94" y="515" zorder="1" onhover="showtext('scene_view_3',hotspottextstyle);" onclick="loadscene(scene_view_3,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+    <layer name="scene_view_4" style="mapspot" x="448" y="534" zorder="1" onhover="showtext('scene_view_4',hotspottextstyle);" onclick="loadscene(scene_view_4,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+    <layer name="scene_view_5" style="mapspot" x="898" y="231" zorder="1" onhover="showtext('scene_view_5',hotspottextstyle);" onclick="loadscene(scene_view_5,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+    <layer name="scene_view_6" style="mapspot" x="967" y="198" zorder="1" onhover="showtext('scene_view_6',hotspottextstyle);" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear));" />
+
+    <action name="mapspot_loadscene">
+        if(layer[map].scale GT 0.1,
+
+            set(layer[map].enabled, false);
+            tween(layer[map].alpha, 0.0, 0.1, default,
+                loadscene(%1, null, MERGE, BLEND(1));
+
+                set(layer[map].onclick, openmap(); );
+                layer[map].changeorigin(lefttop,lefttop);
+
+                set(layer[map].x, 10);
+                set(layer[map].y, 10);
+                set(layer[map].scale, 0.0);
+
+                set(events[sceneload].onloadcomplete,
+                    delayedcall(1,
+                        tween(layer[map].alpha, 1.0, 0.5, default, set(layer[map].enabled, true); );
+                      );
+                  );
+              );
+          ,
+
+            loadscene(%1, null, MERGE, BLEND(1));
+          );
+    </action>
+    <layer name="activespot" url="%SWFPATH%/images/camicon_red.png" keep="true" align="center" scale="1.0" zorder="2" scale.mobile="2" />
+    <layer name="radar" keep="true" url.flash="%SWFPATH%/plugins/radar.swf" url.html5="%SWFPATH%/plugins/radar.js" align="center" zorder="1" scale="0.5" scale.mobile="1.5" fillalpha="0.5" fillcolor="0x7F5F3F" linewidth="1.0" linecolor="0xE0E0A0" linealpha="0.5" />
+    <style name="hotspot_ani_black" editorplugin_ishotspotstyle="true" url="hotspots/hotspot_ani_black_64x64x20.png" crop="0|0|64|64" frames="20" framewidth="64" frameheight="64" frame="0" onloaded="if(device.mobile, set(scale,1.5)); hotspot_animate();" />
+    <style name="hotspot_ani_white" editorplugin_ishotspotstyle="true" url="hotspots/hotspot_ani_white_64x64x20.png" crop="0|0|64|64" frames="20" framewidth="64" frameheight="64" frame="0" onloaded="if(device.mobile, set(scale,1.5)); hotspot_animate();" />
+    <action name="hotspot_animate">
+        if(loaded,
+            inc(frame,1,get(frames),0);
+            mul(ypos,frame,frameheight);
+            txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+            delayedcall(0.03, hotspot_animate() );
+          );
+    </action>
+    <!--END Sơ đồ mặt bằng -->
 </krpano>

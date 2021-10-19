@@ -1,7 +1,7 @@
 <div class="popup popup-register">
     <div class="popup-info">
         <div class="popup-title">
-            <h1>đăng ký tham quan</h1>
+            <h1>{{getTitle('dktq')}}</h1>
         </div>
         <div class="popup-form-register">
             <form method="POST">

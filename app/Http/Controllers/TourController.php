@@ -6,24 +6,21 @@ use Illuminate\Http\Request;
 
 class TourController extends Controller
 {
-    public function index($lang = 'en')
+    public function index(Request $request)
     {
-        if (!empty($lang)) {
-            \Session::put("website_language", $lang);
+        if (!empty($request->lang)) {
+            \Session::put("website_language", $request->lang);
+        } else {
+            \Session::put("website_language", 'en');
         }
         \App::setLocale(\Session::get("website_language"));
-        if (((!empty(\Session::get('website_language')) && \Session::get('website_language') == 'en')) || $lang == 'en') {
-            $lang = 'en';
-        } else {
-            $lang = '';
-        }
         return view('index');
     }
 
     /**
      * Change language
      */
-    public function changLanguage($language)
+    public function changeLanguage($language)
     {
         \Session::put("website_language", $language);
         \App::setLocale(\Session::get("website_language"));
