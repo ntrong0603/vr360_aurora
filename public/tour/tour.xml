@@ -16,6 +16,7 @@
     <!-- Overview-->
     <scene name="scene_view_1" title="view 1" onstart="updateradar()" thumburl="panos/view_1.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
         <action name="updateradar">
+            js(updateInfoScene());
             set(layer[activespot].parent, scene_view_1);
             set(layer[radar].parent, scene_view_1);
             set(layer[radar].heading, 140);
@@ -57,6 +58,7 @@
 
     <scene name="scene_view_2" title="view 2" onstart="updateradar()" thumburl="panos/view_2.tiles/thumb.jpg" lat="19.97843917" lng="106.16392611" heading="0.0">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_2);
             set(layer[radar].parent, scene_view_2);
             set(layer[radar].heading, 140);
@@ -202,6 +204,7 @@
 
     <scene name="scene_view_3" title="view 3" onstart="updateradar()" thumburl="panos/view_3.tiles/thumb.jpg" lat="19.97360722" lng="106.14319417" heading="0.0">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_3);
             set(layer[radar].parent, scene_view_3);
             set(layer[radar].heading, 0);
@@ -297,6 +300,7 @@
 
     <scene name="scene_view_4" title="view 4" onstart="updateradar()" thumburl="panos/view_4.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_4);
             set(layer[radar].parent, scene_view_4);
             set(layer[radar].heading, -120);
@@ -315,6 +319,7 @@
     </scene>
     <scene name="scene_view_5" title="view 5" onstart="updateradar()" thumburl="panos/view_5.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_5);
             set(layer[radar].parent, scene_view_5);
             set(layer[radar].heading, 140);
@@ -332,6 +337,7 @@
     </scene>
     <scene name="scene_view_6" title="view 6" onstart="updateradar()" thumburl="panos/view_6.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, -110);
@@ -357,6 +363,7 @@
     <!-- utilities back-->
     <scene name="scene_cong_khu_cong_nghiep" title="cong khu cong nghiep" onstart="updateradar()" thumburl="panos/cong_khu_cong_nghiep.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -376,6 +383,7 @@
 
     <scene name="scene_hanh_lang_ra_khu_nha_nhan_vien" title="hanh lang ra khu nha nhan vien" onstart="updateradar()" thumburl="panos/hanh_lang_ra_khu_nha_nhan_vien.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -395,6 +403,7 @@
 
     <scene name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" title="nha chuyen gia ben ngoai hanh lang" onstart="updateradar()" thumburl="panos/nha_chuyen_gia_ben_ngoai_hanh_lang.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -416,6 +425,7 @@
 
     <scene name="scene_nha_chuyen_gia_ben_trong" title="nha chuyen gia ben trong" onstart="updateradar()" thumburl="panos/nha_chuyen_gia_ben_trong.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -435,6 +445,7 @@
 
     <scene name="scene_phong_lam_viec_chuyen_gia" title="phong lam viec chuyen gia" onstart="updateradar()" thumburl="panos/phong_lam_viec_chuyen_gia.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -454,6 +465,7 @@
 
     <scene name="scene_tang_1_sanh" title="tang 1 sanh" onstart="updateradar()" thumburl="panos/tang_1_sanh.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -477,6 +489,7 @@
 
     <scene name="scene_tang_1_phong_cho" title="tang 1 phong cho" onstart="updateradar()" thumburl="panos/tang_1_phong_cho.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -496,6 +509,7 @@
 
     <scene name="scene_tang_1_phong_ke_toan" title="tang 1 phong ke toan" onstart="updateradar()" thumburl="panos/tang_1_phong_ke_toan.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -515,6 +529,7 @@
 
     <scene name="scene_tang_1_phong_lam_viec" title="tang 1 phong lam viec" onstart="updateradar()" thumburl="panos/tang_1_phong_lam_viec.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -534,6 +549,7 @@
 
     <scene name="scene_tang_2_sanh" title="tang 2 sanh" onstart="updateradar()" thumburl="panos/tang_2_sanh.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -554,6 +570,7 @@
 
     <scene name="scene_tang_2_phong_hop" title="tang 2 phong hop" onstart="updateradar()" thumburl="panos/tang_2_phong_hop.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);
@@ -573,6 +590,7 @@
 
     <scene name="scene_tram_cap_nuoc" title="tram cap nuoc" onstart="updateradar()" thumburl="panos/tram_cap_nuoc.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
+        js(updateInfoScene());
             set(layer[activespot].parent, scene_view_6);
             set(layer[radar].parent, scene_view_6);
             set(layer[radar].heading, 0);

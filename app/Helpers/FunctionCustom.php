@@ -11,6 +11,8 @@ use App\Models\Enquiry;
 use App\Models\EnquiryLanguage;
 use App\Models\Language;
 use App\Models\Reservation;
+use App\Models\Scene;
+use App\Models\SceneLanguage;
 use App\Models\Setting;
 use App\Models\Text;
 use App\Models\Visiting;
@@ -198,5 +200,34 @@ if (!function_exists('countVisit')) {
     {
         $count = (new Reservation())->where('new', 0)->where('loai', 2)->count();
         return $count;
+    }
+}
+
+if (!function_exists('getScene')) {
+    function getScene()
+    {
+        $sceneLanguageModel = new SceneLanguage();
+        $data = [];
+        $scenes = (new Scene())->get();
+        foreach ($scenes as $scene) {
+            $id = $scene->id;
+            $nameScene = $scene->name_scene;
+            $name = $scene->name;
+            $content = $scene->name;
+            $sceneLanguage = $sceneLanguageModel
+                ->where('lang', \Session::get('website_language'))
+                ->where('scene_id', $scene->id)->first();
+            if (!empty($sceneLanguage)) {
+                $name = $sceneLanguage->name;
+                $content = $sceneLanguage->content;
+            }
+            $data[] = [
+                'id' => $id,
+                'name' => $name,
+                'content' => $content,
+                'nameScene' => $nameScene
+            ];
+        }
+        return $data;
     }
 }

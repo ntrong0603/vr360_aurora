@@ -18,10 +18,22 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 {
     checkMobile = false;
 }
-$('#map').on('click', function(e){
+$('#map').on('click', function (e)
+{
     krpano.call('openmap();');
 });
 
+function updateInfoScene()
+{
+    for (let index = 0; index < scenes.length; index++)
+    {
+        let scene = scenes[index];
+        krpano.call(`set(hotspot['${scene['nameScene']}'].onhover, showtext('${scene['name']}',hotspottextstyle))`);
+        krpano.call(`set(layer['${scene['nameScene']}'].onhover, showtext('${scene['name']}',hotspottextstyle))`);
+        krpano.call(`set(scene['${scene['nameScene']}'].title, '${scene['name']}')`);
+        krpano.call(`set(layer['${scene['nameScene']}'].title, '${scene['name']}'] + "')`);
+    }
+}
 $("#tham_quan_tu_ngay").datepicker();
 $("#tham_quan_den_ngay").datepicker();
 

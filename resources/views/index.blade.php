@@ -58,6 +58,7 @@
         var urlReservationContact="{{route('reservationContact')}}" ;
         var urlContact="{{route('contact')}}" ;
     </script>
+    @include('include.scene_info')
     <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{ asset('frontend/js/jquery-ui.js')}}"></script>
     <script src="{{ asset('frontend/js/sweetalert2.all.min.js')}}"></script>
