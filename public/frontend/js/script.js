@@ -33,6 +33,106 @@ function alretCustom(icon, title)
     })
 }
 
+$(".popup").click(function ()
+{
+    $(this).removeClass("active");
+})
+$(".popup-info").click(function (e)
+{
+    e.stopPropagation();
+});
+$(".popup-btn-close").click(function ()
+{
+    $(".popup").removeClass("active");
+});
+$(".chat").click(function ()
+{
+    let popup = $(".popup-contact");
+    if (popup.hasClass("active"))
+    {
+        popup.removeClass("active");
+    } else
+    {
+        $(".popup").removeClass("active");
+        popup.addClass("active");
+    }
+});
+
+$(".popup-form-contact form").submit(function (e)
+{
+    e.preventDefault();
+    e.stopPropagation();
+    $(".form-group").removeClass("errors");
+    $(".errors-desc").remove();
+    loading.css("display", "flex");
+    var data = $(".popup-form-contact form").serialize();
+    $.ajax({
+        url: urlContact,
+        type: 'POST',
+        data: data,
+        success: function (result)
+        {
+            if (result.error == 1)
+            {
+                alretCustom("error", result.Messager);
+            } else
+            {
+                alretCustom("success", "Gửi thông tin thành công");
+                $(".popup").removeClass("active");
+            }
+            loading.css("display", "none");
+        },
+        statusCode: {
+            422: function (e)
+            {
+                $(".form-group").removeClass("errors");
+                $(".errors-desc").remove();
+                //errors
+                //<span class="errors-desc"></span>
+                $.each(e.responseJSON.errors, function (i, item)
+                {
+                    let iName = $("input[name='" + i + "']");
+                    let iName2 = $("textarea[name='" + i + "']");
+                    let iName3 = $("input[name='" + i + "[]']");
+                    if (typeof iName != 'undefined')
+                    {
+                        let parent = iName.parent().parent();
+                        parent.removeClass("errors");
+                        parent.addClass("errors");
+                        // for (let i = 0; i < item.length; i++)
+                        // {
+                        //     iName.after('<span class="errors-desc">' + item[i] + '</span>');
+                        // }
+                    }
+                    if (typeof iName2 != 'undefined')
+                    {
+                        let parent = iName2.parent().parent();
+                        parent.removeClass("errors");
+                        parent.addClass("errors");
+                        // for (let i = 0; i < item.length; i++)
+                        // {
+                        //     iName2.after('<span class="errors-desc">' + item[i] + '</span>');
+                        // }
+                    }
+                    if (typeof iName3 != 'undefined')
+                    {
+                        let parent = iName3.parent().parent().parent();
+                        parent.removeClass("errors");
+                        parent.addClass("errors");
+
+                    }
+                });
+                loading.css("display", "none");
+            }
+        }
+    });
+});
+$(".popup-form-contact form").on('reset', function (e)
+{
+    $(".form-group").removeClass("errors");
+    $(".errors-desc").remove();
+})
+
 $(".popup-form-register form").submit(function (e)
 {
     e.preventDefault();

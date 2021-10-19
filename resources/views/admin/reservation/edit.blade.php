@@ -97,7 +97,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Mục đích tham quan:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->visiting->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservation->visiting ?? ''}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

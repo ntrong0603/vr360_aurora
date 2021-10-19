@@ -41,6 +41,11 @@
         <div class="loader">
         </div>
     </div>
+    <a class="chat" data-tooltip="{{ getTitle('lh') }}">
+        <div class="btn-chat">
+            <img src="{{ asset('frontend/images/envelope-regular.svg')}}" alt="btn contact">
+        </div>
+    </a>
     <!-- -->
     @include('include.nav')
     @include('include.language')
@@ -51,6 +56,7 @@
     <!-- -->
     <script>
         var urlReservationContact="{{route('reservationContact')}}" ;
+        var urlContact="{{route('contact')}}" ;
     </script>
     <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{ asset('frontend/js/jquery-ui.js')}}"></script>

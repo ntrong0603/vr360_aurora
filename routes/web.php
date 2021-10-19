@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\TourController::class, 'index']);
 Route::post('/reservationContact', [App\Http\Controllers\ContactController::class, 'reservationContact'])->name('reservationContact');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'processContact'])->name('contact');

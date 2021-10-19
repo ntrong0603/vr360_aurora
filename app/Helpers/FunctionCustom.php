@@ -2,9 +2,13 @@
 
 use App\Models\Business;
 use App\Models\BusinessLanguage;
+use App\Models\BusinessStyle;
+use App\Models\BusinessStyleLanguage;
 use App\Models\ContactModel;
 use App\Models\Country;
 use App\Models\CountryLanguage;
+use App\Models\Enquiry;
+use App\Models\EnquiryLanguage;
 use App\Models\Language;
 use App\Models\ReservationVistModel;
 use App\Models\Setting;
@@ -100,6 +104,57 @@ if (!function_exists('getBusiness')) {
             $data[] = [
                 'id' => $id,
                 'name' => $name,
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getBusinessStyle')) {
+    function getBusinessStyle()
+    {
+        $businessLanguageModel = new BusinessStyleLanguage();
+        $data = [];
+        $businessesStyle = (new BusinessStyle())->where('status', 1)->get();
+        foreach ($businessesStyle as $business) {
+            $id = $business->id;
+            $name = $business->name;
+            $businessLanguage = $businessLanguageModel
+                ->where('lang', \Session::get('website_language'))
+                ->where('business_style_id', $business->id)->first();
+            if (!empty($businessLanguage)) {
+                $name = $businessLanguage->name;
+            }
+            $data[] = [
+                'id' => $id,
+                'name' => $name,
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getEnquiry')) {
+    function getEnquiry()
+    {
+        $enquiryLanguageModel = new EnquiryLanguage();
+        $data = [];
+        $enquiries = (new Enquiry())->where('status', 1)->get();
+        foreach ($enquiries as $enquiry) {
+            $id = $enquiry->id;
+            $name = $enquiry->name;
+            $note = '';
+            $enquiryLanguage = $enquiryLanguageModel
+                ->where('lang', \Session::get('website_language'))
+                ->where('enquiry_id', $enquiry->id)->first();
+            if (!empty($enquiryLanguage)) {
+                $name = $enquiryLanguage->name;
+                $note = $enquiryLanguage->note;
+            }
+            $data[] = [
+                'id' => $id,
+                'name' => $name,
+                'note' => $note,
             ];
         }
         return $data;

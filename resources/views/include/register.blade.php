@@ -1,4 +1,4 @@
-<div class="popup popup-register active">
+<div class="popup popup-register">
     <div class="popup-info">
         <div class="popup-title">
             <h1>đăng ký tham quan</h1>
