@@ -169,11 +169,22 @@ class VisitingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  App\Models\Visiting $visiting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Visiting $visiting)
     {
-        //
+        if (!empty($visiting)) {
+            foreach ($visiting->visitingLanguages as $visitingLanguage) {
+                $visitingLanguage->delete();
+            }
+            $visiting->delete();
+            return response()->json([
+                'status' => 1
+            ]);
+        }
+        return response()->json([
+            'status' => 0
+        ]);
     }
 }

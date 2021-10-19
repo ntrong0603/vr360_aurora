@@ -53,10 +53,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('land.index') }}" class="nav-link {{ (request()->is('admin/land*')) ? 'active' : '' }}">
+                    <a href="{{ route('land.index') }}" class="nav-link {{ (request()->is('admin/land*') && !request()->is('admin/landStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý lô đất
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('landStyle.index') }}" class="nav-link {{ (request()->is('admin/landStyle*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý loại đất
                         </p>
                     </a>
                 </li>
