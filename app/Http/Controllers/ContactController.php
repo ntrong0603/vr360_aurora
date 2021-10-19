@@ -65,9 +65,14 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
-        //
+        $data = [
+            'contact' => $contact,
+        ];
+        $contact->fill(['status' => 1]);
+        $contact->save();
+        return view('admin.contact.edit', $data);
     }
 
     public function reservationContact(Request $request)

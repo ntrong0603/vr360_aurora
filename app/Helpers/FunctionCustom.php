@@ -4,12 +4,14 @@ use App\Models\Business;
 use App\Models\BusinessLanguage;
 use App\Models\BusinessStyle;
 use App\Models\BusinessStyleLanguage;
+use App\Models\Contact;
 use App\Models\ContactModel;
 use App\Models\Country;
 use App\Models\CountryLanguage;
 use App\Models\Enquiry;
 use App\Models\EnquiryLanguage;
 use App\Models\Language;
+use App\Models\Reservation;
 use App\Models\ReservationVistModel;
 use App\Models\Setting;
 use App\Models\Text;
@@ -182,5 +184,21 @@ if (!function_exists('getVisiting')) {
             ];
         }
         return $data;
+    }
+}
+
+if (!function_exists('countNewContact')) {
+    function countNewContact()
+    {
+        $count = (new Contact())->where('status', 0)->count();
+        return $count;
+    }
+}
+
+if (!function_exists('countVisit')) {
+    function countVisit()
+    {
+        $count = (new Reservation())->where('new', 0)->where('loai', 2)->count();
+        return $count;
     }
 }

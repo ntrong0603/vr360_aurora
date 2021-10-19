@@ -24,7 +24,7 @@
                     <a href="{{ route('contact.index') }}" class="nav-link {{ (request()->is('admin/contact*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
-                            Quản lý liên hệ khách hàng
+                            Quản lý liên hệ khách hàng ({{countNewContact()}})
                         </p>
                     </a>
                 </li>
@@ -32,7 +32,7 @@
                     <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
-                            Quản lý đăng ký tham quan
+                            Quản lý đăng ký tham quan ({{countVisit()}})
                         </p>
                     </a>
                 </li>
@@ -96,7 +96,7 @@
                     <a href="{{ route('businessStyle.index') }}" class="nav-link {{ (request()->is('admin/businessStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
-                            Quản lý loại doanh nghiệp
+                            Quản lý loại hình doanh nghiệp
                         </p>
                     </a>
                 </li>

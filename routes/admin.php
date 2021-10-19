@@ -120,6 +120,7 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
     });
     Route::group(['prefix' => 'contact'], function () {
         Route::get('/', [App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
+        Route::get('/edit/{contact}', [App\Http\Controllers\ContactController::class, 'edit'])->name('contact.edit');
         Route::delete('/delete/{contact}', [App\Http\Controllers\ContactController::class, 'destroy'])
             ->name('contact.delete');
     });

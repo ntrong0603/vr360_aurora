@@ -76,10 +76,10 @@
                             <tr class="text-center">
                                 <th style="width: 50px">STT</th>
                                 <th>TÊN KHÁCH HÀNG</th>
-                                <th>NGÀNH NGHỀ</th>
                                 <th>EMAIL</th>
                                 <th>ĐIỆN THOẠI</th>
                                 <th>GHI CHÚ</th>
+                                <th style="width: 50px">XEM</th>
                                 <th style="width: 50px">XÓA</th>
                             </tr>
                         </thead>
@@ -92,9 +92,9 @@
                                 </td>
                                 <td>
                                     {{$data->name}}
-                                </td>
-                                <td>
-                                    {{$data->profection}}
+                                    @if ($data->status == 0)
+                                    <span class="new">NEW</span>
+                                    @endif
                                 </td>
                                 <td>
                                     {{$data->email}}
@@ -104,6 +104,11 @@
                                 </td>
                                 <td>
                                     {{$data->note}}
+                                </td>
+                                <td>
+                                    <a href="{{ route('contact.edit', ['contact' => $data->id]) }}">
+                                        <i class="fas fa-pencil-alt text-warning"></i>
+                                    </a>
                                 </td>
                                 <td>
                                     <a class="delete-row" href="javascript:;" data-href="{{ route('contact.delete', ['contact' => $data->id]) }}">
