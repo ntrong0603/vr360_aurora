@@ -46,14 +46,42 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
                                         @foreach ($scene->sceneLanguages as $sceneLanguage)
                                         @if($sceneLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
                                         <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $sceneLanguage->name)}}">
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $scene->name)}}">
+                                        @endif
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-2">Mô tả ({{$language->name}}):</label>
+                                    <div class="col-sm-10">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
+                                        @foreach ($scene->sceneLanguages as $sceneLanguage)
+                                        @if($sceneLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
+                                        <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code, $sceneLanguage->content)}}</textarea>
+                                        @endif
+                                        @endforeach
+                                        @if($notIssetLang)
+                                        <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code)}}</textarea>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -112,4 +140,18 @@
             });
         });
 </script>
+@if (!empty($languages))
+@foreach ($languages as $key => $language)
+<script>
+    CKEDITOR.replace( "{{'content_'.$language->code}}", {
+        filebrowserBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html') }}",
+        filebrowserImageBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Images') }}",
+        filebrowserFlashBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Flash') }}",
+        filebrowserUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
+        filebrowserImageUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}",
+        filebrowserFlashUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}"
+    });
+</script>
+@endforeach
+@endif
 @endpush

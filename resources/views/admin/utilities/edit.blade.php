@@ -46,11 +46,20 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
                                         @foreach ($utilities->utilitiesLanguages as $utilitiesLanguage)
                                         @if($utilitiesLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
                                         <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $utilitiesLanguage->name)}}">
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $utilities->name)}}">
+                                        @endif
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror

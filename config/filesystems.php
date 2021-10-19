@@ -68,6 +68,11 @@ return [
             'root' => storage_path('app/public/scene_image'),
         ],
 
+        'setting_image' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/setting_image'),
+        ],
+
     ],
 
     /*

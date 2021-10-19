@@ -56,6 +56,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{scene}', [App\Http\Controllers\SceneController::class, 'update'])->name('scene.update');
         Route::delete('/delete/{scene}', [App\Http\Controllers\SceneController::class, 'destroy'])->name('scene.delete');
     });
+    Route::group(['prefix' => 'visiting'], function () {
+        Route::get('/', [App\Http\Controllers\VisitingController::class, 'index'])->name('visiting.index');
+        Route::get('/create', [App\Http\Controllers\VisitingController::class, 'create'])->name('visiting.create');
+        Route::post('/store', [App\Http\Controllers\VisitingController::class, 'store'])->name('visiting.store');
+        Route::get('/edit/{visiting}', [App\Http\Controllers\VisitingController::class, 'edit'])->name('visiting.edit');
+        Route::post('/update/{visiting}', [App\Http\Controllers\VisitingController::class, 'update'])->name('visiting.update');
+        Route::delete('/delete/{visiting}', [App\Http\Controllers\VisitingController::class, 'destroy'])->name('visiting.delete');
+    });
     Route::group(['prefix' => 'land'], function () {
         Route::get('/', [App\Http\Controllers\LandController::class, 'index'])->name('land.index');
         Route::get('/create', [App\Http\Controllers\LandController::class, 'create'])->name('land.create');

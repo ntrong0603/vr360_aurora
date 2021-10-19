@@ -32,7 +32,7 @@
                     <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
-                            Quản lý đăng ký
+                            Quản lý đăng ký tham quan
                         </p>
                     </a>
                 </li>
@@ -81,6 +81,14 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý ngành kinh doanh
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('visiting.index') }}" class="nav-link {{ (request()->is('admin/visiting*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý mục đích tham quan
                         </p>
                     </a>
                 </li>

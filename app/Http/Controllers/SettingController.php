@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -10,24 +11,20 @@ class SettingController extends Controller
     {
         if ($request->isMethod('post')) {
             if ($request->hasFile("logo")) {
-                if (!empty(getSetting("logo"))) {
-                    @unlink(public_path() . '/upload/images/' . getSetting("logo"));
+
+                if (!empty(getSetting("logo")) && Storage::disk('setting_image')->has(getSetting("logo"))) {
+                    Storage::disk('setting_image')->delete(getSetting("logo"));
                 }
-                // get image save $file
-                $file = $request->file('logo');
-                //get type images
-                $fileType = $file->getClientOriginalExtension();
+                $image      = $request->file('logo');
+                $fileType = $image->getClientOriginalExtension();
                 $arrType = array('JPG', 'jpg', 'jpeg', 'JPEG', 'png', 'PNG', 'svg', 'SVG');
                 if (!in_array($fileType, $arrType)) {
                     return redirect(route('setting'))->with('loi', 'Bạn chỉ được chọn file có đuôi: JPG, jpg, jpeg, JPEG, png, PNG, svg, SVG');
                 }
-                $newNameHinh = time() . "_." . $fileType;
-                // kiểm tra lại nếu tên random còn trùng
-                while (file_exists("upload/images/" . $newNameHinh)) {
-                    $newNameHinh = time() . "_." . $fileType;
-                }
-                $file->move("upload/images", $newNameHinh);
-                saveSetting(["code_setting" => "logo"], ["value" => $newNameHinh]);
+                $fileName   = 'setting-image-' .  time() . '.' . $image->getClientOriginalExtension();
+                Storage::disk('setting_image')->putFileAs('', $image, $fileName);
+
+                saveSetting(["code_setting" => "logo"], ["value" => $fileName]);
             }
 
             saveSetting(["code_setting" => "company_name"], ["value" => $request->company_name]);

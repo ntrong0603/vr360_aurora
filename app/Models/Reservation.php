@@ -79,4 +79,9 @@ class Reservation extends Model
     {
         return $this->belongsTo(Product::class, 'nha_xuong_cho_thue', 'id');
     }
+
+    public function visiting()
+    {
+        return $this->belongsTo(Visiting::class);
+    }
 }

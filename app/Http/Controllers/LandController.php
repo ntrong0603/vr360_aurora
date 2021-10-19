@@ -125,7 +125,9 @@ class LandController extends Controller
         ];
         $land->fill($dataLand);
         $land->save();
+        $arrLang = [];
         foreach ($land->landLanguages as $landLanguage) {
+            $arrLang[] = $landLanguage->lang;
             $name = "";
             if (empty($request['name_' . $landLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
@@ -138,6 +140,32 @@ class LandController extends Controller
             ];
             $landLanguage->fill($dataLandLang);
             $landLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+                    $dataLandLang = [
+                        'name' => $name,
+                        'land_id' => $land->id,
+                        'content' => $request['content_' . $language->code],
+                        'lang' => $language->code
+                    ];
+                    LandLanguage::create($dataLandLang);
+                }
+            }
         }
         return redirect(route('land.index'));
     }

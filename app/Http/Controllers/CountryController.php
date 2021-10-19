@@ -127,7 +127,9 @@ class CountryController extends Controller
         ];
         $country->fill($dataCountry);
         $country->save();
+        $arrLang = [];
         foreach ($country->countryLanguages as $countryLanguage) {
+            $arrLang[] = $countryLanguage->lang;
             $name = "";
             if (empty($request['name_' . $countryLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
@@ -141,6 +143,33 @@ class CountryController extends Controller
 
             $countryLanguage->fill($dataCountryLang);
             $countryLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+
+                    $dataCountryLang = [
+                        'name' => $name,
+                        'country_id' => $country->id,
+                        'lang' => $language->code
+                    ];
+
+                    CountryLanguage::create($dataCountryLang);
+                }
+            }
         }
         return redirect(route('country.index'));
     }

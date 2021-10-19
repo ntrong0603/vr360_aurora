@@ -127,20 +127,47 @@ class BusinessController extends Controller
         ];
         $business->fill($dataBusiness);
         $business->save();
+        $arrLang = [];
         foreach ($business->businessLanguages as $businessLanguage) {
+            $arrLang[] = $businessLanguage->lang;
             $name = "";
             if (empty($request['name_' . $businessLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
             } else {
                 $name = $request['name_' . $businessLanguage->lang];
             }
-
             $dataBusinessLang = [
                 'name' => $name
             ];
 
             $businessLanguage->fill($dataBusinessLang);
             $businessLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+
+                    $dataBusinessLang = [
+                        'name' => $name,
+                        'business_id' => $business->id,
+                        'lang' => $language->code
+                    ];
+                    BusinessLanguage::create($dataBusinessLang);
+                }
+            }
         }
         return redirect(route('business.index'));
     }

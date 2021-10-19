@@ -46,11 +46,20 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
                                         @foreach ($land->landLanguages as $landLanguage)
                                         @if($landLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
                                         <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $landLanguage->name)}}">
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $land->name)}}">
+                                        @endif
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -59,11 +68,20 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Mô tả ({{$language->name}}):</label>
                                     <div class="col-sm-10">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
                                         @foreach ($land->landLanguages as $landLanguage)
                                         @if($landLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
                                         <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code, $landLanguage->content)}}</textarea>
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code)}}</textarea>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -52,6 +52,12 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-2">Mô tả ({{$language->name}}):</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code)}}</textarea>
+                                    </div>
+                                </div>
                             </div>
                             @endforeach
                             @endif
@@ -117,4 +123,18 @@
             });
         });
 </script>
+@if (!empty($languages))
+@foreach ($languages as $key => $language)
+<script>
+    CKEDITOR.replace( "{{'content_'.$language->code}}", {
+        filebrowserBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html') }}",
+        filebrowserImageBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Images') }}",
+        filebrowserFlashBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Flash') }}",
+        filebrowserUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
+        filebrowserImageUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}",
+        filebrowserFlashUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}"
+    });
+</script>
+@endforeach
+@endif
 @endpush

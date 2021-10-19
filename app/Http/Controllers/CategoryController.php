@@ -148,7 +148,10 @@ class CategoryController extends Controller
         ];
         $category->fill($dataCategory);
         $category->save();
+        $arrLang = [];
+
         foreach ($category->categoryLanguages as $categoryLanguage) {
+            $arrLang[] = $categoryLanguage->lang;
             $name = "";
             if (empty($request['name_' . $categoryLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
@@ -161,6 +164,32 @@ class CategoryController extends Controller
             ];
             $categoryLanguage->fill($dataCategoryLang);
             $categoryLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+                    $dataCategoryLang = [
+                        'name' => $name,
+                        'category_id' => $category->id,
+                        'content' => $request['content_' . $language->code],
+                        'lang' => $language->code
+                    ];
+                    CategoryLanguage::create($dataCategoryLang);
+                }
+            }
         }
         return redirect(route('category.index'));
     }

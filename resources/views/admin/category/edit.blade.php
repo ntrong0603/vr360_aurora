@@ -46,11 +46,20 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2">Tên ({{$language->name}}):</label>
                                     <div class="col-sm-4">
+                                        @php
+                                        $notIssetLang = true;
+                                        @endphp
                                         @foreach ($category->categoryLanguages as $categoryLanguage)
                                         @if($categoryLanguage->lang == $language->code)
+                                        @php
+                                        $notIssetLang = false;
+                                        @endphp
                                         <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $categoryLanguage->name)}}">
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <input type="text" class="form-control @error('name_'.$language->code) is-invalid @enderror" name="name_{{$language->code}}" value="{{old('name_'.$language->code, $category->name)}}">
+                                        @endif
                                         @error('name_'.$language->code)
                                         <span class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -64,6 +73,9 @@
                                         <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code, $categoryLanguage->content)}}</textarea>
                                         @endif
                                         @endforeach
+                                        @if($notIssetLang)
+                                        <textarea class="form-control" name="content_{{$language->code}}" rows="3" placeholder="Nhập nội dung...">{{old('content_'.$language->code)}}</textarea>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +85,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Danh mục cha:</label>
                             <div class="col-sm-4">
-                                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="" >
+                                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="">
                                     <option value="0">Chọn danh mục cha</option>
                                     @foreach ($categories as $data)
                                     @include('admin.category.option', ['data' => $data, 'level' => 0, 'category_id' => old('category_id', $category->category_id)])
@@ -88,7 +100,7 @@
                             <label class="col-form-label col-sm-2">Chức năng:</label>
                             <div class="col-sm-4">
                                 <select class="form-control @error('style_event') is-invalid @enderror" name="style_event" id="">
-                                    <option value="" >Chọn chức năng</option>
+                                    <option value="">Chọn chức năng</option>
                                     <option value="1" {{ old('style_event', $category->style_event)==1 ? 'selected' : '' }}>Di chuyển đến cảnh</option>
                                     <option value="2" {{ old('style_event', $category->style_event)==2 ? 'selected' : '' }}>Hiển thị nội dung</option>
                                     <option value="3" {{ old('style_event', $category->style_event)==3 ? 'selected' : '' }}>Chuyển đến địa chỉ liên kết</option>

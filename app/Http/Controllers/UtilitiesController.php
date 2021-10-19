@@ -134,7 +134,9 @@ class UtilitiesController extends Controller
         ];
         $utilities->fill($dataUtilities);
         $utilities->save();
+        $arrLang = [];
         foreach ($utilities->utilitiesLanguages as $utilitiesLanguage) {
+            $arrLang[] = $utilitiesLanguage->lang;
             $name = "";
             if (empty($request['name_' . $utilitiesLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
@@ -157,6 +159,40 @@ class UtilitiesController extends Controller
             }
             $utilitiesLanguage->fill($dataUtilitiesLang);
             $utilitiesLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+
+                    $dataUtilitiesLang = [
+                        'name' => $name,
+                        'utilities_id' => $utilities->id,
+                        'lang' => $language->code
+                    ];
+
+                    if ($request->hasFile('photo_' . $language->code)) {
+                        $image      = $request->file('photo_' . $language->code);
+                        $fileName   = 'utilities-image-' . $language->code . '-' .  time() . '.' . $image->getClientOriginalExtension();
+                        Storage::disk('utilities_image')->putFileAs('', $image, $fileName);
+                        $dataUtilitiesLang['photo'] = $fileName;
+                    }
+
+                    UtilitiesLanguage::create($dataUtilitiesLang);
+                }
+            }
         }
         return redirect(route('utilities.index'));
     }

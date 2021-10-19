@@ -1,0 +1,522 @@
+﻿<krpano version="1.20.9" title="Virtual Tour">
+
+    <include url="skin/vtourskin.xml" />
+    <include url="xml/main.xml" />
+
+    <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+    <skin_settings maps="false" maps_type="google" maps_bing_api_key="" maps_google_api_key="" maps_zoombuttons="false" maps_loadonfirstuse="true" gyro="true" gyro_keeplookingdirection="false" webvr="true" webvr_keeplookingdirection="true" webvr_prev_next_hotspots="true" autotour="false" littleplanetintro="false" followmousecontrol="false" title="true" thumbs="true" thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160" thumbs_opened="false" thumbs_text="false" thumbs_dragging="true" thumbs_onhoverscrolling="false" thumbs_scrollbuttons="false" thumbs_scrollindicator="false" thumbs_loop="false" tooltips_buttons="false" tooltips_thumbs="false" tooltips_hotspots="false" tooltips_mapspots="false" deeplinking="false" loadscene_flags="MERGE" loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)" loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)" loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)" loadingtext="" layout_width="100%" layout_maxwidth="814" controlbar_width="-24" controlbar_height="40" controlbar_offset="20" controlbar_offset_closed="-40" controlbar_overlap.no-fractionalscaling="10" controlbar_overlap.fractionalscaling="0" design_skin_images="vtourskin.png" design_bgcolor="0x2D3E50" design_bgalpha="0.8" design_bgborder="0" design_bgroundedge="1" design_bgshadow="0 4 10 0x000000 0.3" design_thumbborder_bgborder="3 0xFFFFFF 1.0" design_thumbborder_padding="2" design_thumbborder_bgroundedge="0" design_text_css="color:#FFFFFF; font-family:Arial;" design_text_shadow="1" />
+
+    <!-- startup action - load the first scene -->
+    <action name="startup" autorun="onstart">
+        if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+        loadscene(get(startscene), null, MERGE);
+        if(startactions !== null, startactions() );
+    </action>
+
+    <!-- Overview-->
+    <scene name="scene_view_1" title="view 1" onstart="" thumburl="panos/view_1.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="4.993" vlookat="7.224" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_1.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+
+        <!-- utilities -->
+        <hotspot name="utilities1" style="skin_cang" ath="162.748" atv="-1.160" onhover="showtext('tiện ich 1',hotspottextstyle);"/>
+        <hotspot name="utilities2" style="skin_cang" ath="161.189" atv="-1.637" onhover="showtext('tiện ich 2',hotspottextstyle);"/>
+        <hotspot name="utilities3" style="skin_cang" ath="159.620" atv="-1.974" onhover="showtext('tiện ich 3',hotspottextstyle);"/>
+        <hotspot name="utilities4" style="skin_thanh_pho" ath="103.427" atv="-1.996" onhover="showtext('tiện ich 4',hotspottextstyle);"/>
+        <hotspot name="utilities5" style="skin_thanh_pho" ath="99.394" atv="-2.276" onhover="showtext('tiện ich 5',hotspottextstyle);"/>
+        <hotspot name="utilities6" style="skin_thanh_pho" ath="95.286" atv="-2.366" onhover="showtext('tiện ich 6',hotspottextstyle);"/>
+        <hotspot name="utilities7" style="skin_thanh_pho" ath="106.176" atv="-2.046" onhover="showtext('tiện ich 7',hotspottextstyle);"/>
+        <hotspot name="utilities8" style="skin_san_bay" ath="101.094" atv="-2.219" onhover="showtext('tiện ich 8',hotspottextstyle);"/>
+        <hotspot name="utilities9" style="skin_san_bay" ath="152.079" atv="-2.150" onhover="showtext('tiện ich 9',hotspottextstyle);"/>
+        <hotspot name="utilities10" style="skin_ql_cao_toc" ath="83.670" atv="-2.119" onhover="showtext('tiện ich 10',hotspottextstyle);"/>
+        <hotspot name="utilities11" style="skin_ql_cao_toc" ath="86.462" atv="-1.990" onhover="showtext('tiện ich 11',hotspottextstyle);"/>
+        <hotspot name="utilities12" style="skin_ql_cao_toc" ath="89.120" atv="-1.539" onhover="showtext('tiện ich 12',hotspottextstyle);"/>
+        <hotspot name="utilities13" style="skin_ql_cao_toc" ath="91.535" atv="-1.785" onhover="showtext('tiện ich 13',hotspottextstyle);"/>
+        <hotspot name="utilities14" style="skin_ql_cao_toc" ath="99.826" atv="2.543" onhover="showtext('tiện ich 14',hotspottextstyle);"/>
+        <hotspot name="utilities15" style="skin_ql_cao_toc" ath="145.951" atv="3.515" onhover="showtext('tiện ich 15',hotspottextstyle);"/>
+        <!-- End utilities -->
+
+        <hotspot name="scene_view_2" ath="0.983" atv="-1.011" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+        <hotspot name="scene_cong_khu_cong_nghiep" ath="1.538" atv="35.265" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_cong_khu_cong_nghiep,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_cong_khu_cong_nghiep',hotspottextstyle);"/>
+        <hotspot name="scene_view_5" ath="2.416" atv="12.686" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_5,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_5',hotspottextstyle);"/>
+        <hotspot name="scene_view_6" ath="2.250" atv="20.469" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_view_2" title="view 2" onstart="" thumburl="panos/view_2.tiles/thumb.jpg" lat="19.97843917" lng="106.16392611" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-171.661" vlookat="26.806" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_2.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+        <!-- land -->
+        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN1',hotspottextstyle);">
+            <point ath="4.0991781392582425" atv="5.160215860735307" />
+            <point ath="5.309711988765798" atv="4.765320297232214" />
+            <point ath="7.2132455945319975" atv="4.448305920527625" />
+            <point ath="18.11277628388882" atv="4.6378192133161384" />
+            <point ath="15.514008531317359" atv="5.591760740795643" />
+        </hotspot>
+        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN2',hotspottextstyle);">
+            <point ath="16.78044968517753" atv="5.404352473607088" />
+            <point ath="19.13497773591473" atv="4.549369339181003" />
+            <point ath="29.422818660648716" atv="4.815405888775081" />
+            <point ath="29.772961739568757" atv="4.912323802476691" />
+            <point ath="29.404920680198188" atv="5.815640845992572" />
+        </hotspot>
+        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN3',hotspottextstyle);">
+            <point ath="23.23569165768123" atv="5.74441277644805" />
+            <point ath="19.491755266696714" atv="8.280152550472108" />
+            <point ath="26.273252693809184" atv="8.367876251537448" />
+            <point ath="26.976459389144566" atv="7.313068466166483" />
+            <point ath="28.66347928555149" atv="7.397368852221876" />
+            <point ath="29.380129746539183" atv="5.865900445826855" />
+        </hotspot>
+        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN4',hotspottextstyle);">
+            <point ath="21.213095487147484" atv="8.21998796224845" />
+            <point ath="28.31196169307964" atv="8.49988287249906" />
+            <point ath="27.435018927790964" atv="10.379901051049185" />
+            <point ath="27.926887389768012" atv="11.241817800986679" />
+            <point ath="19.977783501900035" atv="12.271032392369118" />
+            <point ath="19.105168743836714" atv="10.078632846763597" />
+        </hotspot>
+        <hotspot name="CN5" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN5',hotspottextstyle);">
+            <point ath="22.518270166957223" atv="12.466462612270373" />
+            <point ath="29.47366751645808" atv="11.737438306184268" />
+            <point ath="86.52897391228498" atv="23.562270054861486" />
+            <point ath="85.20522780803185" atv="30.723241564500896" />
+        </hotspot>
+        <hotspot name="CN6" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN6',hotspottextstyle);">
+            <point ath="147.21283299745943" atv="13.293443764817932" />
+            <point ath="157.22907793665308" atv="14.543341736902228" />
+            <point ath="86.37676372640226" atv="34.310692174899316" />
+            <point ath="87.63343154803738" atv="27.780926436546512" />
+            <point ath="101.04430564403353" atv="27.175680850145884" />
+            <point ath="99.68659884646931" atv="23.279134139323777" />
+        </hotspot>
+        <hotspot name="CN7" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN7',hotspottextstyle);">
+            <point ath="159.6406538776227" atv="8.12204049530601" />
+            <point ath="-178.95208806148372" atv="8.865196087017326" />
+            <point ath="-179.1165084511952" atv="16.005135777851407" />
+            <point ath="147.87741356415103" atv="13.219562495206102" />
+        </hotspot>
+        <hotspot name="CN8" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN8',hotspottextstyle);">
+            <point ath="-177.8051087248549" atv="8.905690723096265" />
+            <point ath="-163.3434477228556" atv="8.769602216234158" />
+            <point ath="-152.26796688066122" atv="10.706626348809282" />
+            <point ath="-177.44983894298335" atv="11.854649829907148" />
+        </hotspot>
+        <hotspot name="CN9" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN9',hotspottextstyle);">
+            <point ath="-177.37958187463263" atv="11.919423399205124" />
+            <point ath="-152.1620591376277" atv="10.806524749860396" />
+            <point ath="-142.8643555408093" atv="13.228424122404114" />
+            <point ath="-177.12106426258353" atv="15.921683721835956" />
+        </hotspot>
+        <hotspot name="CN10" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN10',hotspottextstyle);">
+            <point ath="-176.9375109689547" atv="16.159447093434633" />
+            <point ath="-142.43136640752317" atv="13.171260466658932" />
+            <point ath="-85.97463703007611" atv="18.810897952871958" />
+            <point ath="-36.66226407530911" atv="81.04221992029773" />
+        </hotspot>
+        <hotspot name="CN11" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN11',hotspottextstyle);">
+            <point ath="-179.08145236350816" atv="16.09081683574945" />
+            <point ath="21.351487824518813" atv="85.528930089389" />
+            <point ath="40.24896285332568" atv="81.14604208902013" />
+            <point ath="86.37818924968929" atv="34.310692987465835" />
+            <point ath="157.63666646202776" atv="14.612136672781904" />
+        </hotspot>
+        <hotspot name="CN12" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN12',hotspottextstyle);">
+            <point ath="1.936360870582348" atv="13.720488627140417" />
+            <point ath="5.7130036551819785" atv="75.83034563840972" />
+            <point ath="24.435139132953623" atv="78.96172968048513" />
+            <point ath="85.17417061416893" atv="30.80497145097292" />
+            <point ath="22.549176272080445" atv="12.55886581212855" />
+        </hotspot>
+        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN13',hotspottextstyle);">
+            <point ath="21.157871290423373" atv="8.31454859068455" />
+            <point ath="19.000698730227782" atv="10.088354991573715" />
+            <point ath="19.912425440384254" atv="11.872194159447135" />
+            <point ath="3.131592955373094" atv="12.878994391340061" />
+            <point ath="3.2889669313496483" atv="10.298870540604364" />
+            <point ath="9.990410528280279" atv="8.018013606098112" />
+        </hotspot>
+        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14',hotspottextstyle);">
+            <point ath="15.085770981014662" atv="6.17784430563046" />
+            <point ath="21.9208090073584" atv="6.595215090285666" />
+            <point ath="19.49153522844557" atv="8.280151915664678" />
+            <point ath="10.235399573686095" atv="7.932360282626059" />
+        </hotspot>
+        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14B',hotspottextstyle);">
+            <point ath="15.210373474737764" atv="6.105311233216787" />
+            <point ath="16.6050006267634" atv="5.527045951812003" />
+            <point ath="23.159940782340698" atv="5.719236199010068" />
+            <point ath="21.94634317924914" atv="6.57022061686867" />
+        </hotspot>
+        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN15',hotspottextstyle);">
+            <point ath="-24.041509405156717" atv="11.775929695015662" />
+            <point ath="-14.032800570081008" atv="8.465796739832854" />
+            <point ath="0.306330845409434" atv="10.42414551836831" />
+            <point ath="-0.3925425640685489" atv="13.043787627722796" />
+        </hotspot>
+        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN16',hotspottextstyle);">
+            <point ath="-20.704708056613924" atv="7.425160079919437" />
+            <point ath="-9.742488739864143" atv="6.426969158476381" />
+            <point ath="7.824194212812301" atv="7.923377578746787" />
+            <point ath="0.5573632628593259" atv="10.287426471279284" />
+        </hotspot>
+        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN17',hotspottextstyle);">
+            <point ath="-9.533472346290864" atv="6.397049093632999" />
+            <point ath="3.7337257961981436" atv="5.23504026942351" />
+            <point ath="11.902696711972112" atv="5.51430607041178" />
+            <point ath="9.769547299935084" atv="6.18969628354907" />
+            <point ath="12.689022521353479" atv="6.359162158242021" />
+            <point ath="7.8802888073579425" atv="7.887301402576304" />
+        </hotspot>
+        <!-- end land -->
+        <hotspot name="scene_view_3" ath="4.532" atv="-2.447" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_3,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_3',hotspottextstyle);"/>
+        <hotspot name="scene_view_1" ath="-178.086" atv="-3.084" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_view_4" ath="-13.540" atv="11.513" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_4,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_4',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_view_3" title="view 3" onstart="" thumburl="panos/view_3.tiles/thumb.jpg" lat="19.97360722" lng="106.14319417" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="1.606" vlookat="20.477" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_3.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_3.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+        <!-- land -->
+        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN1',hotspottextstyle);">
+            <point ath="81.35825361681134" atv="22.931855619551232" />
+            <point ath="91.8900393578781" atv="23.02742549242104" />
+            <point ath="103.5675282774886" atv="21.238915772857084" />
+            <point ath="120.2542310920388" atv="19.30064762903364" />
+            <point ath="124.95556785084202" atv="19.783213533530866" />
+            <point ath="-179.5125971489676" atv="33.02666059884963" />
+            <point ath="6.208553879069086" atv="66.94492817302888" />
+        </hotspot>
+        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN2',hotspottextstyle);">
+            <point ath="-173.1953364653124" atv="32.76740185537422" />
+            <point ath="-122.84692798834283" atv="20.295549824819595" />
+            <point ath="-117.67695225614867" atv="19.90506841033255" />
+            <point ath="-77.94603223507477" atv="22.34397700051956" />
+            <point ath="-16.024455123782786" atv="65.97413903952229" />
+        </hotspot>
+        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN3',hotspottextstyle);">
+            <point ath="-37.2340551659168" atv="14.412581677309191" />
+            <point ath="-30.170414375390465" atv="15.838085522120815" />
+            <point ath="-26.24348656017895" atv="13.777041432839313" />
+            <point ath="-18.864282889289257" atv="14.55851052212574" />
+            <point ath="-66.79087380664708" atv="36.59356622194617" />
+            <point ath="-76.47207738804269" atv="22.188005861547058" />
+        </hotspot>
+        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN4',hotspottextstyle);">
+            <point ath="-23.71668508194739" atv="9.309006433162047" />
+            <point ath="-24.85793299268977" atv="10.377122782701422" />
+            <point ath="-32.202761925302525" atv="12.864158764430679" />
+            <point ath="-19.348917200914457" atv="14.46941491787618" />
+            <point ath="-15.826967837171196" atv="12.139362027842584" />
+            <point ath="-16.45257585005345" atv="9.3806413664682" />
+        </hotspot>
+        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN13',hotspottextstyle);">
+            <point ath="-16.490050579296224" atv="9.286507418151276" />
+            <point ath="-15.873638062816894" atv="12.181982715574645" />
+            <point ath="-19.305873691681484" atv="14.473843692749034" />
+            <point ath="0.2390481998946825" atv="15.417148989238333" />
+            <point ath="0.6818041377806026" atv="11.440986502002405" />
+            <point ath="-0.6375049464362519" atv="10.060514541268606" />
+            <point ath="-4.5176761718036005" atv="8.631731149783828" />
+        </hotspot>
+        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14',hotspottextstyle);">
+            <point ath="-40.20608839816077" atv="27.558910139314328" />
+            <point ath="-18.733786287693988" atv="14.480158162759622" />
+            <point ath="-0.5293974199234412" atv="15.854034477731856" />
+            <point ath="-4.744481637539252" atv="35.54043110343036" />
+        </hotspot>
+        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14B',hotspottextstyle);">
+            <point ath="-66.7527646366371" atv="36.6406481267019" />
+            <point ath="-40.353140398511414" atv="27.6158674156593" />
+            <point ath="-4.600011250678847" atv="35.674706688534364" />
+            <point ath="-15.541141320252564" atv="63.19866548491506" />
+        </hotspot>
+        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN15',hotspottextstyle);">
+            <point ath="-3.1568185747589723" atv="8.513924092739364" />
+            <point ath="10.087329118773823" atv="7.2200349714505885" />
+            <point ath="20.85829719512509" atv="9.56849772821849" />
+            <point ath="1.5851107832884281" atv="10.229921878810215" />
+        </hotspot>
+        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN16',hotspottextstyle);">
+            <point ath="1.7837253682866958" atv="10.23127171069311" />
+            <point ath="32.020757613501814" atv="8.878838320747295" />
+            <point ath="42.364916087511915" atv="11.899729236314592" />
+            <point ath="2.404834212003607" atv="15.200275966975386" />
+        </hotspot>
+        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN17',hotspottextstyle);">
+            <point ath="1.9661074152609217" atv="15.653473043313104" />
+            <point ath="42.90573320782221" atv="11.990117286945052" />
+            <point ath="56.514141082207516" atv="15.864382707384712" />
+            <point ath="79.4133275926207" atv="23.10808797969452" />
+            <point ath="54.37752734930001" atv="50.08919241293567" />
+            <point ath="35.998874725128815" atv="40.2134494434472" />
+            <point ath="3.3833011218562774" atv="44.693304936672206" />
+        </hotspot>
+        <!-- end land -->
+        <hotspot name="scene_view_2" ath="-15.653" atv="-2.805" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_view_4" title="view 4" onstart="" thumburl="panos/view_4.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="93.070" vlookat="24.242" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_4.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_4.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+        <hotspot name="scene_view_2" ath="75.393" atv="-7.907" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+
+    </scene>
+    <scene name="scene_view_5" title="view 5" onstart="" thumburl="panos/view_5.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="90.165" vlookat="20.560" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_5.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_5.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+        <hotspot name="scene_view_1" ath="-179.327" atv="-8.159" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+    </scene>
+    <scene name="scene_view_6" title="view 6" onstart="" thumburl="panos/view_6.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-2.707" vlookat="26.046" fovtype="MFOV" fov="85.806" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/view_6.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/view_6.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+
+        <hotspot name="scene_view_1" ath="87.530" atv="-5.017" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_hanh_lang_ra_khu_nha_nhan_vien" ath="-22.598" atv="27.571" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_hanh_lang_ra_khu_nha_nhan_vien,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_hanh_lang_ra_khu_nha_nhan_vien',hotspottextstyle);"/>
+        <hotspot name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" ath="13.428" atv="25.085" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_ngoai_hanh_lang,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_ngoai_hanh_lang',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_sanh" ath="-4.706" atv="28.232" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tram_cap_nuoc" ath="-12.568" atv="9.666" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tram_cap_nuoc,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tram_cap_nuoc',hotspottextstyle);"/>
+
+    </scene>
+    <!-- Overview-->
+    <!-- utilities back-->
+    <scene name="scene_cong_khu_cong_nghiep" title="cong khu cong nghiep" onstart="" thumburl="panos/cong_khu_cong_nghiep.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-1.046" vlookat="-4.392" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/cong_khu_cong_nghiep.tiles/preview.jpg" />
+
+        <image>
+            <cube url="panos/cong_khu_cong_nghiep.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
+        </image>
+        <hotspot name="scene_view_1" ath="-165.106" atv="-25.329" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_hanh_lang_ra_khu_nha_nhan_vien" title="hanh lang ra khu nha nhan vien" onstart="" thumburl="panos/hanh_lang_ra_khu_nha_nhan_vien.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/hanh_lang_ra_khu_nha_nhan_vien.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/hanh_lang_ra_khu_nha_nhan_vien.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_view_6" ath="163.474" atv="-22.345" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" title="nha chuyen gia ben ngoai hanh lang" onstart="" thumburl="panos/nha_chuyen_gia_ben_ngoai_hanh_lang.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-112.003" vlookat="-4.287" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/nha_chuyen_gia_ben_ngoai_hanh_lang.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/nha_chuyen_gia_ben_ngoai_hanh_lang.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_view_6" ath="66.360" atv="-22.377" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
+        <hotspot name="scene_nha_chuyen_gia_ben_trong" ath="-97.696" atv="-4.171" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_trong,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_trong',hotspottextstyle);"/>
+        <hotspot name="scene_phong_lam_viec_chuyen_gia" ath="9.809" atv="0.421" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_phong_lam_viec_chuyen_gia,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_phong_lam_viec_chuyen_gia',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_nha_chuyen_gia_ben_trong" title="nha chuyen gia ben trong" onstart="" thumburl="panos/nha_chuyen_gia_ben_trong.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="175.744" vlookat="16.036" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/nha_chuyen_gia_ben_trong.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/nha_chuyen_gia_ben_trong.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" ath="-95.005" atv="9.264" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_ngoai_hanh_lang,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_ngoai_hanh_lang',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_phong_lam_viec_chuyen_gia" title="phong lam viec chuyen gia" onstart="" thumburl="panos/phong_lam_viec_chuyen_gia.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-8.097" vlookat="5.137" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/phong_lam_viec_chuyen_gia.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/phong_lam_viec_chuyen_gia.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" ath="82.607" atv="7.677" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_ngoai_hanh_lang,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_ngoai_hanh_lang',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_1_sanh" title="tang 1 sanh" onstart="" thumburl="panos/tang_1_sanh.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_1_sanh.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_1_sanh.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_view_6" ath="-171.628" atv="2.533" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_phong_cho" ath="-115.178" atv="9.215" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_phong_cho,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_phong_cho',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_phong_lam_viec" ath="-50.539" atv="2.727" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_phong_lam_viec,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_phong_lam_viec',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_phong_ke_toan" ath="82.250" atv="14.870" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_phong_ke_toan,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_phong_ke_toan',hotspottextstyle);"/>
+        <hotspot name="scene_tang_2_sanh" ath="-88.091" atv="-1.456" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_2_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_2_sanh',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_1_phong_cho" title="tang 1 phong cho" onstart="" thumburl="panos/tang_1_phong_cho.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="179.864" vlookat="14.124" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_1_phong_cho.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_1_phong_cho.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_tang_1_sanh" ath="48.165" atv="6.934" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_1_phong_ke_toan" title="tang 1 phong ke toan" onstart="" thumburl="panos/tang_1_phong_ke_toan.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="99.708" vlookat="5.742" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_1_phong_ke_toan.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_1_phong_ke_toan.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_tang_1_sanh" ath="-4.982" atv="8.348" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_1_phong_lam_viec" title="tang 1 phong lam viec" onstart="" thumburl="panos/tang_1_phong_lam_viec.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="162.725" vlookat="10.437" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_1_phong_lam_viec.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_1_phong_lam_viec.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_tang_1_sanh" ath="63.070" atv="4.668" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_2_sanh" title="tang 2 sanh" onstart="" thumburl="panos/tang_2_sanh.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="86.453" vlookat="3.956" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_2_sanh.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_2_sanh.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_tang_1_sanh" ath="23.117" atv="21.500" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_2_phong_hop" ath="-166.552" atv="5.824" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_2_phong_hop,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_2_phong_hop',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tang_2_phong_hop" title="tang 2 phong hop" onstart="" thumburl="panos/tang_2_phong_hop.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tang_2_phong_hop.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tang_2_phong_hop.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_tang_2_sanh" ath="91.483" atv="3.393" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_tang_2_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_2_sanh',hotspottextstyle);"/>
+
+    </scene>
+
+    <scene name="scene_tram_cap_nuoc" title="tram cap nuoc" onstart="" thumburl="panos/tram_cap_nuoc.tiles/thumb.jpg" lat="" lng="" heading="">
+
+        <control bouncinglimits="calc:image.cube ? true : false" />
+
+        <view hlookat="-55.637" vlookat="-3.266" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+        <preview url="panos/tram_cap_nuoc.tiles/preview.jpg" />
+
+        <image prealign="0|0.0|0">
+            <cube url="panos/tram_cap_nuoc.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
+        </image>
+        <hotspot name="scene_view_6" ath="157.752" atv="-18.181" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.5' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
+
+    </scene>
+    <!-- utilities back-->
+
+</krpano>

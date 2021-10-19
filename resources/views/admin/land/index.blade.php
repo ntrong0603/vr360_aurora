@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <a href="{{route('land.create')}}" class="btn btn-success">Thêm mới</a>
+                                    {{-- <a href="{{route('land.create')}}" class="btn btn-success">Thêm mới</a> --}}
                                     <div class="col-sm-2">
                                         <button type="submit" class="btn btn-info">Tìm kiếm</button>
                                         <a href="{{route('land.index')}}" class="btn btn-secondary">Reset</a>
@@ -80,7 +80,7 @@
                                 <th>TÌNH TRẠNG</th>
                                 <th style="width: 120px">LƯỢT XEM</th>
                                 <th style="width: 50px">SỬA</th>
-                                <th style="width: 50px">XÓA</th>
+                                {{-- <th style="width: 50px">XÓA</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -117,16 +117,16 @@
                                         <i class="fas fa-pencil-alt text-warning"></i>
                                     </a>
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <a class="delete-row" href="javascript:;" data-href="{{ route('land.delete', ['land' => $data->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="5" class="text-center">Không có dữ liệu</td>
+                                <td colspan="10" class="text-center">Không có dữ liệu</td>
                             </tr>
                             @endif
                         </tbody>

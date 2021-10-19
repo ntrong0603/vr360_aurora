@@ -56,14 +56,6 @@
                                         <label for="inputName" class="col-form-label">Nhập số điện thoại</label>
                                         <input type="text" class="form-control" name="sdt" id="inputName" placeholder="Nhập số điện thoại..." value="{{ Request::get('sdt') }}">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="inputName" class="col-form-label">Loại đăng ký</label>
-                                        <select name="loai" class="form-control">
-                                            <option value="">Chọn loại đăng ký</option>
-                                            <option value="1" {{ Request::get('loai')==1 ? 'selected' : '' }}>Đặt giữ chỗ</option>
-                                            <option value="2" {{ Request::get('loai')==2 ? 'selected' : '' }}>Đăng ký tham quan</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-2">
@@ -85,7 +77,6 @@
                                 <th>TÊN DOANH NGHIỆP</th>
                                 <th>QUỐC GIA</th>
                                 <th>NGÀNH NGHỀ</th>
-                                <th>LOẠI ĐĂNG KÝ</th>
                                 <th style="width: 50px">XEM</th>
                                 <th style="width: 50px">XÓA</th>
                             </tr>
@@ -121,13 +112,6 @@
                                     {{$data->business->name ?? ''}}
                                 </td>
                                 <td>
-                                    @if ($data->loai == 1)
-                                    Đặt giữ chỗ
-                                    @else
-                                    Đăng ký tham quan
-                                    @endif
-                                </td>
-                                <td>
                                     <a href="{{ route('reservation.edit', ['reservation' => $data->id]) }}">
                                         <i class="fas fa-pencil-alt text-warning"></i>
                                     </a>
@@ -141,7 +125,7 @@
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="5" class="text-center">Không có dữ liệu</td>
+                                <td colspan="10" class="text-center">Không có dữ liệu</td>
                             </tr>
                             @endif
                         </tbody>

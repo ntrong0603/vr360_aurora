@@ -46,7 +46,7 @@
                                     @endif">
                             <label for="exampleInputEmail1">Logo</label>
                             @if (!empty(getSetting("logo")))
-                            <img src="{{asset('upload/images/'. getSetting("logo"))}}" alt="logo" style="width: 150px">
+                            <img src="{{asset('storage/setting_image/'. getSetting("logo"))}}" alt="logo" style="width: 150px">
                             @endif
                             <input type="file" name="logo" class="form-control" id="exampleInputEmail1" placeholder="Logo">
                             @if ($errors->get('logo'))

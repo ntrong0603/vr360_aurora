@@ -66,6 +66,7 @@ class SceneController extends Controller
             $dataSceneLang = [
                 'name' => $name,
                 'scene_id' => $scene->id,
+                'content' => $request['content_' . $language->code],
                 'lang' => $language->code
             ];
             SceneLanguage::create($dataSceneLang);
@@ -125,7 +126,9 @@ class SceneController extends Controller
         ];
         $scene->fill($dataScene);
         $scene->save();
+        $arrLang = [];
         foreach ($scene->sceneLanguages as $sceneLanguage) {
+            $arrLang[] = $sceneLanguage->lang;
             $name = "";
             if (empty($request['name_' . $sceneLanguage->lang])) {
                 $name = $request['name_' . $languages[0]->code];
@@ -134,10 +137,36 @@ class SceneController extends Controller
             }
             $datasceneLang = [
                 'name' => $name,
-                'scene_id' => $scene->id
+                'content' => $request['content_' . $sceneLanguage->lang],
             ];
             $sceneLanguage->fill($datasceneLang);
             $sceneLanguage->save();
+        }
+        // created
+        if (count($languages) != count($arrLang)) {
+            foreach ($languages as $language) {
+                $isNewLang = true;
+                foreach ($arrLang as $lang) {
+                    if ($language->code == $lang) {
+                        $isNewLang = false;
+                    }
+                }
+                if ($isNewLang) {
+                    $name = "";
+                    if (empty($request['name_' . $language->code])) {
+                        $name = $request['name_' . $languages[0]->code];
+                    } else {
+                        $name = $request['name_' . $language->code];
+                    }
+                    $dataSceneLang = [
+                        'name' => $name,
+                        'scene_id' => $scene->id,
+                        'content' => $request['content_' . $language->code],
+                        'lang' => $language->code
+                    ];
+                    SceneLanguage::create($dataSceneLang);
+                }
+            }
         }
         return redirect(route('scene.index'));
     }
