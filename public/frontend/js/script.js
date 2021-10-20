@@ -107,10 +107,32 @@ function updateInfoUtilities()
     }
 }
 
+function updateInfoLand()
+{
+    for (let index = 0; index < lands.length; index++)
+    {
+        let land = lands[index];
+        let color = '0x00cc66';
+        if (land['status'] == 2)
+        {
+            color = '0xff6600';
+        }
+        if (land['status'] == 3)
+        {
+            color = '0xff0000';
+        }
+        krpano.call(`set(hotspot['${land['nameLand']}'].onhover, showtext('${land['name']}',hotspottextstyle))`);
+        krpano.call(`set(hotspot['${land['nameLand']}'].fillcolor, '${color}')`);
+        krpano.call(`set(hotspot['${land['nameLand']}'].bordercolor, '${color}')`);
+
+    }
+}
+
 function eventVR()
 {
     updateInfoScene();
     updateInfoUtilities();
+    updateInfoLand();
 }
 $("#tham_quan_tu_ngay").datepicker();
 $("#tham_quan_den_ngay").datepicker();

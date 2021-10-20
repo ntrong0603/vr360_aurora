@@ -11,6 +11,8 @@ use App\Models\Country;
 use App\Models\CountryLanguage;
 use App\Models\Enquiry;
 use App\Models\EnquiryLanguage;
+use App\Models\Land;
+use App\Models\LandLanguage;
 use App\Models\Language;
 use App\Models\Reservation;
 use App\Models\Scene;
@@ -247,13 +249,13 @@ if (!function_exists('getUtilities')) {
             $name = $item->name;
             $nameHotspot = $item->name_hotspot;
             $photo = '';
-            $sceneLanguage = $model
+            $utilitiesLanguage = $model
                 ->where('lang', \Session::get('website_language'))
                 ->where('utilities_id', $item->id)->first();
-            if (!empty($sceneLanguage)) {
-                $name = $sceneLanguage->name;
-                if (!empty($sceneLanguage->photo)) {
-                    $photo =  asset('storage/utilities_image/') . $sceneLanguage->photo;
+            if (!empty($utilitiesLanguage)) {
+                $name = $utilitiesLanguage->name;
+                if (!empty($utilitiesLanguage->photo)) {
+                    $photo =  asset('storage/utilities_image/') . $utilitiesLanguage->photo;
                 }
             }
             $data[] = [
@@ -306,6 +308,35 @@ if (!function_exists('getCategory')) {
                 'id' => $item->id,
                 'name' => $name,
                 'child' => $childData,
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getLand')) {
+
+    function getLand()
+    {
+        $model = new LandLanguage();
+        $data = [];
+        $list = (new Land())->get();
+        foreach ($list as $item) {
+            $name = $item->name;
+            $content = '';
+            $landLanguage = $model
+                ->where('lang', \Session::get('website_language'))
+                ->where('land_id', $item->id)->first();
+            if (!empty($landLanguage)) {
+                $name = $landLanguage->name;
+                $name = $landLanguage->content;
+            }
+            $data[] = [
+                'id' => $item->id,
+                'name' => $name,
+                'content' => $content,
+                'nameLand' => $item->name_land,
+                'status' => $item->status
             ];
         }
         return $data;

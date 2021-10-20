@@ -60,6 +60,7 @@
     </script>
     @include('include.scene_info')
     @include('include.utilities_info')
+    @include('include.land_info')
     <script src="{{ asset('frontend/js/jquery-3.4.1.min.js')}}"></script>
     <script src="{{ asset('frontend/js/jquery-ui.js')}}"></script>
     <script src="{{ asset('frontend/js/sweetalert2.all.min.js')}}"></script>
