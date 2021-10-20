@@ -193,4 +193,8 @@ class LandController extends Controller
             'status' => 0
         ]);
     }
+
+    public function updateView(Request $request){
+        $land = (new Land());
+    }
 }
