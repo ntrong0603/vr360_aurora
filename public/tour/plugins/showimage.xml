@@ -27,7 +27,7 @@
 		set(showimage_fadeout, 0.0);
 		set(showimage_clipping, false);
 	</action>
-	
+
 
 	<action name="showimage_xml">
 		set(showimage_style, DEFAULT);
@@ -41,7 +41,7 @@
 			delayedcall(showimage_timer, get(showimage_timeout), showimage_hide() );
 		  );
 	</action>
-	
+
 
 	<action name="showimage_createnewtext">
 		<!-- stop running mouse and alpha update calls -->
@@ -137,7 +137,7 @@
 		  );
 
 		if(ts.noclip !== null, copy(showimage_clipping,ts.noclip), set(showimage_clipping, true));
-		
+
 		if(showimage_clipping,
 			set(tf.onloaded,    showimage_do_clipping() );
 			set(tf.onautosized, showimage_do_clipping() );
@@ -154,8 +154,8 @@
 		set(tf.zorder, 999999);
 		if(ts.parent, copy(tf.parent, ts.parent) );
 		set(tf.scale, 0.4);
-		set(tf.url, '%SWFPATH%/%1');
-		
+		set(tf.url, '%1');
+
 		<!-- remove the shortcut variables -->
 		delete(ts);
 		delete(tf);

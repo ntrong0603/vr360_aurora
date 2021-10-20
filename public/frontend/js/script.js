@@ -139,6 +139,17 @@ function showInfoLand(id)
             {
                 $('.popup-content-land .content').html(land['content']);
                 $('.popup-content-land').addClass('active');
+
+                $.ajax({
+                    url: urlViewLand,
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    success: function (result)
+                    {
+                    }
+                });
             }
             break;
         }
