@@ -11,6 +11,7 @@
         if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
         loadscene(get(startscene), null, MERGE);
         if(startactions !== null, startactions() );
+        playsound(s1,music/HopeYiruma.mp3, 0,5);
     </action>
 
     <!-- Overview-->

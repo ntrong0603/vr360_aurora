@@ -49,6 +49,7 @@ $(".nav-group").on("click", function (e)
         parent.addClass("active");
     }
 });
+
 $(".dropdown li").click(function (e)
 {
     e.stopPropagation();
