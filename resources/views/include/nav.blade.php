@@ -1,7 +1,7 @@
 <nav>
     <button id="btn-nav-bar">
-        <img id="img-open-nav" src="{{asset('front-end/images/bars-solid.svg')}}" alt="">
-        <img id="img-close-nav" src="{{asset('front-end/images/times-circle-regular.svg')}}" alt="">
+        <img id="img-open-nav" src="{{asset('frontend/images/bars-solid.svg')}}" alt="">
+        <img id="img-close-nav" src="{{asset('frontend/images/times-circle-regular.svg')}}" alt="">
     </button>
     <div class="logo-nav">
         <img src="{{asset('storage/setting_image/'.getSetting('logo'))}}" alt="">
