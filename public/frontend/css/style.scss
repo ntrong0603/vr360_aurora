@@ -115,6 +115,18 @@ nav {
         border-top-right-radius: 5px;
     }
 
+    a {
+        display: block;
+    }
+
+    .nav-main {
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
+        border-bottom-right-radius: 12px;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding: 0px 20px;
+    }
+
     @media screen and (max-width: 756px) {
         left: -320px;
 
@@ -151,17 +163,14 @@ nav {
     }
 
     .logo-nav {
-        background-color: white;
+        background-color: rgba(58, 120, 120, 0.8);
 
         @media screen and (min-width: 756px) {
-            border-top-right-radius: 0.5rem;
+            border-top-right-radius: 12px;
         }
     }
 
     .logo-nav {
-        background-image: linear-gradient(172deg,
-                rgba(255, 255, 255, 0.31) -1%,
-                rgba(5, 115, 194, 0.7) 95%);
         padding-left: 2rem;
         padding-right: 2rem;
         max-height: 7.7rem;
@@ -178,59 +187,24 @@ nav {
         color: #ffffff;
         position: relative;
         overflow: hidden;
-        padding-right: 5px;
-        padding-bottom: 5px;
-        padding-top: 5px;
-
-        &:first-child {
-            padding-top: 1rem;
-        }
 
         &:last-child {
             padding-bottom: 1rem;
         }
 
-        .i_tienich,
-        .i_tongthe,
-        .i_sanpham,
-        .isclose_tabnav {
-            position: absolute;
-        }
-
-        .isclose_tabnav {
-            right: 10px;
-            top: 10px;
-            display: none;
-        }
-
-        .i_tienich,
-        .i_sanpham {
-            left: 5px;
-        }
-
-        .i_tongthe {
-            top: 10px;
-            left: 8px;
-        }
-
-        #tongthe,
-        #sanpham {
-            position: relative;
-            padding-left: 2.5rem;
-            font-size: 18.75px;
-            text-transform: uppercase;
-            display: block;
-        }
-
         .nav-group {
             position: relative;
+            color: #b4d741;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            padding-top: 10px;
+            padding-bottom: 10px;
 
             &::after {
                 content: "";
                 position: absolute;
-                background-image: url(../images/angle-double-right-solid.svg);
+                background-image: url(../images/i-dropdown.png);
                 top: 50%;
-                transform: translateY(-50%);
+                transform: translateY(-50%) rotate(-90deg);
                 right: 0;
                 width: 20px;
                 height: 20px;
@@ -249,7 +223,7 @@ nav {
             .nav-group {
                 &::after {
                     right: 0;
-                    transform: translateY(-50%) rotate(90deg);
+                    transform: translateY(-50%);
                 }
             }
 
@@ -262,7 +236,6 @@ nav {
         }
 
         ul {
-            padding-right: 10px;
             max-width: 310px;
             transform-origin: 10px -20px;
             transition: all 0.5s;
@@ -270,23 +243,17 @@ nav {
             max-height: 0vh;
 
             li {
-                padding-left: 25px;
                 position: relative;
-                margin-top: 10px;
+                margin-top: 6px;
                 margin-bottom: 10px;
                 cursor: pointer;
                 list-style: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+                padding-bottom: 6px;
 
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 4px;
-                    left: 15px;
-                    display: block;
-                    border-top: 5px solid transparent;
-                    border-bottom: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    border-left: 5px solid #ffffff;
+                a {
+                    text-decoration: none;
+                    color: white;
                 }
 
                 &:hover,
@@ -295,46 +262,6 @@ nav {
 
                     &::before {
                         border-left: 5px solid #f8d577;
-                    }
-                }
-            }
-
-            .dropdown-child {
-                .nav-group {
-                    text-transform: none !important;
-                }
-
-                &:not(.active) {
-                    .nav-group {
-                        &::after {
-                            top: 50%;
-                            transform: translateY(-50%);
-                            right: 0;
-                        }
-                    }
-                }
-
-                ul {
-                    height: 0;
-                    transition: all 0.5s;
-
-                    li {
-                        color: #ffffff;
-
-                        &:hover,
-                        &.active {
-                            color: #f8d577;
-
-                            &::before {
-                                border-left: 5px solid #f8d577;
-                            }
-                        }
-                    }
-                }
-
-                &.active {
-                    ul {
-                        height: unset;
                     }
                 }
             }
@@ -836,7 +763,8 @@ nav {
         position: relative;
     }
 
-    &.popup-content-view {
+    &.popup-content-view,
+    &.popup-content-nav {
         .popup-info {
             border-radius: 5px;
             width: 850px;

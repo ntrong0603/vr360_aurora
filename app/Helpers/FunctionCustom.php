@@ -4,6 +4,8 @@ use App\Models\Business;
 use App\Models\BusinessLanguage;
 use App\Models\BusinessStyle;
 use App\Models\BusinessStyleLanguage;
+use App\Models\Category;
+use App\Models\CategoryLanguage;
 use App\Models\Contact;
 use App\Models\Country;
 use App\Models\CountryLanguage;
@@ -259,6 +261,51 @@ if (!function_exists('getUtilities')) {
                 'name' => $name,
                 'photo' => $photo,
                 'nameHotspot' => $nameHotspot
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getCategory')) {
+    function getCategory()
+    {
+        $model = new CategoryLanguage();
+        $data = [];
+        $list = (new Category())->where('category_id', 0)->where('status', 1)->get();
+        foreach ($list as $item) {
+            $name = $item->name;
+            $language = $model
+                ->where('lang', \Session::get('website_language'))
+                ->where('category_id', $item->id)->first();
+            if (!empty($language)) {
+                $name = $language->name;
+            }
+            $childData = [];
+            $listChild = (new Category())->where('category_id', $item->id)->where('status', 1)->get();
+            foreach ($listChild as $child) {
+                $nameChild = $child->name;
+                $content = '';
+                $childLanguage = $model
+                    ->where('lang', \Session::get('website_language'))
+                    ->where('category_id', $child->id)->first();
+                if (!empty($childLanguage)) {
+                    $nameChild = $childLanguage->name;
+                    $content = $childLanguage->content;
+                }
+                $childData[] = [
+                    'id' => $child->id,
+                    'name' => $nameChild,
+                    'link' => $child->link,
+                    'style_event' => $child->style_event,
+                    'name_scene' => $child->name_scene,
+                    'content' =>  $content
+                ];
+            }
+            $data[] = [
+                'id' => $item->id,
+                'name' => $name,
+                'child' => $childData,
             ];
         }
         return $data;

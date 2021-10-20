@@ -32,7 +32,7 @@ class CategoryController extends Controller
     {
         $languages = getLanguage();
         $scenes = (new Scene())->get();
-        $categories = (new Category())->get();
+        $categories = (new Category())->where('category_id', 0)->get();
         $data = [
             'languages' => $languages,
             'scenes' => $scenes,
@@ -108,7 +108,7 @@ class CategoryController extends Controller
     {
         $languages = getLanguage();
         $scenes = (new Scene())->get();
-        $categories = (new Category())->get();
+        $categories = (new Category())->where('category_id', 0)->get();
         $data = [
             'category' => $category,
             'languages' => $languages,

@@ -33,6 +33,39 @@ $('#btn-info-view').on('click', function (e)
         popup.addClass('active');
     }
 });
+function loadSceneMenu(scene)
+{
+    krpano.call("loadscene(" + scene + ",null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))");
+    removeScan();
+}
+$(".nav-group").on("click", function (e)
+{
+    let el = $(this);
+    let parent = el.parent();
+    if (parent.hasClass("active"))
+    {
+        parent.removeClass("active");
+    } else
+    {
+        parent.addClass("active");
+    }
+});
+$(".dropdown li").click(function (e)
+{
+    e.stopPropagation();
+    if ($(this).data('scene'))
+    {
+        loadSceneMenu($(this).data('scene'));
+    }
+
+    if ($(this).data('content'))
+    {
+        $('.popup-content-nav .popup-info .content').html($(this).data('content'));
+        $('.popup-content-nav').addClass('active');
+    }
+    menu.removeClass("show");
+    $("#btn-nav").removeClass("show");
+});
 function updateInfoScene()
 {
     var sceneName = krpano.get("scene[get(xml.scene)].name");
