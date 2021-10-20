@@ -122,9 +122,26 @@ function updateInfoLand()
             color = '0xff0000';
         }
         krpano.call(`set(hotspot['${land['nameLand']}'].onhover, showtext('${land['name']}',hotspottextstyle))`);
+        krpano.call(`set(hotspot['${land['nameLand']}'].onclick, js(showInfoLand(${land['id']})))`);
         krpano.call(`set(hotspot['${land['nameLand']}'].fillcolor, '${color}')`);
         krpano.call(`set(hotspot['${land['nameLand']}'].bordercolor, '${color}')`);
+    }
+}
 
+function showInfoLand(id)
+{
+    for (let index = 0; index < lands.length; index++)
+    {
+        let land = lands[index];
+        if (parseInt(land['id']) == parseInt(id))
+        {
+            if (land['content'] != '' && land['content'] != null)
+            {
+                $('.popup-content-land .content').html(land['content']);
+                $('.popup-content-land').addClass('active');
+            }
+            break;
+        }
     }
 }
 

@@ -100,7 +100,8 @@ nav #btn-nav-bar {
   height: 35px;
   top: 0;
   border: none;
-  background-image: linear-gradient(172deg, rgba(255, 255, 255, 0.31) -1%, rgba(5, 115, 194, 0.7) 95%);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   cursor: pointer;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -140,7 +141,8 @@ nav .nav-main {
     left: 0;
   }
   nav.open-nav #btn-nav-bar {
-    background-image: linear-gradient(172deg, rgba(255, 255, 255, 0.31) -1%, rgba(5, 115, 194, 0.7) 95%);
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+    background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   }
   nav.open-nav #btn-nav-bar #img-open-nav {
     display: none;
@@ -367,8 +369,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   height: 700px;
   border-radius: 4rem;
   padding: 1.5rem;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(90%, rgba(22, 72, 147, 0.8)), to(rgba(22, 72, 147, 0.1)));
-  background-image: linear-gradient(to bottom, rgba(22, 72, 147, 0.8) 90%, rgba(22, 72, 147, 0.1));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   padding-bottom: 2.5rem;
 }
 
@@ -471,7 +473,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   /* !importanté */
   border: solid 0px transparent;
   /* !importanté */
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 }
 
 .popup-contact .popup-info:before, .popup-register .popup-info:before {
@@ -498,7 +501,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
 .popup-contact .popup-info .popup-title::after, .popup-register .popup-info .popup-title::after {
   height: 1px;
   border: none;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 }
 
 .popup-form-contact form, .popup-form-register form {
@@ -606,7 +610,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   font-weight: bold;
   cursor: pointer;
   color: white;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 }
 
 .popup-form-contact form .form-group .btn-submit, .popup-form-register form .form-group .btn-submit {
@@ -642,7 +647,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
           transform: translate(0, -50%);
   width: 25px;
   height: 25px;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -794,7 +800,7 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   position: relative;
 }
 
-.popup.popup-content-view .popup-info, .popup.popup-content-nav .popup-info {
+.popup.popup-content-view .popup-info, .popup.popup-content-nav .popup-info, .popup.popup-content-land .popup-info {
   border-radius: 5px;
   width: 850px;
   max-width: 90vw;
@@ -802,12 +808,21 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   height: auto;
 }
 
-.popup.popup-content-view .popup-info .content, .popup.popup-content-nav .popup-info .content {
+.popup.popup-content-view .popup-info .content, .popup.popup-content-nav .popup-info .content, .popup.popup-content-land .popup-info .content {
   border-radius: 5px;
   background-color: white;
   overflow-y: auto;
   max-height: 69vh;
   padding: 5px;
+}
+
+.popup.popup-content-land .popup-info {
+  width: auto;
+  min-width: 300px;
+}
+
+.popup.popup-content-land .popup-info .content {
+  min-height: 100px;
 }
 
 #btn-info-view {
@@ -856,12 +871,13 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
           transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   border-radius: 50%;
   padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 2px #0d4494 double;
+  border: 2px #658b69 double;
 }
 
 .chat .btn-chat img {
@@ -880,7 +896,8 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   width: 0px;
   overflow: hidden;
   height: 50px;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -914,7 +931,7 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  border: 2px solid #0d4494;
+  border: 2px solid #658b69;
   position: absolute;
   z-index: -1;
   top: 50%;
@@ -1413,25 +1430,25 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
 
 @-webkit-keyframes colorChange {
   0% {
-    fill: #0d4494;
+    fill: #658b69;
   }
   50% {
     fill: #ffffff;
   }
   100% {
-    fill: #0d4494;
+    fill: rgba(101, 139, 105, 0.5);
   }
 }
 
 @keyframes colorChange {
   0% {
-    fill: #0d4494;
+    fill: #658b69;
   }
   50% {
     fill: #ffffff;
   }
   100% {
-    fill: #0d4494;
+    fill: rgba(101, 139, 105, 0.5);
   }
 }
 
@@ -1932,12 +1949,13 @@ textarea {
           transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   border-radius: 50%;
   padding: 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 2px #0d4494 double;
+  border: 2px #658b69 double;
 }
 
 .chat .btn-chat img {
@@ -1956,7 +1974,8 @@ textarea {
   width: 0px;
   overflow: hidden;
   height: 50px;
-  background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(101, 139, 105, 0.8)), to(rgba(66, 115, 115, 0.8)));
+  background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1991,7 +2010,7 @@ textarea {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  border: 2px solid #0d4494;
+  border: 2px solid #658b69;
   position: absolute;
   z-index: -1;
   top: 50%;

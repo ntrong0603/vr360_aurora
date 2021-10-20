@@ -4,7 +4,7 @@
         {
             "id": "{{$item['id']}}",
             "name": "{{$item['name']}}",
-            "content": `{{$item['content']}}`,
+            "content": `{!!$item['content']!!}`,
             "nameLand": "{{$item['nameLand']}}",
             "status": "{{$item['status']}}"
         },

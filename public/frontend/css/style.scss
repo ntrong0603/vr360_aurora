@@ -1,5 +1,5 @@
-$primary_bkg: rgb(13, 68, 148);
-$primary_bkg2: #0d4494;
+$primary_bkg: rgb(101, 139, 105);
+$primary_bkg2: rgb(101, 139, 105);
 $primary_bkg3: #6bcff6;
 
 * {
@@ -97,9 +97,7 @@ nav {
         height: 35px;
         top: 0;
         border: none;
-        background-image: linear-gradient(172deg,
-                rgba(255, 255, 255, 0.31) -1%,
-                rgba(5, 115, 194, 0.7) 95%);
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         cursor: pointer;
         box-sizing: border-box;
 
@@ -138,9 +136,7 @@ nav {
             left: 0;
 
             #btn-nav-bar {
-                background-image: linear-gradient(172deg,
-                        rgba(255, 255, 255, 0.31) -1%,
-                        rgba(5, 115, 194, 0.7) 95%);
+                background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 
                 #img-open-nav {
                     display: none;
@@ -350,9 +346,7 @@ nav {
         // background-color: #fff;
         border-radius: 4rem;
         padding: 1.5rem;
-        background-image: linear-gradient(to bottom,
-                rgba(22, 72, 147, 0.8) 90%,
-                rgba(22, 72, 147, 0.1));
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         padding-bottom: 2.5rem;
     }
 
@@ -361,7 +355,7 @@ nav {
         // background-color: #fff;
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
-        // border-bottom: 1px dashed #0d4494;
+        // border-bottom: 1px dashed rgb(101, 139, 105);
         // display: flex;
         // align-items: flex-start;
         max-width: 100%;
@@ -460,7 +454,7 @@ nav {
             /* !importanté */
             border: solid 0px transparent;
             /* !importanté */
-            background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+            background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 
             &:before {
                 content: "";
@@ -487,7 +481,7 @@ nav {
                 &::after {
                     height: 1px;
                     border: none;
-                    background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+                    background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
                 }
             }
         }
@@ -578,12 +572,8 @@ nav {
                     cursor: pointer;
                     // color: rgb(79, 200, 241);
                     color: white;
-                    // background-image: linear-gradient(
-                    //     to bottom,
-                    //     rgba(22, 72, 147, 0.8) 45%,
-                    //     rgba(22, 72, 147, 0.1)
-                    // );
-                    background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+                    // background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
+                    background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
 
                     &-submit {
                         margin-right: 1.5rem;
@@ -622,7 +612,7 @@ nav {
                     transform: translate(0, -50%);
                     width: 25px;
                     height: 25px;
-                    background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+                    background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -764,7 +754,8 @@ nav {
     }
 
     &.popup-content-view,
-    &.popup-content-nav {
+    &.popup-content-nav,
+    &.popup-content-land {
         .popup-info {
             border-radius: 5px;
             width: 850px;
@@ -778,6 +769,17 @@ nav {
                 overflow-y: auto;
                 max-height: 69vh;
                 padding: 5px;
+            }
+        }
+    }
+
+    &.popup-content-land {
+        .popup-info {
+            width: auto;
+            min-width: 300px;
+
+            .content {
+                min-height: 100px;
             }
         }
     }
@@ -823,11 +825,11 @@ nav {
         transform: translate(-50%, -50%);
         width: 50px;
         height: 50px;
-        background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         border-radius: 50%;
         padding: 1rem;
         box-sizing: border-box;
-        border: 2px #0d4494 double;
+        border: 2px rgb(101, 139, 105) double;
 
         img {
             max-width: 100%;
@@ -844,7 +846,7 @@ nav {
         width: 0px;
         overflow: hidden;
         height: 50px;
-        background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         display: flex;
         transition: all 0.5s;
         align-items: center;
@@ -873,7 +875,7 @@ nav {
         width: 50px;
         height: 50px;
         border-radius: 100%;
-        border: 2px solid #0d4494;
+        border: 2px solid rgb(101, 139, 105);
         position: absolute;
         z-index: -1;
         top: 50%;
@@ -1328,7 +1330,7 @@ nav {
 
 @keyframes colorChange {
     0% {
-        fill: #0d4494;
+        fill: rgb(101, 139, 105);
     }
 
     50% {
@@ -1336,7 +1338,7 @@ nav {
     }
 
     100% {
-        fill: #0d4494;
+        fill: rgba(101, 139, 105, 0.5);
     }
 }
 
@@ -1826,11 +1828,11 @@ textarea {
         transform: translate(-50%, -50%);
         width: 50px;
         height: 50px;
-        background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         border-radius: 50%;
         padding: 1rem;
         box-sizing: border-box;
-        border: 2px #0d4494 double;
+        border: 2px rgb(101, 139, 105) double;
 
         img {
             max-width: 100%;
@@ -1847,7 +1849,7 @@ textarea {
         width: 0px;
         overflow: hidden;
         height: 50px;
-        background-image: linear-gradient(45deg, #6bcff6, #0d4494);
+        background-image: linear-gradient(to right, rgba(101, 139, 105, 0.8), rgba(66, 115, 115, 0.8));
         display: flex;
         transition: all 0.5s;
         align-items: center;
@@ -1877,7 +1879,7 @@ textarea {
         width: 50px;
         height: 50px;
         border-radius: 100%;
-        border: 2px solid #0d4494;
+        border: 2px solid rgb(101, 139, 105);
         position: absolute;
         z-index: -1;
         top: 50%;

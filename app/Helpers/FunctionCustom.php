@@ -324,13 +324,14 @@ if (!function_exists('getLand')) {
         foreach ($list as $item) {
             $name = $item->name;
             $content = '';
-            $landLanguage = $model
+            $language = $model
                 ->where('lang', \Session::get('website_language'))
                 ->where('land_id', $item->id)->first();
-            if (!empty($landLanguage)) {
-                $name = $landLanguage->name;
-                $name = $landLanguage->content;
+            if (!empty($language)) {
+                $name = $language->name;
+                $content = $language->content;
             }
+
             $data[] = [
                 'id' => $item->id,
                 'name' => $name,

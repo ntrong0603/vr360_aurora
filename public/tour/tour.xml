@@ -73,21 +73,21 @@
             <cube url="panos/view_2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
         <!-- land -->
-        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN1',hotspottextstyle);">
+        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN1',hotspottextstyle);">
             <point ath="4.0991781392582425" atv="5.160215860735307" />
             <point ath="5.309711988765798" atv="4.765320297232214" />
             <point ath="7.2132455945319975" atv="4.448305920527625" />
             <point ath="18.11277628388882" atv="4.6378192133161384" />
             <point ath="15.514008531317359" atv="5.591760740795643" />
         </hotspot>
-        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN2',hotspottextstyle);">
+        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN2',hotspottextstyle);">
             <point ath="16.78044968517753" atv="5.404352473607088" />
             <point ath="19.13497773591473" atv="4.549369339181003" />
             <point ath="29.422818660648716" atv="4.815405888775081" />
             <point ath="29.772961739568757" atv="4.912323802476691" />
             <point ath="29.404920680198188" atv="5.815640845992572" />
         </hotspot>
-        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN3',hotspottextstyle);">
+        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN3',hotspottextstyle);">
             <point ath="23.23569165768123" atv="5.74441277644805" />
             <point ath="19.491755266696714" atv="8.280152550472108" />
             <point ath="26.273252693809184" atv="8.367876251537448" />
@@ -95,7 +95,7 @@
             <point ath="28.66347928555149" atv="7.397368852221876" />
             <point ath="29.380129746539183" atv="5.865900445826855" />
         </hotspot>
-        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN4',hotspottextstyle);">
+        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN4',hotspottextstyle);">
             <point ath="21.213095487147484" atv="8.21998796224845" />
             <point ath="28.31196169307964" atv="8.49988287249906" />
             <point ath="27.435018927790964" atv="10.379901051049185" />
@@ -103,13 +103,13 @@
             <point ath="19.977783501900035" atv="12.271032392369118" />
             <point ath="19.105168743836714" atv="10.078632846763597" />
         </hotspot>
-        <hotspot name="CN5" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN5',hotspottextstyle);">
+        <hotspot name="CN5" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN5',hotspottextstyle);">
             <point ath="22.518270166957223" atv="12.466462612270373" />
             <point ath="29.47366751645808" atv="11.737438306184268" />
             <point ath="86.52897391228498" atv="23.562270054861486" />
             <point ath="85.20522780803185" atv="30.723241564500896" />
         </hotspot>
-        <hotspot name="CN6" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN6',hotspottextstyle);">
+        <hotspot name="CN6" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN6',hotspottextstyle);">
             <point ath="147.21283299745943" atv="13.293443764817932" />
             <point ath="157.22907793665308" atv="14.543341736902228" />
             <point ath="86.37676372640226" atv="34.310692174899316" />
@@ -117,45 +117,45 @@
             <point ath="101.04430564403353" atv="27.175680850145884" />
             <point ath="99.68659884646931" atv="23.279134139323777" />
         </hotspot>
-        <hotspot name="CN7" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN7',hotspottextstyle);">
+        <hotspot name="CN7" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN7',hotspottextstyle);">
             <point ath="159.6406538776227" atv="8.12204049530601" />
             <point ath="-178.95208806148372" atv="8.865196087017326" />
             <point ath="-179.1165084511952" atv="16.005135777851407" />
             <point ath="147.87741356415103" atv="13.219562495206102" />
         </hotspot>
-        <hotspot name="CN8" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN8',hotspottextstyle);">
+        <hotspot name="CN8" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN8',hotspottextstyle);">
             <point ath="-177.8051087248549" atv="8.905690723096265" />
             <point ath="-163.3434477228556" atv="8.769602216234158" />
             <point ath="-152.26796688066122" atv="10.706626348809282" />
             <point ath="-177.44983894298335" atv="11.854649829907148" />
         </hotspot>
-        <hotspot name="CN9" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN9',hotspottextstyle);">
+        <hotspot name="CN9" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN9',hotspottextstyle);">
             <point ath="-177.37958187463263" atv="11.919423399205124" />
             <point ath="-152.1620591376277" atv="10.806524749860396" />
             <point ath="-142.8643555408093" atv="13.228424122404114" />
             <point ath="-177.12106426258353" atv="15.921683721835956" />
         </hotspot>
-        <hotspot name="CN10" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN10',hotspottextstyle);">
+        <hotspot name="CN10" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN10',hotspottextstyle);">
             <point ath="-176.9375109689547" atv="16.159447093434633" />
             <point ath="-142.43136640752317" atv="13.171260466658932" />
             <point ath="-85.97463703007611" atv="18.810897952871958" />
             <point ath="-36.66226407530911" atv="81.04221992029773" />
         </hotspot>
-        <hotspot name="CN11" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN11',hotspottextstyle);">
+        <hotspot name="CN11" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN11',hotspottextstyle);">
             <point ath="-179.08145236350816" atv="16.09081683574945" />
             <point ath="21.351487824518813" atv="85.528930089389" />
             <point ath="40.24896285332568" atv="81.14604208902013" />
             <point ath="86.37818924968929" atv="34.310692987465835" />
             <point ath="157.63666646202776" atv="14.612136672781904" />
         </hotspot>
-        <hotspot name="CN12" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN12',hotspottextstyle);">
+        <hotspot name="CN12" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN12',hotspottextstyle);">
             <point ath="1.936360870582348" atv="13.720488627140417" />
             <point ath="5.7130036551819785" atv="75.83034563840972" />
             <point ath="24.435139132953623" atv="78.96172968048513" />
             <point ath="85.17417061416893" atv="30.80497145097292" />
             <point ath="22.549176272080445" atv="12.55886581212855" />
         </hotspot>
-        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN13',hotspottextstyle);">
+        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN13',hotspottextstyle);">
             <point ath="21.157871290423373" atv="8.31454859068455" />
             <point ath="19.000698730227782" atv="10.088354991573715" />
             <point ath="19.912425440384254" atv="11.872194159447135" />
@@ -163,31 +163,31 @@
             <point ath="3.2889669313496483" atv="10.298870540604364" />
             <point ath="9.990410528280279" atv="8.018013606098112" />
         </hotspot>
-        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14',hotspottextstyle);">
+        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN14',hotspottextstyle);">
             <point ath="15.085770981014662" atv="6.17784430563046" />
             <point ath="21.9208090073584" atv="6.595215090285666" />
             <point ath="19.49153522844557" atv="8.280151915664678" />
             <point ath="10.235399573686095" atv="7.932360282626059" />
         </hotspot>
-        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14B',hotspottextstyle);">
+        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN14B',hotspottextstyle);">
             <point ath="15.210373474737764" atv="6.105311233216787" />
             <point ath="16.6050006267634" atv="5.527045951812003" />
             <point ath="23.159940782340698" atv="5.719236199010068" />
             <point ath="21.94634317924914" atv="6.57022061686867" />
         </hotspot>
-        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN15',hotspottextstyle);">
+        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN15',hotspottextstyle);">
             <point ath="-24.041509405156717" atv="11.775929695015662" />
             <point ath="-14.032800570081008" atv="8.465796739832854" />
             <point ath="0.306330845409434" atv="10.42414551836831" />
             <point ath="-0.3925425640685489" atv="13.043787627722796" />
         </hotspot>
-        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN16',hotspottextstyle);">
+        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN16',hotspottextstyle);">
             <point ath="-20.704708056613924" atv="7.425160079919437" />
             <point ath="-9.742488739864143" atv="6.426969158476381" />
             <point ath="7.824194212812301" atv="7.923377578746787" />
             <point ath="0.5573632628593259" atv="10.287426471279284" />
         </hotspot>
-        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN17',hotspottextstyle);">
+        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN17',hotspottextstyle);">
             <point ath="-9.533472346290864" atv="6.397049093632999" />
             <point ath="3.7337257961981436" atv="5.23504026942351" />
             <point ath="11.902696711972112" atv="5.51430607041178" />
@@ -219,7 +219,7 @@
             <cube url="panos/view_3.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
         <!-- land -->
-        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN1',hotspottextstyle);">
+        <hotspot name="CN1" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN1',hotspottextstyle);">
             <point ath="81.35825361681134" atv="22.931855619551232" />
             <point ath="91.8900393578781" atv="23.02742549242104" />
             <point ath="103.5675282774886" atv="21.238915772857084" />
@@ -228,14 +228,14 @@
             <point ath="-179.5125971489676" atv="33.02666059884963" />
             <point ath="6.208553879069086" atv="66.94492817302888" />
         </hotspot>
-        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN2',hotspottextstyle);">
+        <hotspot name="CN2" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN2',hotspottextstyle);">
             <point ath="-173.1953364653124" atv="32.76740185537422" />
             <point ath="-122.84692798834283" atv="20.295549824819595" />
             <point ath="-117.67695225614867" atv="19.90506841033255" />
             <point ath="-77.94603223507477" atv="22.34397700051956" />
             <point ath="-16.024455123782786" atv="65.97413903952229" />
         </hotspot>
-        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN3',hotspottextstyle);">
+        <hotspot name="CN3" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN3',hotspottextstyle);">
             <point ath="-37.2340551659168" atv="14.412581677309191" />
             <point ath="-30.170414375390465" atv="15.838085522120815" />
             <point ath="-26.24348656017895" atv="13.777041432839313" />
@@ -243,7 +243,7 @@
             <point ath="-66.79087380664708" atv="36.59356622194617" />
             <point ath="-76.47207738804269" atv="22.188005861547058" />
         </hotspot>
-        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN4',hotspottextstyle);">
+        <hotspot name="CN4" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN4',hotspottextstyle);">
             <point ath="-23.71668508194739" atv="9.309006433162047" />
             <point ath="-24.85793299268977" atv="10.377122782701422" />
             <point ath="-32.202761925302525" atv="12.864158764430679" />
@@ -251,7 +251,7 @@
             <point ath="-15.826967837171196" atv="12.139362027842584" />
             <point ath="-16.45257585005345" atv="9.3806413664682" />
         </hotspot>
-        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN13',hotspottextstyle);">
+        <hotspot name="CN13" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN13',hotspottextstyle);">
             <point ath="-16.490050579296224" atv="9.286507418151276" />
             <point ath="-15.873638062816894" atv="12.181982715574645" />
             <point ath="-19.305873691681484" atv="14.473843692749034" />
@@ -260,31 +260,31 @@
             <point ath="-0.6375049464362519" atv="10.060514541268606" />
             <point ath="-4.5176761718036005" atv="8.631731149783828" />
         </hotspot>
-        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14',hotspottextstyle);">
+        <hotspot name="CN14" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN14',hotspottextstyle);">
             <point ath="-40.20608839816077" atv="27.558910139314328" />
             <point ath="-18.733786287693988" atv="14.480158162759622" />
             <point ath="-0.5293974199234412" atv="15.854034477731856" />
             <point ath="-4.744481637539252" atv="35.54043110343036" />
         </hotspot>
-        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN14B',hotspottextstyle);">
+        <hotspot name="CN14B" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN14B',hotspottextstyle);">
             <point ath="-66.7527646366371" atv="36.6406481267019" />
             <point ath="-40.353140398511414" atv="27.6158674156593" />
             <point ath="-4.600011250678847" atv="35.674706688534364" />
             <point ath="-15.541141320252564" atv="63.19866548491506" />
         </hotspot>
-        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN15',hotspottextstyle);">
+        <hotspot name="CN15" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN15',hotspottextstyle);">
             <point ath="-3.1568185747589723" atv="8.513924092739364" />
             <point ath="10.087329118773823" atv="7.2200349714505885" />
             <point ath="20.85829719512509" atv="9.56849772821849" />
             <point ath="1.5851107832884281" atv="10.229921878810215" />
         </hotspot>
-        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN16',hotspottextstyle);">
+        <hotspot name="CN16" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN16',hotspottextstyle);">
             <point ath="1.7837253682866958" atv="10.23127171069311" />
             <point ath="32.020757613501814" atv="8.878838320747295" />
             <point ath="42.364916087511915" atv="11.899729236314592" />
             <point ath="2.404834212003607" atv="15.200275966975386" />
         </hotspot>
-        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onhover="showtext('CN17',hotspottextstyle);">
+        <hotspot name="CN17" fillcolor="0x00cc66" fillalpha="0" bordercolor="0x00cc66" borderalpha="0" onover.addevent="tween(fillalpha,0.2);tween(borderalpha,0.5);" onout.addevent="tween(fillalpha,0);tween(borderalpha,0);" onclick="" onhover="showtext('CN17',hotspottextstyle);">
             <point ath="1.9661074152609217" atv="15.653473043313104" />
             <point ath="42.90573320782221" atv="11.990117286945052" />
             <point ath="56.514141082207516" atv="15.864382707384712" />
