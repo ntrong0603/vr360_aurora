@@ -22,9 +22,20 @@ $('#map').on('click', function (e)
 {
     krpano.call('openmap();');
 });
-
+$('#btn-info-view').on('click', function (e)
+{
+    let popup = $(".popup-content-view");
+    if (popup.hasClass('active'))
+    {
+        popup.removeClass('active');
+    } else
+    {
+        popup.addClass('active');
+    }
+});
 function updateInfoScene()
 {
+    var sceneName = krpano.get("scene[get(xml.scene)].name");
     for (let index = 0; index < scenes.length; index++)
     {
         let scene = scenes[index];
@@ -32,6 +43,19 @@ function updateInfoScene()
         krpano.call(`set(layer['${scene['nameScene']}'].onhover, showtext('${scene['name']}',hotspottextstyle))`);
         krpano.call(`set(scene['${scene['nameScene']}'].title, '${scene['name']}')`);
         krpano.call(`set(layer['${scene['nameScene']}'].title, '${scene['name']}'] + "')`);
+
+        if (sceneName == scene['nameScene'])
+        {
+            if (scene['content'] != '' && scene['content'] != null)
+            {
+                $('#btn-info-view').addClass('show');
+                $('.popup-content-view .popup-info .content').html(scene['content']);
+            } else
+            {
+                $('#btn-info-view').removeClass('show');
+                $('.popup-content-view .popup-info .content').html('');
+            }
+        }
     }
 }
 

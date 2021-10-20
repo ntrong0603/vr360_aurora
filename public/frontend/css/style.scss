@@ -835,6 +835,39 @@ nav {
         justify-content: space-between;
         position: relative;
     }
+
+    &.popup-content-view {
+        .popup-info {
+            border-radius: 5px;
+            width: 850px;
+            max-width: 90vw;
+            min-height: 100px;
+            height: auto;
+
+            .content {
+                border-radius: 5px;
+                background-color: white;
+                overflow-y: auto;
+                max-height: 69vh;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+#btn-info-view {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+}
+
+#btn-info-view.show {
+    display: block;
 }
 
 .text-right {
