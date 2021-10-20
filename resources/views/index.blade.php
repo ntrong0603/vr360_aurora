@@ -57,6 +57,8 @@
     <script>
         var urlReservationContact="{{route('reservationContact')}}" ;
         var urlContact="{{route('contact')}}" ;
+        var urlViewLand="{{route('updateView')}}" ;
+
     </script>
     @include('include.scene_info')
     @include('include.utilities_info')

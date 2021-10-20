@@ -17,3 +17,6 @@ Route::get('/', [App\Http\Controllers\TourController::class, 'index'])->name('to
 Route::get('/changeLanguage/{language}', [App\Http\Controllers\TourController::class, 'changeLanguage'])->name('changeLanguage');
 Route::post('/reservationContact', [App\Http\Controllers\ContactController::class, 'reservationContact'])->name('reservationContact');
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'processContact'])->name('contact');
+Route::post('/updateView', [App\Http\Controllers\LandController::class, 'updateView'])->name('updateView');
+
+

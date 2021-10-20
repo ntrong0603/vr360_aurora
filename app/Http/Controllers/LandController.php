@@ -194,7 +194,10 @@ class LandController extends Controller
         ]);
     }
 
-    public function updateView(Request $request){
-        $land = (new Land());
+    public function updateView(Request $request)
+    {
+        $land = (new Land())->find($request->id);
+        $land->view = $land->view + 1;
+        $land->save();
     }
 }
