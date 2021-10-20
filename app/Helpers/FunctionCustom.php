@@ -255,7 +255,7 @@ if (!function_exists('getUtilities')) {
             if (!empty($utilitiesLanguage)) {
                 $name = $utilitiesLanguage->name;
                 if (!empty($utilitiesLanguage->photo)) {
-                    $photo =  asset('storage/utilities_image/') . $utilitiesLanguage->photo;
+                    $photo =  asset('storage/utilities_image/' . $utilitiesLanguage->photo);
                 }
             }
             $data[] = [
