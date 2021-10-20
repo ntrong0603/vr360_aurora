@@ -8,7 +8,7 @@
     </div>
     <ul class="nav-main">
         @foreach (getCategory() as $key => $category)
-        <li class="dropdown {{$key == 0 ? 'active' : ''}}">
+        <li class="dropdown active">
             <a class="nav-group">{{$category['name']}}</a>
             @if (!empty($category['child']))
             <ul>
