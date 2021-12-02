@@ -24,7 +24,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="4.993" vlookat="7.224" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="7.423" vlookat="4.794" fovtype="MFOV" fov="107.076" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/view_1.tiles/preview.jpg" />
 
@@ -499,7 +499,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="179.864" vlookat="14.124" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="265.495" vlookat="8.269" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_1_phong_cho.tiles/preview.jpg" />
 
@@ -519,7 +519,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="99.708" vlookat="5.742" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="357.790" vlookat="15.255" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_1_phong_ke_toan.tiles/preview.jpg" />
 
@@ -539,7 +539,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="162.725" vlookat="10.437" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="280.238" vlookat="13.005" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_1_phong_lam_viec.tiles/preview.jpg" />
 
@@ -580,7 +580,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="173.248" vlookat="19.005" fovtype="MFOV" fov="122.239" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_2_phong_hop.tiles/preview.jpg" />
 
