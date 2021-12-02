@@ -65,7 +65,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Danh mục cha:</label>
                             <div class="col-sm-4">
-                                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="" >
+                                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="">
                                     <option value="0">Chọn danh mục cha</option>
                                     @foreach ($categories as $data)
                                     @include('admin.category.option', ['data' => $data, 'level' => 0, 'category_id' => old('category_id')])
@@ -80,7 +80,7 @@
                             <label class="col-form-label col-sm-2">Chức năng:</label>
                             <div class="col-sm-4">
                                 <select class="form-control @error('style_event') is-invalid @enderror" name="style_event" id="" value="{{old('style_event')}}">
-                                    <option value="" >Chọn chức năng</option>
+                                    <option value="">Chọn chức năng</option>
                                     <option value="1" {{ old('style_event')==1 ? 'selected' : '' }}>Di chuyển đến cảnh</option>
                                     <option value="2" {{ old('style_event')==2 ? 'selected' : '' }}>Hiển thị nội dung</option>
                                     <option value="3" {{ old('style_event')==3 ? 'selected' : '' }}>Chuyển đến địa chỉ liên kết</option>
@@ -100,6 +100,18 @@
                                     @endforeach
                                 </select>
                                 @error('name_scene')
+                                <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-2">Xoay đến vị trí:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control @error('name_hotspot') is-invalid @enderror" name="name_hotspot" id="">
+                                    <option value="">Chọn vị trí</option>
+                                    <option value="khu_nha_o_va_dich_vu" {{ old('name_hotspot')==$scene->name_hotspot ? 'selected' : '' }}>Khu nhà ở và dịch vụ</option>
+                                </select>
+                                @error('name_hotspot')
                                 <span class="error invalid-feedback">{{ $message }}</span>
                                 @enderror
                             </div>

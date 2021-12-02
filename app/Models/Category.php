@@ -19,6 +19,7 @@ class Category extends Model
         'link',
         'style_event',
         'name_scene',
+        'name_hotspot',
         'category_id',
         'status'
     ];

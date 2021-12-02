@@ -14,7 +14,7 @@
             <ul>
                 @foreach ($category['child'] as $child)
                 @if($child['style_event'] == 1)
-                <li data-scene="{{$child['name_scene']}}">
+                <li data-scene="{{$child['name_scene']}}" data-view="{{$child['name_hotspot']}}">
                     {{$child['name']}}
                 </li>
                 @endif

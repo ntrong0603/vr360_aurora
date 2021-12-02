@@ -35,7 +35,10 @@ $('#btn-info-view').on('click', function (e)
 function loadSceneMenu(scene)
 {
     krpano.call("loadscene(" + scene + ",null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))");
-    removeScan();
+}
+function lookAt(name)
+{
+    krpano.call("looktohotspot(" + name + ")");
 }
 $(".nav-group").on("click", function (e)
 {
@@ -56,6 +59,10 @@ $(".dropdown li").click(function (e)
     if ($(this).data('scene'))
     {
         loadSceneMenu($(this).data('scene'));
+        if ($(this).data('view'))
+        {
+            lookAt($(this).data('view'));
+        }
     }
 
     if ($(this).data('content'))
@@ -63,7 +70,6 @@ $(".dropdown li").click(function (e)
         $('.popup-content-nav .popup-info .content').html($(this).data('content'));
         $('.popup-content-nav').addClass('active');
     }
-    menu.removeClass("show");
     $("#btn-nav").removeClass("show");
 });
 function updateInfoScene()

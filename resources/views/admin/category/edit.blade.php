@@ -125,6 +125,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-form-label col-sm-2">Xoay đến vị trí:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control @error('name_hotspot') is-invalid @enderror" name="name_hotspot" id="">
+                                    <option value="">Chọn vị trí</option>
+                                    <option value="khu_nha_o_va_dich_vu" {{ old('name_hotspot', $category->name_hotspot)== 'khu_nha_o_va_dich_vu' ? 'selected' : '' }}>Khu nhà ở và dịch vụ</option>
+                                </select>
+                                @error('name_hotspot')
+                                <span class="error invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-form-label col-sm-2">Liên kết:</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{old('link', $category->link)}}">

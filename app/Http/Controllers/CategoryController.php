@@ -65,6 +65,7 @@ class CategoryController extends Controller
             'link' => $request['link'],
             'style_event' => $request['style_event'],
             'name_scene' => $request['name_scene'],
+            'name_hotspot' => $request['name_hotspot'],
             'category_id' => $request['category_id'],
             'status' => !empty($request['status']) ? $request->status : 0,
         ];
@@ -143,6 +144,7 @@ class CategoryController extends Controller
             'link' => $request['link'],
             'style_event' => $request['style_event'],
             'name_scene' => $request['name_scene'],
+            'name_hotspot' => $request['name_hotspot'],
             'category_id' => $request['category_id'],
             'status' => !empty($request['status']) ? $request->status : 0,
         ];

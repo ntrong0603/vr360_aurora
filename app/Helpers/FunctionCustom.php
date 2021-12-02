@@ -301,6 +301,7 @@ if (!function_exists('getCategory')) {
                     'link' => $child->link,
                     'style_event' => $child->style_event,
                     'name_scene' => $child->name_scene,
+                    'name_hotspot' => $child->name_hotspot,
                     'content' =>  $content
                 ];
             }

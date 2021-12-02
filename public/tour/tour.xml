@@ -55,6 +55,8 @@
         <hotspot name="scene_view_5" ath="2.416" atv="12.686" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_5,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_5',hotspottextstyle);"/>
         <hotspot name="scene_view_6" ath="2.250" atv="20.469" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
 
+        <hotspot name="khu_nha_o_va_dich_vu" style="skin_empty" ath="44.163" atv="13.783" />
+
     </scene>
 
     <scene name="scene_view_2" title="view 2" onstart="updateradar()" thumburl="panos/view_2.tiles/thumb.jpg" lat="19.97843917" lng="106.16392611" heading="0.0">
