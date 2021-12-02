@@ -825,6 +825,22 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   min-height: 100px;
 }
 
+.popup .btn-close-popup {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: block;
+  background-color: red;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26.5px;
+  font-size: 24px;
+  text-shadow: 2px 2px 2px #000000;
+}
+
 #btn-info-view {
   position: fixed;
   top: 10px;

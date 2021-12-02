@@ -3,6 +3,7 @@
 </button>
 <div class="popup popup-content-view">
     <div class="popup-info">
+        <a class="btn-close-popup">x</a>
         <div class="content">
         </div>
     </div>

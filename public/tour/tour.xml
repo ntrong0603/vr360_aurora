@@ -504,7 +504,7 @@
         <image prealign="0|0.0|0">
             <cube url="panos/tang_1_phong_cho.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
-        <hotspot name="scene_tang_1_sanh" ath="48.165" atv="6.934" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_sanh" ath="-110" atv="6.934" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
 
     </scene>
 
@@ -524,7 +524,7 @@
         <image prealign="0|0.0|0">
             <cube url="panos/tang_1_phong_ke_toan.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
-        <hotspot name="scene_tang_1_sanh" ath="-4.982" atv="8.348" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_sanh" ath="-105" atv="8.348" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
 
     </scene>
 
@@ -544,7 +544,7 @@
         <image prealign="0|0.0|0">
             <cube url="panos/tang_1_phong_lam_viec.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
-        <hotspot name="scene_tang_1_sanh" ath="63.070" atv="4.668" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_sanh" ath="-40" atv="4.668" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
 
     </scene>
 
@@ -585,7 +585,7 @@
         <image prealign="0|0.0|0">
             <cube url="panos/tang_2_phong_hop.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
-        <hotspot name="scene_tang_2_sanh" ath="91.483" atv="3.393" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_2_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_2_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_2_sanh" ath="77.483" atv="3.393" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_2_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_2_sanh',hotspottextstyle);"/>
 
     </scene>
 

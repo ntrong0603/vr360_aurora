@@ -198,7 +198,7 @@ $(".popup-info").click(function (e)
 {
     e.stopPropagation();
 });
-$(".popup-btn-close").click(function ()
+$(".popup-btn-close, .btn-close-popup").click(function ()
 {
     $(".popup").removeClass("active");
 });
