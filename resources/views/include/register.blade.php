@@ -1,5 +1,6 @@
 <div class="popup popup-register">
     <div class="popup-info">
+        <a class="btn-close-popup">x</a>
         <div class="popup-title">
             <h1>{{getTitle('dktq')}}</h1>
         </div>

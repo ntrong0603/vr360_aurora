@@ -359,7 +359,7 @@
         <hotspot name="scene_hanh_lang_ra_khu_nha_nhan_vien" ath="-22.598" atv="27.571" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_hanh_lang_ra_khu_nha_nhan_vien,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_hanh_lang_ra_khu_nha_nhan_vien',hotspottextstyle);"/>
         <hotspot name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" ath="13.428" atv="25.085" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_ngoai_hanh_lang,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_ngoai_hanh_lang',hotspottextstyle);"/>
         <hotspot name="scene_tang_1_sanh" ath="-4.706" atv="28.232" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
-        <hotspot name="scene_tram_cap_nuoc" ath="-12.568" atv="9.666" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tram_cap_nuoc,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tram_cap_nuoc',hotspottextstyle);"/>
+        <!-- <hotspot name="scene_tram_cap_nuoc" ath="-12.568" atv="9.666" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tram_cap_nuoc,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tram_cap_nuoc',hotspottextstyle);"/> -->
 
     </scene>
     <!-- Overview-->
