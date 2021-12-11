@@ -110,6 +110,24 @@ function updateInfoUtilities()
         {
             krpano.call(`set(hotspot['${util['nameHotspot']}'].onhover, showimage('${util['photo']}',hotspottextstyle))`);
         }
+        krpano.call(`set(hotspot['${util['nameHotspot']}'].onclick, js(showInfoUtil(${util['id']})))`);
+    }
+}
+
+function showInfoUtil(id)
+{
+    for (let index = 0; index < utilities.length; index++)
+    {
+        let util = utilities[index];
+        if (parseInt(util['id']) == parseInt(id))
+        {
+            if (util['content'] != '' && util['content'] != null)
+            {
+                $('.popup-content-land .content').html(util['content']);
+                $('.popup-content-land').addClass('active');
+            }
+            break;
+        }
     }
 }
 
@@ -145,17 +163,6 @@ function showInfoLand(id)
             {
                 $('.popup-content-land .content').html(land['content']);
                 $('.popup-content-land').addClass('active');
-
-                $.ajax({
-                    url: urlViewLand,
-                    type: 'POST',
-                    data: {
-                        id: id
-                    },
-                    success: function (result)
-                    {
-                    }
-                });
             }
             break;
         }

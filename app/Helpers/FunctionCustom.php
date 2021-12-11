@@ -249,6 +249,7 @@ if (!function_exists('getUtilities')) {
             $name = $item->name;
             $nameHotspot = $item->name_hotspot;
             $photo = '';
+            $content = '';
             $utilitiesLanguage = $model
                 ->where('lang', \Session::get('website_language'))
                 ->where('utilities_id', $item->id)->first();
@@ -257,11 +258,13 @@ if (!function_exists('getUtilities')) {
                 if (!empty($utilitiesLanguage->photo)) {
                     $photo =  asset('storage/utilities_image/' . $utilitiesLanguage->photo);
                 }
+                $content = $utilitiesLanguage->content;
             }
             $data[] = [
                 'id' => $id,
                 'name' => $name,
                 'photo' => $photo,
+                'content' => $content,
                 'nameHotspot' => $nameHotspot
             ];
         }
