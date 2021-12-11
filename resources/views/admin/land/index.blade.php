@@ -51,7 +51,7 @@
                                         </select>
                                     </div> --}}
                                     <div class="col-sm-2">
-                                        <label for="inputName" class="col-form-label">Tình trạn</label>
+                                        <label for="inputName" class="col-form-label">Tình trạng</label>
                                         <select name="status" class="form-control">
                                             <option value="">Chọn loại</option>
                                             <option value="1" {{ Request::get('status')==1 ? 'selected' : '' }}>Còn trống</option>

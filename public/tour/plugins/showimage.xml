@@ -153,7 +153,7 @@
 		set(tf.enabled, false);
 		set(tf.zorder, 999999);
 		if(ts.parent, copy(tf.parent, ts.parent) );
-		set(tf.scale, 0.4);
+		set(tf.scale, 0.6);
 		set(tf.url, '%1');
 
 		<!-- remove the shortcut variables -->

@@ -841,6 +841,37 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   text-shadow: 2px 2px 2px #000000;
 }
 
+.popup.popup-dark .popup-info {
+  background: rgba(62, 58, 58, 0.69);
+  border-radius: 0;
+}
+
+.popup.popup-dark .popup-info .content {
+  background: none;
+  color: white !important;
+}
+
+.popup.popup-dark .btn-close-popup {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block;
+  color: red;
+  background: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid red;
+  border-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  text-align: center;
+  line-height: 26.5px;
+  font-size: 24px;
+  text-shadow: none;
+}
+
 #btn-info-view {
   position: fixed;
   top: 10px;

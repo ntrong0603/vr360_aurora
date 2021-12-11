@@ -130,6 +130,8 @@
                                 <select class="form-control @error('name_hotspot') is-invalid @enderror" name="name_hotspot" id="">
                                     <option value="">Chọn vị trí</option>
                                     <option value="khu_nha_o_va_dich_vu" {{ old('name_hotspot', $category->name_hotspot)== 'khu_nha_o_va_dich_vu' ? 'selected' : '' }}>Khu nhà ở và dịch vụ</option>
+                                    <option value="nha_may_xu_ly_cap_nuoc" {{ old('name_hotspot', $category->name_hotspot)== 'nha_may_xu_ly_cap_nuoc' ? 'selected' : '' }}>Nhà máy xử lý cấp nước</option>
+
                                 </select>
                                 @error('name_hotspot')
                                 <span class="error invalid-feedback">{{ $message }}</span>

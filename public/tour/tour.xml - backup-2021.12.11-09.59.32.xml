@@ -208,7 +208,6 @@
         <hotspot name="scene_view_3" ath="4.532" atv="2.447" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_3,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_3',hotspottextstyle);"/>
         <hotspot name="scene_view_1" ath="-178.086" atv="2.084" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
         <hotspot name="scene_view_4" ath="-13.540" atv="11.513" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_4,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_4',hotspottextstyle);"/>
-		<hotspot name="nha_may_xu_ly_cap_nuoc" style="skin_empty" ath="-63.900" atv="16.354"/>
 
     </scene>
 

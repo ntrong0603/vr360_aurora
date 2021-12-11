@@ -36,7 +36,7 @@
     </ul>
 </nav>
 
-<div class="popup popup-content-nav">
+<div class="popup popup-dark popup-content-nav">
     <div class="popup-info">
         <a class="btn-close-popup">x</a>
         <div class="content">
