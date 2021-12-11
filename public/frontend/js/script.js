@@ -10,6 +10,8 @@ $(function ()
 var krpano = document.getElementById("krpanoSWFObject");
 let checkMobile = false;
 var loading = $(".loading");
+let check = false;
+const elMasterPlan = $(".master-plan");
 
 window.mobileCheck = function ()
 {
@@ -19,7 +21,18 @@ window.mobileCheck = function ()
 };
 $('#map').on('click', function (e)
 {
-    krpano.call('openmap();');
+    // krpano.call('openmap();');
+    if (elMasterPlan.hasClass("active"))
+    {
+        elMasterPlan.removeClass("active");
+    } else
+    {
+        elMasterPlan.addClass("active");
+    }
+});
+$(".btn-close-masterplan").on('click', function (e)
+{
+    elMasterPlan.removeClass("active");
 });
 $('#btn-info-view').on('click', function (e)
 {
@@ -367,5 +380,55 @@ $(".popup-form-register form").submit(function (e)
                 loading.css("display", "none");
             }
         }
+    });
+});
+
+//Zoom image
+var wzoom;
+document.addEventListener('DOMContentLoaded', function ()
+{
+    if (window.mobileCheck)
+    {
+        wzoom = WZoom.create('#img-zoom', {
+            maxScale: 5,
+            minScale: 1,
+            width: 2000,
+            height: 1000,
+            zoomOnClick: true,
+            dragScrollableOptions: {
+                onGrab: function ()
+                {
+                    document.getElementById('img-masterplan').style.cursor = 'grabbing';
+                },
+                onDrop: function ()
+                {
+                    document.getElementById('img-masterplan').style.cursor = 'grab';
+                }
+            }
+        });
+    } else
+    {
+        wzoom = WZoom.create('#img-zoom', {
+            maxScale: 5,
+            minScale: 0.35,
+            width: 2000,
+            height: 1000,
+            zoomOnClick: false,
+            dragScrollableOptions: {
+                onGrab: function ()
+                {
+                    document.getElementById('img-masterplan').style.cursor = 'grabbing';
+                },
+                onDrop: function ()
+                {
+                    document.getElementById('img-masterplan').style.cursor = 'grab';
+                }
+            }
+        });
+    }
+
+    window.addEventListener('resize', function ()
+    {
+        wzoom.prepare();
     });
 });

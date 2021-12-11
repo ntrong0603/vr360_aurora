@@ -46,6 +46,12 @@
             <img src="{{ asset('frontend/images/envelope-regular.svg')}}" alt="btn contact">
         </div>
     </a>
+    <div class="master-plan">
+        <a class="btn-close-masterplan"></a>
+        <div id="img-masterplan">
+            <img id="img-zoom" src="{{asset('tour/images/map.png')}}" alt="masterplan">
+        </div>
+    </div>
     <!-- -->
     @include('include.nav')
     @include('include.language')
