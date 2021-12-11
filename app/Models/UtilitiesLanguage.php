@@ -18,7 +18,8 @@ class UtilitiesLanguage extends Model
         'name',
         'utilities_id',
         'lang',
-        'photo'
+        'photo',
+        'content'
     ];
 
     public function utilities()

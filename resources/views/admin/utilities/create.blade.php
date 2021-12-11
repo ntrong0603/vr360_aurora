@@ -130,4 +130,18 @@
             });
         });
 </script>
+@if (!empty($languages))
+@foreach ($languages as $key => $language)
+<script>
+    CKEDITOR.replace( "{{'content_'.$language->code}}", {
+        filebrowserBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html') }}",
+        filebrowserImageBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Images') }}",
+        filebrowserFlashBrowseUrl: "{{ asset('plugins/ckfinder/ckfinder.html?type=Flash') }}",
+        filebrowserUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",
+        filebrowserImageUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}",
+        filebrowserFlashUploadUrl: "{{ asset('plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}"
+    });
+</script>
+@endforeach
+@endif
 @endpush

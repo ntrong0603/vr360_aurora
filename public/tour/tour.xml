@@ -408,7 +408,7 @@
             <cube url="panos/hanh_lang_ra_khu_nha_nhan_vien.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
         <hotspot name="scene_view_6" ath="163.474" atv="-22.345" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
-		<hotspot name="spot1" ath="-5.418" atv="-1.606" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onhover="showtext('Khu nhà ở nhân viên',hotspottextstyle);" />
+		<hotspot name="khu_nha_o_nhan_vien" ath="-5.418" atv="-1.606" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onhover="showtext('Khu nhà ở nhân viên',hotspottextstyle);" />
 
     </scene>
 

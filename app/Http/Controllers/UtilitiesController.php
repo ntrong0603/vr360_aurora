@@ -67,9 +67,9 @@ class UtilitiesController extends Controller
             $dataUtilitiesLang = [
                 'name' => $name,
                 'utilities_id' => $utilities->id,
-                'lang' => $language->code
+                'lang' => $language->code,
+                'content' => $request['content_' . $language->code]
             ];
-
             if ($request->hasFile('photo_' . $language->code)) {
                 $image      = $request->file('photo_' . $language->code);
                 $fileName   = 'utilities-image-' . $language->code . '-' .  time() . '.' . $image->getClientOriginalExtension();
@@ -146,7 +146,8 @@ class UtilitiesController extends Controller
 
             $dataUtilitiesLang = [
                 'name' => $name,
-                'utilities_id' => $utilities->id
+                'utilities_id' => $utilities->id,
+                'content' => $request['content_' . $utilitiesLanguage->lang]
             ];
             if ($request->hasFile('photo_' . $utilitiesLanguage->lang)) {
                 if (!empty($utilitiesLanguage->photo) && Storage::disk('utilities_image')->has($utilitiesLanguage->photo)) {
@@ -180,7 +181,8 @@ class UtilitiesController extends Controller
                     $dataUtilitiesLang = [
                         'name' => $name,
                         'utilities_id' => $utilities->id,
-                        'lang' => $language->code
+                        'lang' => $language->code,
+                        'content' => $request['content_' . $language->code]
                     ];
 
                     if ($request->hasFile('photo_' . $language->code)) {
