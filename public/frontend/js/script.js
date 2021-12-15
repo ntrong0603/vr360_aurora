@@ -392,8 +392,8 @@ document.addEventListener('DOMContentLoaded', function ()
         wzoom = WZoom.create('#img-zoom', {
             maxScale: 5,
             minScale: 1,
-            width: 2000,
-            height: 1000,
+            width: 4000,
+            height: 2000,
             zoomOnClick: true,
             dragScrollableOptions: {
                 onGrab: function ()
