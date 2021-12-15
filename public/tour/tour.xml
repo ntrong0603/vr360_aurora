@@ -317,7 +317,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="93.070" vlookat="24.242" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="91.485" vlookat="25.384" fovtype="MFOV" fov="129.873" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/view_4.tiles/preview.jpg" />
 
@@ -336,7 +336,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="90.165" vlookat="20.560" fovtype="MFOV" fov="85.858" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="90.969" vlookat="23.309" fovtype="MFOV" fov="133.508" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/view_5.tiles/preview.jpg" />
 
@@ -354,7 +354,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="-2.707" vlookat="26.046" fovtype="MFOV" fov="85.806" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="0.821" vlookat="32.964" fovtype="MFOV" fov="113.742" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/view_6.tiles/preview.jpg" />
 
@@ -443,7 +443,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="175.744" vlookat="16.036" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="231.480" vlookat="11.016" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/nha_chuyen_gia_ben_trong.tiles/preview.jpg" />
 
@@ -567,7 +567,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="86.453" vlookat="3.956" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="103.917" vlookat="2.178" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_2_sanh.tiles/preview.jpg" />
 
@@ -588,7 +588,7 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="173.248" vlookat="19.005" fovtype="MFOV" fov="122.239" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="175.328" vlookat="3.353" fovtype="MFOV" fov="122.239" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_2_phong_hop.tiles/preview.jpg" />
 

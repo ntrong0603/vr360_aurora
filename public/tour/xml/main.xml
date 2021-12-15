@@ -3,7 +3,7 @@
     <include url="%SWFPATH%/plugins/showimage.xml" />
 
 
-    <autorotate enabled="true" waittime="1.0" accel="1.0" speed="1.0" horizon="0.0" tofov="120.0" />
+    <!-- <autorotate enabled="true" waittime="1.0" accel="1.0" speed="1.0" horizon="0.0" tofov="120.0" /> -->
 
     <textstyle name="hotspottextstyle" font="Arial" fontsize="18" bold="true" padding="5 10" italic="false" textcolor="0xff9900" background="true" backgroundcolor="0x333333" border="true" bordercolor="0xff9900" alpha="1" blendmode="layer" effect="glow(0x000000,0.5,4,3);dropshadow(4,45,0x000000,4,0.66);" origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-5" noclip="true" showtime="0.1" fadetime="0.25" fadeintime="0.1" />
     <textstyle name="hotspottextstyle2" font="Arial" fontsize="18" bold="true" padding="5 10" italic="false" textcolor="0xff9900" background="true" backgroundcolor="0x333333" border="true" bordercolor="0xff9900" alpha="1" blendmode="layer" effect="glow(0x000000,0.5,4,3);dropshadow(4,45,0x000000,4,0.66);" origin="cursor" edge="bottom" textalign="center" xoffset="0" yoffset="-5" noclip="true" showtime="3" fadetime="0.25" fadeintime="0.1" />
