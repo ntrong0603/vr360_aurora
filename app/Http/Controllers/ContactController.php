@@ -260,7 +260,7 @@ class ContactController extends Controller
                 $contact->business_name            = $businessName;
                 $contact->note                     = $request->note;
                 $contact->save();
-                // $result = Mail::to($email)->send(new ContactMail($details));
+                $result = Mail::to($email)->send(new ContactMail($details));
                 $result = [
                     "error" => 0,
                     "Messager" => "Gửi thông tin thành cồng",

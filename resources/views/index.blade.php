@@ -53,6 +53,7 @@
         </div>
     </div>
     <!-- -->
+    <!-- -->
     @include('include.nav')
     @include('include.language')
     <!-- popup -->

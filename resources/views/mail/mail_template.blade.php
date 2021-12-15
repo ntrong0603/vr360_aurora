@@ -40,7 +40,7 @@
                     Ngành nghề:
                 </dt>
                 <dd>
-                    {{ $details['profection'] }}
+                    {{ $details['businessName'] }}
                 </dd>
             </dl>
             <dl>
