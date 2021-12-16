@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Quản lý đăng ký tham quan')
+@section('title', 'Quản lý đăng ký đặt giữ chỗ')
 @push('styles')
 <style>
     .new {
@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">Quản lý đăng ký tham quan</h3>
+                    <h3 class="card-title title-custom">Quản lý đăng ký đặt giữ chỗ</h3>
                 </div>
 
                 <!-- /.card-header -->
@@ -60,7 +60,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-2">
                                         <button type="submit" class="btn btn-info">Tìm kiếm</button>
-                                        <a href="{{route('reservation.index')}}" class="btn btn-secondary">Reset</a>
+                                        <a href="{{route('reservationRegister.index')}}" class="btn btn-secondary">Reset</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                     {{ (($datas->currentPage() - 1) * 20) + $key + 1 }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('reservation.edit', ['reservation' => $data->id]) }}">
+                                    <a href="{{ route('reservationRegister.edit', ['reservationRegister' => $data->id]) }}">
                                         {{$data->ten_dk}}
                                         @if ($data->new == 0)
                                         <span class="new">NEW</span>
@@ -112,12 +112,12 @@
                                     {{$data->business->name ?? ''}}
                                 </td>
                                 <td>
-                                    <a href="{{ route('reservation.edit', ['reservation' => $data->id]) }}">
+                                    <a href="{{ route('reservationRegister.edit', ['reservationRegister' => $data->id]) }}">
                                         <i class="fas fa-pencil-alt text-warning"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="delete-row" href="javascript:;" data-href="{{ route('reservation.delete', ['reservation' => $data->id]) }}">
+                                    <a class="delete-row" href="javascript:;" data-href="{{ route('reservationRegister.delete', ['reservationRegister' => $data->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
                                 </td>

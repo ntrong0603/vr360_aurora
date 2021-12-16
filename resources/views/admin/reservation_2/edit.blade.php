@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Xem thông tin đăng ký tham quan')
+@section('title', 'Xem thông tin đăng ký đặt giữ chỗ')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Quản lý đăng ký tham quan</a></li>
-                        <li class="breadcrumb-item active">Xem thông tin tham quan</li>
+                        <li class="breadcrumb-item"><a href="#">Quản lý đăng ký đặt giữ chỗ</a></li>
+                        <li class="breadcrumb-item active">Xem thông tin đặt giữ chỗ</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title title-custom">XEM THÔNG TIN ĐĂNG KÝ THAM QUAN</h3>
+                    <h3 class="card-title title-custom">XEM THÔNG TIN ĐĂNG KÝ ĐẶT GIỮ CHỖ</h3>
                 </div>
                 <!-- /.card-header -->
                 <form class="form-horizontal form-brand" method="POST" enctype="multipart/form-data">
@@ -33,108 +33,67 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Tên khách hàng:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->ten_dk}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->ten_dk}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Số điện thoại:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->sdt}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->sdt}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Email:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->email}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->email}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Tên doanh nghiệp:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->ten_doanh_nghiep}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->ten_doanh_nghiep}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Ngành nghề kinh doanh:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->business->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->business->name ?? ''}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Quốc gia:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->country->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->country->name ?? ''}}" readonly>
                             </div>
                         </div>
-                        @if($reservation->loai == 1)
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Mục đích sử dụng:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="
-                                @if($reservation->muc_dich_tham_quan == 1)
-                                'Mở rộng sản xuất'
-                                @elseif($reservation->muc_dich_tham_quan == 2)
-                                'Thành lập doanh nghiệp mới'
-                                @endif
-                                " readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->landUse->name ?? ''}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Múc đích sử dụng khác:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->muc_dich_su_dung_khac}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->muc_dich_su_dung_khac}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Sản phẩm quan tâm:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->datChoThue->name ?? ''}}, {{$reservation->nhaXuongChoThue->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->land->name ?? ''}}" readonly>
                             </div>
                         </div>
-                        @endif
-
-                        @if($reservation->loai == 2)
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Mục đích tham quan:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->visiting ?? ''}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Múc đích tham quan khác:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->muc_dich_tham_quan_khac}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Số người tham quan:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->so_nguoi_tham_quan}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Tham quan từ ngày:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->tham_quan_tu_ngay}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Tham quan đến ngày:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->tham_quan_den_ngay}}" readonly>
-                            </div>
-                        </div>
-                        @endif
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Nội dung:</label>
                             <div class="col-sm-4">
-                                <textarea class="form-control" readonly>{{$reservation->content}}</textarea>
+                                <textarea class="form-control" readonly>{{$reservationRegister->content}}</textarea>
                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <a href="{{ route('reservation.index') }}" class="btn btn-info">Quay lại</a>
+                        <a href="{{ route('reservationRegister.index') }}" class="btn btn-info">Quay lại</a>
                     </div>
                 </form>
             </div>

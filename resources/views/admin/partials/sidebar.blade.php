@@ -29,10 +29,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*')) ? 'active' : '' }}" class="nav-link">
+                    <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*') && !request()->is('admin/reservationRegister*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý đăng ký tham quan ({{countVisit()}})
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('reservationRegister.index') }}" class="nav-link {{ (request()->is('admin/reservationRegister*')) ? 'active' : '' }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý đăng ký đặt chỗ ({{countReservation()}})
                         </p>
                     </a>
                 </li>
@@ -53,7 +61,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('land.index') }}" class="nav-link {{ (request()->is('admin/land*') && !request()->is('admin/landStyle*')) ? 'active' : '' }}">
+                    <a href="{{ route('land.index') }}" class="nav-link {{ (request()->is('admin/land*') && !request()->is('admin/landStyle*') && !request()->is('admin/landUse*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý lô đất
@@ -105,6 +113,14 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý mục đích tham quan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('landUse.index') }}" class="nav-link {{ (request()->is('admin/landUse*')) ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                            Quản lý mục đích sử dụng
                         </p>
                     </a>
                 </li>

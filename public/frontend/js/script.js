@@ -315,7 +315,19 @@ $(".popup-form-contact form").on('reset', function (e)
     $(".form-group").removeClass("errors");
     $(".errors-desc").remove();
 })
-
+// register form
+$("#btn-reservation-contact").click(function ()
+{
+    let popup = $(".popup-register");
+    if (popup.hasClass("active"))
+    {
+        popup.removeClass("active");
+    } else
+    {
+        $(".popup").removeClass("active");
+        popup.addClass("active");
+    }
+});
 $(".popup-form-register form").submit(function (e)
 {
     e.preventDefault();
@@ -382,7 +394,19 @@ $(".popup-form-register form").submit(function (e)
         }
     });
 });
-
+// register land
+$("#btn-register-land").click(function ()
+{
+    let popup = $(".popup-register-land");
+    if (popup.hasClass("active"))
+    {
+        popup.removeClass("active");
+    } else
+    {
+        $(".popup").removeClass("active");
+        popup.addClass("active");
+    }
+});
 //Zoom image
 var wzoom;
 document.addEventListener('DOMContentLoaded', function ()

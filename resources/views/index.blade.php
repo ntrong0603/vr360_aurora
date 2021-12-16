@@ -52,7 +52,11 @@
             <img id="img-zoom" src="{{asset('tour/images/map.png')}}" alt="masterplan">
         </div>
     </div>
-    <!-- -->
+    <!-- btn register land and register tour -->
+    <ul id="visit-reservation">
+        <li id="btn-register-land">{{ getTitle('dkdgc') }}</li>
+        <li id="btn-reservation-contact">{{ getTitle('dktq') }}</li>
+    </ul>
     <!-- -->
     @include('include.nav')
     @include('include.language')
@@ -61,6 +65,7 @@
     @include('include.land_content')
     @include('include.contact')
     @include('include.register')
+    @include('include.register_land')
     <!-- -->
     <script>
         var urlReservationContact="{{route('reservationContact')}}" ;

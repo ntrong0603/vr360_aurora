@@ -88,6 +88,14 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::post('/update/{landStyle}', [App\Http\Controllers\LandStyleController::class, 'update'])->name('landStyle.update');
         Route::delete('/delete/{landStyle}', [App\Http\Controllers\LandStyleController::class, 'destroy'])->name('landStyle.delete');
     });
+    Route::group(['prefix' => 'landUse'], function () {
+        Route::get('/', [App\Http\Controllers\LandUseController::class, 'index'])->name('landUse.index');
+        Route::get('/create', [App\Http\Controllers\LandUseController::class, 'create'])->name('landUse.create');
+        Route::post('/store', [App\Http\Controllers\LandUseController::class, 'store'])->name('landUse.store');
+        Route::get('/edit/{landUse}', [App\Http\Controllers\LandUseController::class, 'edit'])->name('landUse.edit');
+        Route::post('/update/{landUse}', [App\Http\Controllers\LandUseController::class, 'update'])->name('landUse.update');
+        Route::delete('/delete/{landUse}', [App\Http\Controllers\LandUseController::class, 'destroy'])->name('landUse.delete');
+    });
     Route::group(['prefix' => 'enquiry'], function () {
         Route::get('/', [App\Http\Controllers\EnquiryController::class, 'index'])->name('enquiry.index');
         Route::get('/create', [App\Http\Controllers\EnquiryController::class, 'create'])->name('enquiry.create');
@@ -117,6 +125,12 @@ Route::group(['middleware' => ['auth:admin', 'role:admin']], function () {
         Route::get('/edit/{reservation}', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');
         Route::delete('/delete/{reservation}', [App\Http\Controllers\ReservationController::class, 'destroy'])
             ->name('reservation.delete');
+    });
+    Route::group(['prefix' => 'reservationRegister'], function () {
+        Route::get('/', [App\Http\Controllers\ReservationRegisterController::class, 'index'])->name('reservationRegister.index');
+        Route::get('/edit/{reservationRegister}', [App\Http\Controllers\ReservationRegisterController::class, 'edit'])->name('reservationRegister.edit');
+        Route::delete('/delete/{reservationRegister}', [App\Http\Controllers\ReservationRegisterController::class, 'destroy'])
+            ->name('reservationRegister.delete');
     });
     Route::group(['prefix' => 'contact'], function () {
         Route::get('/', [App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');

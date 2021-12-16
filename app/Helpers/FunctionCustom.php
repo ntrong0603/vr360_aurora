@@ -13,8 +13,11 @@ use App\Models\Enquiry;
 use App\Models\EnquiryLanguage;
 use App\Models\Land;
 use App\Models\LandLanguage;
+use App\Models\LandUse;
+use App\Models\LandUseLanguage;
 use App\Models\Language;
 use App\Models\Reservation;
+use App\Models\ReservationRegister;
 use App\Models\Scene;
 use App\Models\SceneLanguage;
 use App\Models\Setting;
@@ -209,6 +212,15 @@ if (!function_exists('countVisit')) {
     }
 }
 
+if (!function_exists('countReservation')) {
+    function countReservation()
+    {
+        $count = (new ReservationRegister())->where('new', 0)->count();
+        return $count;
+    }
+}
+
+
 if (!function_exists('getScene')) {
     function getScene()
     {
@@ -342,6 +354,30 @@ if (!function_exists('getLand')) {
                 'content' => $content,
                 'nameLand' => $item->name_land,
                 'status' => $item->status
+            ];
+        }
+        return $data;
+    }
+}
+
+if (!function_exists('getLandUse')) {
+    function getLandUse()
+    {
+        $lanUseLanguageModel = new LandUseLanguage();
+        $data = [];
+        $landUses = (new LandUse())->where('status', 1)->get();
+        foreach ($landUses as $landUse) {
+            $id = $landUse->id;
+            $name = $landUse->name;
+            $landUseLanguage = $lanUseLanguageModel
+                ->where('lang', \Session::get('website_language'))
+                ->where('land_use_id', $landUse->id)->first();
+            if (!empty($landUseLanguage)) {
+                $name = $landUseLanguage->name;
+            }
+            $data[] = [
+                'id' => $id,
+                'name' => $name,
             ];
         }
         return $data;

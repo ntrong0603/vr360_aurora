@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\TourController::class, 'index'])->name('tour');
 Route::get('/changeLanguage/{language}', [App\Http\Controllers\TourController::class, 'changeLanguage'])->name('changeLanguage');
 Route::post('/reservationContact', [App\Http\Controllers\ContactController::class, 'reservationContact'])->name('reservationContact');
+Route::post('/reservationLand', [App\Http\Controllers\ContactController::class, 'reservationLand'])->name('reservationLand');
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'processContact'])->name('contact');
 Route::post('/updateView', [App\Http\Controllers\LandController::class, 'updateView'])->name('updateView');
 

@@ -25,6 +25,7 @@
 
 <body>
     <div id="wrap">
+        <h1>Đăng ký tham quan</h1>
         <div>
             <dl>
                 <dt>

@@ -145,7 +145,7 @@ class ContactController extends Controller
                 $contact->loai                       = 2;
 
                 $contact->save();
-                // $result = Mail::to($email)->send(new ContactMail($details));
+                $result = Mail::to($email)->send(new ContactMail($details));
                 $result = [
                     "error" => 0,
                     "Messager" => "Gửi thông tin thành cồng",
@@ -160,6 +160,98 @@ class ContactController extends Controller
         return response()->json($result);
     }
 
+    public function reservationLand(Request $request)
+    {
+        $result = [];
+        $companyName = getSetting("company_name") ?? "Khu công nghiệp Aurora";
+        $email = getSetting("to_email");
+        if (empty($email)) {
+            $result = [
+                "error" => 1,
+                "Messager" => "Not found email send to",
+            ];
+        } else {
+            $rule = [
+                'ten_dk'           => 'required',
+                'ten_doanh_nghiep' => 'required',
+                'email'            => 'required|email',
+                'sdt'              => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            ];
+            $mesRule = [
+                'ten_dk.required' => getTitle('vldtt'),
+                'ten_doanh_nghiep.required' => getTitle('vldtt'),
+                'email.required' => getTitle('vldtt'),
+                'email.email' => getTitle('dcemkhl'),
+                'sdt.required' => getTitle('vldtt'),
+                'sdt.regex' => getTitle('sdtkhl'),
+            ];
+            $request->validate($rule, $mesRule);
+            $details = $request->all();
+            $details["companyName"] = $companyName;
+            $details["template"] = 'mail.visit';
+            $details["subject"] = '[Đăng ký đặt giữ chỗ] Liên hệ từ khách hàng';
+            if (!empty($details["nganh_nghe"])) {
+                $details["nganh_nghe"] = ((new Business())
+                    ->select(['name'])
+                    ->where('id', $details["nganh_nghe"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["nganh_nghe"] = '';
+            }
+            if (!empty($details["quoc_gia"])) {
+                $details["quoc_gia"] = ((new Country())
+                    ->select(['name'])
+                    ->where('id', $details["quoc_gia"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["quoc_gia"] = '';
+            }
+            if (!empty($details["quoc_gia"])) {
+                $details["quoc_gia"] = ((new Country())
+                    ->select(['name'])
+                    ->where('id', $details["quoc_gia"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["quoc_gia"] = '';
+            }
+            $visitModel = new Visiting();
+            $visiting = '';
+            if (!empty($request->muc_dich_tham_quan)) {
+                foreach ($request->muc_dich_tham_quan as $mucDich) {
+                    $visiting = $visiting . ($visitModel->find((int)$mucDich))->name . ',';
+                }
+            }
+            try {
+                // $contact                             = new Reservation();
+                // $contact->ten_dk                     = $request->ten_dk;
+                // $contact->sdt                        = $request->sdt;
+                // $contact->email                      = $request->email;
+                // $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
+                // $contact->country_id                 = $request->quoc_gia;
+                // $contact->business_id                = $request->nganh_nghe;
+                // $contact->visiting                   = $visiting;
+                // $contact->muc_dich_tham_quan_khac    = $request->muc_dich_tham_quan_khac;
+                // $contact->so_nguoi_tham_quan         = $request->so_nguoi_tham_quan;
+                // $contact->tham_quan_tu_ngay          = (!empty($request->tham_quan_tu_ngay)) ? date_format(date_create($request->tham_quan_tu_ngay), "Y-m-d") : null;
+                // $contact->tham_quan_den_ngay         = (!empty($request->tham_quan_den_ngay)) ? date_format(date_create($request->tham_quan_den_ngay), "Y-m-d") : null;
+                // $contact->content                    = $request->content;
+                // $contact->loai                       = 2;
+
+                // $contact->save();
+                // $result = Mail::to($email)->send(new ContactMail($details));
+                $result = [
+                    "error" => 0,
+                    "Messager" => "Gửi thông tin thành cồng",
+                ];
+            } catch (\Exception $e) {
+                $result = [
+                    "error" => 1,
+                    "Messager" => $e->getLine() . ": " . $e->getMessage(),
+                ];
+            }
+        }
+        return response()->json($result);
+    }
     /**
      * Update the specified resource in storage.
      *

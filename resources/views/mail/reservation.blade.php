@@ -25,6 +25,7 @@
 
 <body>
     <div id="wrap">
+        <h1>Đăng ký đặt giữ chổ</h1>
         <div>
             <dl>
                 <dt>
