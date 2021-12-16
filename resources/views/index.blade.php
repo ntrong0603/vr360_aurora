@@ -69,6 +69,7 @@
     <!-- -->
     <script>
         var urlReservationContact="{{route('reservationContact')}}" ;
+        var urlReservationLandContact="{{route('reservationLand')}}" ;
         var urlContact="{{route('contact')}}" ;
         var urlViewLand="{{route('updateView')}}" ;
 

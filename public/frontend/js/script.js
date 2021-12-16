@@ -407,6 +407,63 @@ $("#btn-register-land").click(function ()
         popup.addClass("active");
     }
 });
+$(".popup-form-register-land form").submit(function (e)
+{
+    e.preventDefault();
+    e.stopPropagation();
+    $(".form-group").removeClass("errors");
+    $(".errors-desc").remove();
+    loading.css("display", "flex");
+    var data = {
+        ten_dk: $(".popup-form-register-land input[name='ten_dk_register']").val(),
+        sdt: $(".popup-form-register-land input[name='sdt_register']").val(),
+        email: $(".popup-form-register-land input[name='email_register']").val(),
+        ten_doanh_nghiep: $(".popup-form-register-land input[name='ten_doanh_nghiep_register']").val(),
+        nganh_nghe: $(".popup-form-register-land select[name='nganh_nghe_register']").val(),
+        quoc_gia: $(".popup-form-register-land select[name='quoc_gia_register']").val(),
+        muc_dich_su_dung: $(".popup-form-register-land select[name='muc_dich_su_dung_register']").val(),
+        muc_dich_su_dung_khac: $(".popup-form-register-land input[name='muc_dich_su_dung_khac_register']").val(),
+        land_id: $(".popup-form-register-land select[name='land_id_register']").val(),
+        content: $(".popup-form-register-land textarea[name='content_register']").val(),
+    }
+    $.ajax({
+        url: urlReservationLandContact,
+        type: 'POST',
+        data: data,
+        success: function (result)
+        {
+            if (result.error == 1)
+            {
+                alretCustom("error", result.Messager);
+            } else
+            {
+                alretCustom("success", "Gửi thông tin thành công");
+            }
+            loading.css("display", "none");
+        },
+        statusCode: {
+            422: function (e)
+            {
+                $(".form-group").removeClass("errors");
+                $(".errors-desc").remove();
+                //errors
+                //<span class="errors-desc"></span>
+                $.each(e.responseJSON.errors, function (i, item)
+                {
+                    var iName = $("input[name='" + i + "']");
+                    var parent = iName.parent().parent();
+                    parent.removeClass("errors");
+                    parent.addClass("errors");
+                    for (var i = 0; i < item.length; i++)
+                    {
+                        iName.after('<span class="errors-desc">' + item[i] + '</span>');
+                    }
+                });
+                loading.css("display", "none");
+            }
+        }
+    });
+});
 //Zoom image
 var wzoom;
 document.addEventListener('DOMContentLoaded', function ()

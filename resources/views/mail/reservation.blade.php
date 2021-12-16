@@ -80,9 +80,7 @@
                     Sản phẩm quan tâm:
                 </dt>
                 <dd>
-                    {{ $details['dat_cho_thue'] }}
-                    <br />
-                    {{$details['nha_xuong_cho_thue']}}
+                    {{ $details['land_name'] }}
                 </dd>
             </dl>
             <dl>
@@ -90,8 +88,8 @@
                     Mục đích sử dụng:
                 </dt>
                 <dd>
-                    {{ $details['muc_dich_su_dung'] }}
-                    <br />
+                    {{ $details['muc_dich_su_dung_name'] }}
+                    <br>
                     {{ $details['muc_dich_su_dung_khac'] }}
                 </dd>
             </dl>

@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 use App\Models\BusinessStyle;
 use App\Models\Enquiry;
+use App\Models\Land;
+use App\Models\LandUse;
 use App\Models\Reservation;
+use App\Models\ReservationRegister;
 use App\Models\Visiting;
 use Illuminate\Http\Request;
 
@@ -188,7 +191,7 @@ class ContactController extends Controller
             $request->validate($rule, $mesRule);
             $details = $request->all();
             $details["companyName"] = $companyName;
-            $details["template"] = 'mail.visit';
+            $details["template"] = 'mail.reservation';
             $details["subject"] = '[Đăng ký đặt giữ chỗ] Liên hệ từ khách hàng';
             if (!empty($details["nganh_nghe"])) {
                 $details["nganh_nghe"] = ((new Business())
@@ -214,31 +217,37 @@ class ContactController extends Controller
             } else {
                 $details["quoc_gia"] = '';
             }
-            $visitModel = new Visiting();
-            $visiting = '';
-            if (!empty($request->muc_dich_tham_quan)) {
-                foreach ($request->muc_dich_tham_quan as $mucDich) {
-                    $visiting = $visiting . ($visitModel->find((int)$mucDich))->name . ',';
-                }
+            if (!empty($details["muc_dich_su_dung"])) {
+                $details["muc_dich_su_dung_name"] = ((new LandUse())
+                    ->select(['name'])
+                    ->where('id', $details["muc_dich_su_dung"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["muc_dich_su_dung_name"] = '';
+            }
+            if (!empty($details["land_id"])) {
+                $details["land_name"] = ((new Land())
+                    ->select(['name'])
+                    ->where('id', $details["land_id"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["land_name"] = '';
             }
             try {
-                // $contact                             = new Reservation();
-                // $contact->ten_dk                     = $request->ten_dk;
-                // $contact->sdt                        = $request->sdt;
-                // $contact->email                      = $request->email;
-                // $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
-                // $contact->country_id                 = $request->quoc_gia;
-                // $contact->business_id                = $request->nganh_nghe;
-                // $contact->visiting                   = $visiting;
-                // $contact->muc_dich_tham_quan_khac    = $request->muc_dich_tham_quan_khac;
-                // $contact->so_nguoi_tham_quan         = $request->so_nguoi_tham_quan;
-                // $contact->tham_quan_tu_ngay          = (!empty($request->tham_quan_tu_ngay)) ? date_format(date_create($request->tham_quan_tu_ngay), "Y-m-d") : null;
-                // $contact->tham_quan_den_ngay         = (!empty($request->tham_quan_den_ngay)) ? date_format(date_create($request->tham_quan_den_ngay), "Y-m-d") : null;
-                // $contact->content                    = $request->content;
-                // $contact->loai                       = 2;
+                $contact                             = new ReservationRegister();
+                $contact->ten_dk                     = $request->ten_dk;
+                $contact->sdt                        = $request->sdt;
+                $contact->email                      = $request->email;
+                $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
+                $contact->country_id                 = $request->quoc_gia;
+                $contact->business_id                = $request->nganh_nghe;
+                $contact->land_use_id                = $request->muc_dich_su_dung;
+                $contact->muc_dich_su_dung_khac      = $request->muc_dich_su_dung_khac;
+                $contact->land_id                    = $request->land_id;
+                $contact->content                    = $request->content;
 
-                // $contact->save();
-                // $result = Mail::to($email)->send(new ContactMail($details));
+                $contact->save();
+                $result = Mail::to($email)->send(new ContactMail($details));
                 $result = [
                     "error" => 0,
                     "Messager" => "Gửi thông tin thành cồng",
