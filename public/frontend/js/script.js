@@ -318,7 +318,16 @@ $(".popup-form-contact form").on('reset', function (e)
 // register form
 $("#btn-reservation-contact").click(function ()
 {
-    let popup = $(".popup-register");
+    // let popup = $(".popup-register");
+    // if (popup.hasClass("active"))
+    // {
+    //     popup.removeClass("active");
+    // } else
+    // {
+    //     $(".popup").removeClass("active");
+    //     popup.addClass("active");
+    // }
+    let popup = $(".popup-contact");
     if (popup.hasClass("active"))
     {
         popup.removeClass("active");
