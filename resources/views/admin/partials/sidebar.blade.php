@@ -116,7 +116,7 @@
                         </p>
                     </a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('landUse.index') }}" class="nav-link {{ (request()->is('admin/landUse*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
@@ -131,7 +131,7 @@
                             Quản lý nhu cầu liên hệ
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('language.index') }}" class="nav-link {{ (request()->is('admin/language*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
