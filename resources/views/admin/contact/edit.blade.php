@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Ngành nghề kinh doanh:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$contact->business_name}}" readonly>
+                                <input type="text" class="form-control" value="{{$contact->business}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -75,7 +75,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Nhu cầu:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{implode(" , ",json_decode($contact->enquiry_name))}}" readonly>
+                                <input type="text" class="form-control" value="{{$contact->enquiry_name}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
