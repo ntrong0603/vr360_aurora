@@ -599,7 +599,7 @@
 
     </scene>
 
-    <scene name="scene_tram_cap_nuoc" title="tram cap nuoc" onstart="updateradar()" thumburl="panos/tram_cap_nuoc.tiles/thumb.jpg" lat="" lng="" heading="">
+    <!-- <scene name="scene_tram_cap_nuoc" title="tram cap nuoc" onstart="updateradar()" thumburl="panos/tram_cap_nuoc.tiles/thumb.jpg" lat="" lng="" heading="">
         <action name="updateradar">
         js(eventVR());
             set(layer[activespot].parent, scene_view_6);
@@ -617,7 +617,7 @@
         </image>
         <hotspot name="scene_view_6" ath="157.752" atv="-18.181" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
 
-    </scene>
+    </scene> -->
     <!-- utilities back-->
 
 </krpano>

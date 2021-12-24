@@ -522,3 +522,14 @@ document.addEventListener('DOMContentLoaded', function ()
         wzoom.prepare();
     });
 });
+$("#img-open-nav, #img-close-nav").on('click', function (e)
+{
+    var menu = $(this).parent().parent();
+    if (menu.hasClass('open-nav'))
+    {
+        menu.removeClass('open-nav');
+    } else
+    {
+        menu.addClass('open-nav');
+    }
+});
