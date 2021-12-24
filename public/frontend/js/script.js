@@ -544,6 +544,9 @@ $("#img-open-nav, #img-close-nav").on('click', function (e)
 });
 $(document).ready(function ()
 {
-    var fixLeftMenu = $(".fix-left");
-    fixLeftMenu.css('left', '-' + fixLeftMenu.width() + 'px');
+    if (!window.mobileCheck)
+    {
+        var fixLeftMenu = $(".fix-left");
+        fixLeftMenu.css('left', '-' + fixLeftMenu.width() + 'px');
+    }
 })
