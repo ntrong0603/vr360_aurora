@@ -349,6 +349,7 @@ if (!function_exists('getLand')) {
 
             $data[] = [
                 'id' => $item->id,
+                'style' => $item->style,
                 'name' => $name,
                 'content' => $content,
                 'nameLand' => $item->name_land,

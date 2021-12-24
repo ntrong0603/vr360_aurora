@@ -93,7 +93,9 @@
                             <select name="land_id_register" id="land_id_register">
                                 <option value="">{{getTitle('c')}}</</option>
                                 @foreach (getLand() as $land)
+                                @if ($land['style'] == 1)
                                 <option value="{{$land['id']}}">{{$land['name']}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </dd>
