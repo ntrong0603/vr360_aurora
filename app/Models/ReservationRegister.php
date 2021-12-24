@@ -19,7 +19,7 @@ class ReservationRegister extends Model
         'email',
         'ten_doanh_nghiep',
         'loai',
-        'business_id',
+        'business',
         'country_id',
         'muc_dich_su_dung',
         'muc_dich_su_dung_khac',
@@ -63,10 +63,10 @@ class ReservationRegister extends Model
         return $this->belongsTo(Country::class);
     }
 
-    public function business()
-    {
-        return $this->belongsTo(Business::class);
-    }
+    // public function business()
+    // {
+    //     return $this->belongsTo(Business::class);
+    // }
     public function landUse()
     {
         return $this->belongsTo(LandUse::class);

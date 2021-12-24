@@ -108,14 +108,14 @@ class ContactController extends Controller
             $details["companyName"] = $companyName;
             $details["template"] = 'mail.visit';
             $details["subject"] = '[Đăng ký tham quan] Liên hệ từ khách hàng';
-            if (!empty($details["nganh_nghe"])) {
-                $details["nganh_nghe"] = ((new Business())
-                    ->select(['name'])
-                    ->where('id', $details["nganh_nghe"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["nganh_nghe"] = '';
-            }
+            // if (!empty($details["nganh_nghe"])) {
+            //     $details["nganh_nghe"] = ((new Business())
+            //         ->select(['name'])
+            //         ->where('id', $details["nganh_nghe"])
+            //         ->first())['name'] ?? '';
+            // } else {
+            //     $details["nganh_nghe"] = '';
+            // }
             if (!empty($details["quoc_gia"])) {
                 $details["quoc_gia"] = ((new Country())
                     ->select(['name'])
@@ -193,14 +193,14 @@ class ContactController extends Controller
             $details["companyName"] = $companyName;
             $details["template"] = 'mail.reservation';
             $details["subject"] = '[Đăng ký đặt giữ chỗ] Liên hệ từ khách hàng';
-            if (!empty($details["nganh_nghe"])) {
-                $details["nganh_nghe"] = ((new Business())
-                    ->select(['name'])
-                    ->where('id', $details["nganh_nghe"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["nganh_nghe"] = '';
-            }
+            // if (!empty($details["nganh_nghe"])) {
+            //     $details["nganh_nghe"] = ((new Business())
+            //         ->select(['name'])
+            //         ->where('id', $details["nganh_nghe"])
+            //         ->first())['name'] ?? '';
+            // } else {
+            $details["nganh_nghe"] = $request->nganh_nghe;
+            // }
             if (!empty($details["quoc_gia"])) {
                 $details["quoc_gia"] = ((new Country())
                     ->select(['name'])
@@ -209,22 +209,14 @@ class ContactController extends Controller
             } else {
                 $details["quoc_gia"] = '';
             }
-            if (!empty($details["quoc_gia"])) {
-                $details["quoc_gia"] = ((new Country())
-                    ->select(['name'])
-                    ->where('id', $details["quoc_gia"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["quoc_gia"] = '';
-            }
-            if (!empty($details["muc_dich_su_dung"])) {
-                $details["muc_dich_su_dung_name"] = ((new LandUse())
-                    ->select(['name'])
-                    ->where('id', $details["muc_dich_su_dung"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["muc_dich_su_dung_name"] = '';
-            }
+            // if (!empty($details["muc_dich_su_dung"])) {
+            //     $details["muc_dich_su_dung_name"] = ((new LandUse())
+            //         ->select(['name'])
+            //         ->where('id', $details["muc_dich_su_dung"])
+            //         ->first())['name'] ?? '';
+            // } else {
+            $details["muc_dich_su_dung_name"] = '';
+            // }
             if (!empty($details["land_id"])) {
                 $details["land_name"] = ((new Land())
                     ->select(['name'])
@@ -240,8 +232,8 @@ class ContactController extends Controller
                 $contact->email                      = $request->email;
                 $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
                 $contact->country_id                 = $request->quoc_gia;
-                $contact->business_id                = $request->nganh_nghe;
-                $contact->land_use_id                = $request->muc_dich_su_dung;
+                $contact->business                   = $request->nganh_nghe;
+                // $contact->land_use_id                = $request->muc_dich_su_dung;
                 $contact->muc_dich_su_dung_khac      = $request->muc_dich_su_dung_khac;
                 $contact->land_id                    = $request->land_id;
                 $contact->content                    = $request->content;
@@ -308,7 +300,7 @@ class ContactController extends Controller
                 'phone'        => 'required',
                 'email'        => 'required|email',
                 'company_type' => 'required',
-                'enquiry'      => 'required',
+                // 'enquiry'      => 'required',
                 'business'     => 'required',
                 'company_nationality'  => 'required',
                 // 'profection' => 'required|min:5|max:50',/
@@ -319,7 +311,7 @@ class ContactController extends Controller
                 'phone.required' => getTitle('vldtt'),
                 'email.required' => getTitle('vldtt'),
                 'email.email' => getTitle('dcemkhl'),
-                'enquiry.required' => getTitle('vldtt'),
+                // 'enquiry.required' => getTitle('vldtt'),
                 'business.required' => getTitle('vldtt'),
                 'company_type.required' => getTitle('vldtt'),
             ];
@@ -327,21 +319,21 @@ class ContactController extends Controller
             $mBus = new Business();
             $mCom = new BusinessStyle();
             $mComNa = new Country();
-            $mEn  = new Enquiry();
+            // $mEn  = new Enquiry();
 
             $details                = $request->all();
             $companyTypeName        = ($mCom->find($request->company_type))->name;
             $companyNationalityName = ($mComNa->find($request->company_nationality))->name;
-            $businessName           = ($mBus->find($request->business))->name;
+            // $businessName           = ($mBus->find($request->business))->name;
             $details["companyName"]            = $companyName;
             $details["companyTypeName"]        = $companyTypeName;
             $details["companyNationalityName"] = $companyNationalityName;
-            $details["businessName"]           = $businessName;
+            // $details["businessName"]           = $businessName;
             $details["enquiryName"]            = [];
-            foreach ($request->enquiry as $id) {
-                $enquiryName            = ($mEn->find($id))->name;
-                $details["enquiryName"][] = $enquiryName;
-            }
+            // foreach ($request->enquiry as $id) {
+            //     $enquiryName            = ($mEn->find($id))->name;
+            //     $details["enquiryName"][] = $enquiryName;
+            // }
 
             try {
                 $contact                           = new Contact();
@@ -353,12 +345,13 @@ class ContactController extends Controller
                 $contact->company_nationality      = $request->company_nationality;
                 $contact->company_nationality_name = $companyNationalityName;
                 $contact->company_name             = $request->company_name;
-                $contact->enquiry                  = json_encode($request->enquiry, JSON_UNESCAPED_UNICODE);
-                $contact->enquiry_name             = json_encode($details["enquiryName"], JSON_UNESCAPED_UNICODE);
+                // $contact->enquiry                  = json_encode($request->enquiry, JSON_UNESCAPED_UNICODE);
+                // $contact->enquiry_name             = json_encode($details["enquiryName"], JSON_UNESCAPED_UNICODE);
+                $contact->enquiry_name             = $request->nc;
                 $contact->area                     = $request->area;
                 $contact->nationality              = $request->nationality;
                 $contact->business                 = $request->business;
-                $contact->business_name            = $businessName;
+                // $contact->business_name            = $businessName;
                 $contact->note                     = $request->note;
                 $contact->save();
                 $result = Mail::to($email)->send(new ContactMail($details));

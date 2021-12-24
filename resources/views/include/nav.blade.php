@@ -1,4 +1,4 @@
-<nav>
+<nav class="fix-left">
     <button id="btn-nav-bar">
         <img id="img-open-nav" src="{{asset('frontend/images/bars-solid.svg')}}" alt="">
         <img id="img-close-nav" src="{{asset('frontend/images/times-circle-regular.svg')}}" alt="">

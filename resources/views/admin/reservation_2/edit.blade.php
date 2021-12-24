@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Ngành nghề kinh doanh:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservationRegister->business->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->business}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,14 +66,14 @@
                                 <input type="text" class="form-control" value="{{$reservationRegister->country->name ?? ''}}" readonly>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-form-label col-sm-2">Mục đích sử dụng:</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" value="{{$reservationRegister->landUse->name ?? ''}}" readonly>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Múc đích sử dụng khác:</label>
+                            <label class="col-form-label col-sm-2">Múc đích sử dụng:</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" value="{{$reservationRegister->muc_dich_su_dung_khac}}" readonly>
                             </div>

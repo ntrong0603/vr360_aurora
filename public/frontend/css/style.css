@@ -814,7 +814,7 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
 
 .popup.popup-content-view .popup-info, .popup.popup-content-nav .popup-info, .popup.popup-content-land .popup-info {
   border-radius: 5px;
-  width: 850px;
+  width: 780px;
   max-width: 90vw;
   min-height: 100px;
   height: auto;
@@ -870,11 +870,11 @@ nav .dropdown ul li:hover::before, nav .dropdown ul li.active::before {
   top: 5px;
   right: 5px;
   display: block;
-  color: red;
+  color: #b4d741;
   background: none;
   width: 30px;
   height: 30px;
-  border: 1px solid red;
+  border: 1px solid #b4d741;
   border-radius: 50%;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;

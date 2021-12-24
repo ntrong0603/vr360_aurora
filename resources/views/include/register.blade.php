@@ -43,13 +43,14 @@
                         <dt>
                             <label for="nganh_nghe">{{getTitle('nnkd')}}:</label>
                         </dt>
-                        <dd>
+                        {{-- <dd>
                             <select name="nganh_nghe" id="nganh_nghe">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
                             </select>
-                        </dd>
+                        </dd> --}}
+                        <input type="text" name="nganh_nghe" id="nganh_nghe" placeholder="{{getTitle('nnkd')}}" autocomplete="off">
                     </dl>
                     <dl class="form-group ms-order-3">
                         <dt>
@@ -63,7 +64,7 @@
                             </select>
                         </dd>
                     </dl>
-                    <dl class="form-group ms-order-6">
+                    {{-- <dl class="form-group ms-order-6">
                         <dt>
                             <label>{{getTitle('mdtq')}}:</label>
                         </dt>
@@ -77,13 +78,13 @@
                             </label>
                             @endforeach
                         </dd>
-                    </dl>
+                    </dl> --}}
                     <dl class="form-group ms-order-7">
                         <dt>
-                            <label for="muc_dich_tham_quan_khac">{{getTitle('k')}}:</label>
+                            <label for="muc_dich_tham_quan_khac">{{getTitle('mdtq')}}:</label>
                         </dt>
                         <dd>
-                            <input type="text" name="muc_dich_tham_quan_khac" id="muc_dich_tham_quan_khac" placeholder="{{getTitle('k')}}" autocomplete="off">
+                            <input type="text" name="muc_dich_tham_quan_khac" id="muc_dich_tham_quan_khac" placeholder="{{getTitle('mdtq')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group ms-order-8">

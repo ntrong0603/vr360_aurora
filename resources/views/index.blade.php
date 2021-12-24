@@ -41,11 +41,11 @@
         <div class="loader">
         </div>
     </div>
-    <a class="chat" data-tooltip="{{ getTitle('lh') }}">
+    {{-- <a class="chat" data-tooltip="{{ getTitle('lh') }}">
         <div class="btn-chat">
             <img src="{{ asset('frontend/images/envelope-regular.svg')}}" alt="btn contact">
         </div>
-    </a>
+    </a> --}}
     <div class="master-plan">
         <a class="btn-close-masterplan"></a>
         <div id="img-masterplan">

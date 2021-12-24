@@ -37,14 +37,6 @@
             </dl>
             <dl>
                 <dt>
-                    Ngành nghề:
-                </dt>
-                <dd>
-                    {{ $details['businessName'] }}
-                </dd>
-            </dl>
-            <dl>
-                <dt>
                     Email:
                 </dt>
                 <dd>
@@ -57,6 +49,30 @@
                 </dt>
                 <dd>
                     {{ $details['phone'] }}
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Ngành nghề:
+                </dt>
+                <dd>
+                    {{ $details['business'] }}
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Quốc gia:
+                </dt>
+                <dd>
+                    {{ $details['companyNationalityName'] }}
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Nhu cầu:
+                </dt>
+                <dd>
+                    {{ $details['nc'] }}
                 </dd>
             </dl>
             <dl>

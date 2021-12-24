@@ -59,20 +59,12 @@
                             <input type="text" name="" id="" placeholder="Company name" autocomplete="off">
                         </dd>
                     </dl>
-                    <dl class="form-group d-flex ms-order-6">
+                    <dl class="form-group">
                         <dt>
-                            <label style="white-space: nowrap;">{{getTitle('nc')}}<sup>*</sup>:</label>
+                            <label>{{getTitle('nc')}}<sup>*</sup>:</label>
                         </dt>
-                        <dd class="w-100">
-                            @foreach (getEnquiry() as $enquiry)
-                            <label class="enquiry clear-pd d-flex align-items-start justify-content-between">
-                                <div class="enquiry_name">
-                                    {{$enquiry['name']}}
-                                    <span class="enquiry_note">{{$enquiry['note']}}</span>
-                                </div>
-                                <input type="checkbox" name="enquiry[]" value="{{$enquiry['id']}}">
-                            </label>
-                            @endforeach
+                        <dd>
+                            <input type="text" name="nc" id="nc" placeholder="{{getTitle('nc')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group ms-order-7">
@@ -100,11 +92,12 @@
                             <label for="business">{{getTitle('nnkd')}}<sup>*</sup>:</label>
                         </dt>
                         <dd>
-                            <select name="business" id="business">
+                            {{-- <select name="business" id="business">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
+                            <input type="text" name="business" id="business" placeholder="{{getTitle('nnkd')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group w-100 ms-order-10 placeholderCT textarea-cs">

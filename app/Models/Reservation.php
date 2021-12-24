@@ -19,7 +19,7 @@ class Reservation extends Model
         'email',
         'ten_doanh_nghiep',
         'loai',
-        'business_id',
+        'business',
         'country_id',
         'muc_dich_su_dung',
         'muc_dich_su_dung_khac',
@@ -65,18 +65,18 @@ class Reservation extends Model
         return $this->belongsTo(Country::class);
     }
 
-    public function business()
-    {
-        return $this->belongsTo(Business::class);
-    }
+    // public function business()
+    // {
+    //     return $this->belongsTo(Business::class);
+    // }
 
-    public function datChoThue()
-    {
-        return $this->belongsTo(Product::class, 'dat_cho_thue', 'id');
-    }
+    // public function datChoThue()
+    // {
+    //     return $this->belongsTo(Product::class, 'dat_cho_thue', 'id');
+    // }
 
-    public function nhaXuongChoThue()
-    {
-        return $this->belongsTo(Product::class, 'nha_xuong_cho_thue', 'id');
-    }
+    // public function nhaXuongChoThue()
+    // {
+    //     return $this->belongsTo(Product::class, 'nha_xuong_cho_thue', 'id');
+    // }
 }

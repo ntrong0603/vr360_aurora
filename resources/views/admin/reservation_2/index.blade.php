@@ -109,7 +109,7 @@
                                     {{$data->country->name ?? ''}}
                                 </td>
                                 <td>
-                                    {{$data->business->name ?? ''}}
+                                    {{$data->business}}
                                 </td>
                                 <td>
                                     <a href="{{ route('reservationRegister.edit', ['reservationRegister' => $data->id]) }}">

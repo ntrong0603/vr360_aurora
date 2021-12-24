@@ -78,7 +78,7 @@ if (!function_exists('getCountry')) {
     {
         $countryLanguageModel = new CountryLanguage();
         $data = [];
-        $countries = (new Country())->where('status', 1)->get();
+        $countries = (new Country())->where('status', 1)->orderBy('name', 'asc')->get();
         foreach ($countries as $country) {
             $id = $country->id;
             $name = $country->name;
@@ -219,7 +219,6 @@ if (!function_exists('countReservation')) {
         return $count;
     }
 }
-
 
 if (!function_exists('getScene')) {
     function getScene()

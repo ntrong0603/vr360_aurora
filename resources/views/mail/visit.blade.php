@@ -75,17 +75,17 @@
                     {{ $details['nganh_nghe'] }}
                 </dd>
             </dl>
-            <dl>
+            {{-- <dl>
                 <dt>
                     Mục đích tham quan:
                 </dt>
                 <dd>
                     {{  (!empty($details['muc_dich_tham_quan'])) ? implode(", ", $details['muc_dich_tham_quan']) : ''}}
                 </dd>
-            </dl>
+            </dl> --}}
             <dl>
                 <dt>
-                    Mục đích tham quan khác:
+                    Mục đích tham quan:
                 </dt>
                 <dd>
                     {{ $details['muc_dich_tham_quan_khac'] }}

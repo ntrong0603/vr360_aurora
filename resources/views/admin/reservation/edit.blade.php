@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Ngành nghề kinh doanh:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->business->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservation->business}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,42 +66,8 @@
                                 <input type="text" class="form-control" value="{{$reservation->country->name ?? ''}}" readonly>
                             </div>
                         </div>
-                        @if($reservation->loai == 1)
                         <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Mục đích sử dụng:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="
-                                @if($reservation->muc_dich_tham_quan == 1)
-                                'Mở rộng sản xuất'
-                                @elseif($reservation->muc_dich_tham_quan == 2)
-                                'Thành lập doanh nghiệp mới'
-                                @endif
-                                " readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Múc đích sử dụng khác:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->muc_dich_su_dung_khac}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Sản phẩm quan tâm:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->datChoThue->name ?? ''}}, {{$reservation->nhaXuongChoThue->name ?? ''}}" readonly>
-                            </div>
-                        </div>
-                        @endif
-
-                        @if($reservation->loai == 2)
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Mục đích tham quan:</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->visiting ?? ''}}" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-2">Múc đích tham quan khác:</label>
+                            <label class="col-form-label col-sm-2">Múc đích tham quan:</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" value="{{$reservation->muc_dich_tham_quan_khac}}" readonly>
                             </div>
@@ -124,7 +90,6 @@
                                 <input type="text" class="form-control" value="{{$reservation->tham_quan_den_ngay}}" readonly>
                             </div>
                         </div>
-                        @endif
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Nội dung:</label>
                             <div class="col-sm-4">

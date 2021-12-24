@@ -50,7 +50,7 @@
     <style name="skin_thanh_pho" url="%SWFPATH%/images/thanh_pho.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0.05" onover="tween(scale,0.05);" onout="tween(scale,0.05);" onloaded="skin_hotspotstyle_setup();" />
     <!--End Speaker-->
     <plugin name="soundinterface" url="%SWFPATH%/plugins/soundinterface.swf" alturl="%SWFPATH%/plugins/soundinterface.js" rootpath="%CURRENTXML%" preload="true" keep="true" volume="0.3" />
-    <plugin name="snd" url="soundonoff.png" keep="true" align="leftbottom" x="10" y="100" alpha="0.5" scale="1.0" onover="tween(alpha,1);" onout="tween(alpha,0.5);" crop="0|0|50|50" onclick="switch(soundinterface.mute); switch(crop, 0|0|50|50, 0|50|50|50);" />
+    <plugin name="snd" url="soundonoff.png" keep="true" align="rightbottom" x="10" y="100" alpha="0.5" scale="1.0" onover="tween(alpha,1);" onout="tween(alpha,0.5);" crop="0|0|50|50" onclick="switch(soundinterface.mute); switch(crop, 0|0|50|50, 0|50|50|50);" />
     <!--End Speaker-->
     <!--Sơ đồ mặt bằng -->
     <!-- <layer name="bando" title="Bản Đồ" url="%SWFPATH%/images/maps_icon.png" x="10" y="10" keep="true" handcursor="false" capture="false" align="lefttop" scale="0.25" scalechildren="true" onclick="openmap();" onhover="showtext('Sơ Đồ',hotspottextstyle);" /> -->

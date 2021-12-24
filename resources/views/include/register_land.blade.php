@@ -44,11 +44,12 @@
                             <label for="nganh_nghe_register">{{getTitle('nnkd')}}:</label>
                         </dt>
                         <dd>
-                            <select name="nganh_nghe_register" id="nganh_nghe_register">
+                            {{-- <select name="nganh_nghe_register" id="nganh_nghe_register">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
+                            <input type="text" name="nganh_nghe_register" id="nganh_nghe_register" placeholder="{{getTitle('nnkd')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group ms-order-3">
@@ -63,7 +64,7 @@
                             </select>
                         </dd>
                     </dl>
-                    <dl class="form-group ms-order-6">
+                    {{-- <dl class="form-group ms-order-6">
                         <dt>
                             <label>{{getTitle('mdsd')}}:</label>
                         </dt>
@@ -75,13 +76,13 @@
                                 @endforeach
                             </select>
                         </dd>
-                    </dl>
+                    </dl> --}}
                     <dl class="form-group ms-order-7">
                         <dt>
-                            <label for="muc_dich_su_dung_khac_register">{{getTitle('k')}}:</label>
+                            <label for="muc_dich_su_dung_khac_register">{{getTitle('mdsd')}}:</label>
                         </dt>
                         <dd>
-                            <input type="text" name="muc_dich_su_dung_khac_register" id="muc_dich_su_dung_khac_register" placeholder="{{getTitle('k')}}" autocomplete="off">
+                            <input type="text" name="muc_dich_su_dung_khac_register" id="muc_dich_su_dung_khac_register" placeholder="{{getTitle('mdsd')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group ms-order-3">
