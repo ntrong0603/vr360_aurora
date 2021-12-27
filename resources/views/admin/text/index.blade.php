@@ -47,9 +47,9 @@
                                         <a href="{{route('text.index')}}" class="btn btn-secondary">Reset</a>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <a href="{{route('text.create')}}" class="btn btn-success">Thêm mới</a>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- /.card-body -->
                         </form>
