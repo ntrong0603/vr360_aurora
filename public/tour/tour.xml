@@ -548,14 +548,14 @@
         </action>
         <control bouncinglimits="calc:image.cube ? true : false" />
 
-        <view hlookat="280.238" vlookat="13.005" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+        <view hlookat="265.106" vlookat="7.759" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
         <preview url="panos/tang_1_phong_lam_viec.tiles/preview.jpg" />
 
         <image prealign="0|0.0|0">
             <cube url="panos/tang_1_phong_lam_viec.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,640,1152,2304,4736" />
         </image>
-        <hotspot name="scene_tang_1_sanh" ath="-35" atv="5" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
+        <hotspot name="scene_tang_1_sanh" ath="-100" atv="5" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.3' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
 
     </scene>
 
