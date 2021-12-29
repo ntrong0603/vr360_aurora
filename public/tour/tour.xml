@@ -50,7 +50,7 @@
         <hotspot name="utilities15" style="skin_ql_cao_toc" ath="145.951" atv="3.515" onhover="showtext('tiện ich 15',hotspottextstyle);"/>
         <!-- End utilities -->
 
-        <hotspot name="scene_view_2" ath="0.983" atv="-1.011" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+        <hotspot name="scene_view_2" style="skin_fly" ath="0.983" atv="-5.011" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
         <hotspot name="scene_cong_khu_cong_nghiep" ath="1.538" atv="35.265" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_cong_khu_cong_nghiep,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_cong_khu_cong_nghiep',hotspottextstyle);"/>
         <hotspot name="scene_view_5" ath="2.416" atv="12.686" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_5,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_5',hotspottextstyle);"/>
         <hotspot name="scene_view_6" ath="2.250" atv="20.469" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
@@ -205,8 +205,8 @@
             <point ath="99.32245102047762" atv="27.292586194634072" />
         </hotspot>
         <!-- end land -->
-        <hotspot name="scene_view_3" ath="4.532" atv="2.447" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_3,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_3',hotspottextstyle);"/>
-        <hotspot name="scene_view_1" ath="-178.086" atv="2.084" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_view_3" style="skin_fly" ath="4.532" atv="-2.447" onclick="loadscene(scene_view_3,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_3',hotspottextstyle);"/>
+        <hotspot name="scene_view_1" style="skin_fly" ath="-178.086" atv="-2.084" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
         <hotspot name="scene_view_4" ath="-13.540" atv="11.513" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_4,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_4',hotspottextstyle);"/>
         <hotspot name="nha_may_xu_ly_cap_nuoc" ath="-63.900" atv="16.354" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="looktohotspot(nha_may_xu_ly_cap_nuoc, 40)" onhover="showtext('nha_may_xu_ly_cap_nuoc',hotspottextstyle);"/>
 
@@ -304,7 +304,7 @@
             <point ath="3.3833011218562774" atv="44.693304936672206" />
         </hotspot>
         <!-- end land -->
-        <hotspot name="scene_view_2" ath="-15.653" atv="-2.805" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+        <hotspot name="scene_view_2" style="skin_fly" ath="-15.653" atv="-2.805" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
 
     </scene>
 
@@ -324,7 +324,7 @@
         <image>
             <cube url="panos/view_4.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
-        <hotspot name="scene_view_2" ath="75.393" atv="-7.907" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+        <hotspot name="scene_view_2" style="skin_fly" ath="75.393" atv="-7.907" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
         <hotspot name="nha_may_xu_ly_cap_nuoc" ath="121.196" atv="-1.786" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear)); looktohotspot(nha_may_xu_ly_cap_nuoc, 40)" onhover="showtext('nha_may_xu_ly_cap_nuoc',hotspottextstyle);" />
 
     </scene>
@@ -344,9 +344,9 @@
         <image>
             <cube url="panos/view_5.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
-        <hotspot name="scene_view_1" ath="-179.327" atv="-8.159" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_view_1" style="skin_fly" ath="-179.327" atv="-8.159" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
         <hotspot name="scene_view_6" ath="-179.535" atv="5.933" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_6,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_6',hotspottextstyle);"/>
-        <hotspot name="scene_view_2" ath="-2.063" atv="-9.389" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
+        <hotspot name="scene_view_2" style="skin_fly" ath="-2.063" atv="-9.389" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);"/>
     </scene>
     <scene name="scene_view_6" title="view 6" onstart="updateradar()" thumburl="panos/view_6.tiles/thumb.jpg" lat="19.98749167" lng="106.18221667" heading="0.0">
         <action name="updateradar">
@@ -365,13 +365,13 @@
             <cube url="panos/view_6.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
 
-        <hotspot name="scene_view_1" ath="87.530" atv="-5.017" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_view_1" style="skin_fly" ath="87.530" atv="-5.017" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
         <hotspot name="scene_hanh_lang_ra_khu_nha_nhan_vien" ath="-22.598" atv="27.571" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_hanh_lang_ra_khu_nha_nhan_vien,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_hanh_lang_ra_khu_nha_nhan_vien',hotspottextstyle);"/>
         <hotspot name="scene_nha_chuyen_gia_ben_ngoai_hanh_lang" ath="13.428" atv="25.085" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_nha_chuyen_gia_ben_ngoai_hanh_lang,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_nha_chuyen_gia_ben_ngoai_hanh_lang',hotspottextstyle);"/>
         <hotspot name="scene_tang_1_sanh" ath="-4.706" atv="28.232" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_tang_1_sanh,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tang_1_sanh',hotspottextstyle);"/>
         <!-- <hotspot name="scene_tram_cap_nuoc" ath="-12.568" atv="9.666" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_tram_cap_nuoc,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_tram_cap_nuoc',hotspottextstyle);"/> -->
         <hotspot name="scene_view_5" ath="-87.218" atv="6.050" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_5,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_5',hotspottextstyle);" />
-        <hotspot name="scene_view_2" ath="-91.656" atv="-4.972" url="skin/hotspot.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);" />
+        <hotspot name="scene_view_2" style="skin_fly" ath="-91.656" atv="-5.972" onclick="loadscene(scene_view_2,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_2',hotspottextstyle);" />
 
     </scene>
     <!-- Overview-->

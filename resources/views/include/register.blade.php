@@ -43,14 +43,13 @@
                         <dt>
                             <label for="nganh_nghe">{{getTitle('nnkd')}}:</label>
                         </dt>
-                        {{-- <dd>
+                        <dd>
                             <select name="nganh_nghe" id="nganh_nghe">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
                             </select>
-                        </dd> --}}
-                        <input type="text" name="nganh_nghe" id="nganh_nghe" placeholder="{{getTitle('nnkd')}}" autocomplete="off">
+                        </dd>
                     </dl>
                     <dl class="form-group ms-order-3">
                         <dt>
@@ -64,30 +63,7 @@
                             </select>
                         </dd>
                     </dl>
-                    {{-- <dl class="form-group ms-order-6">
-                        <dt>
-                            <label>{{getTitle('mdtq')}}:</label>
-                        </dt>
-                        <dd>
-                            @foreach (getVisiting() as $visiting)
-                            <label class="enquiry clear-pd d-flex align-items-start justify-content-between">
-                                <div class="enquiry_name">
-                                    {{$visiting['name']}}
-                                </div>
-                                <input type="checkbox" name="muc_dich_tham_quan[]" value="{{$visiting['id']}}">
-                            </label>
-                            @endforeach
-                        </dd>
-                    </dl> --}}
-                    <dl class="form-group ms-order-7">
-                        <dt>
-                            <label for="muc_dich_tham_quan_khac">{{getTitle('mdtq')}}:</label>
-                        </dt>
-                        <dd>
-                            <input type="text" name="muc_dich_tham_quan_khac" id="muc_dich_tham_quan_khac" placeholder="{{getTitle('mdtq')}}" autocomplete="off">
-                        </dd>
-                    </dl>
-                    <dl class="form-group ms-order-8">
+                    <dl class="form-group ms-order-6">
                         <dt>
                             <label for="so_nguoi_tham_quan">{{getTitle('sntq')}}:</label>
                         </dt>
@@ -95,7 +71,7 @@
                             <input type="text" name="so_nguoi_tham_quan" id="so_nguoi_tham_quan" placeholder="{{getTitle('sntg')}}" autocomplete="off">
                         </dd>
                     </dl>
-                    <dl class="form-group ms-order-9">
+                    <dl class="form-group ms-order-7">
                         <dt>
                             <label for="tham_quan_tu_ngay">{{getTitle('tgdktq')}}:</label>
                         </dt>
@@ -114,6 +90,29 @@
                                     <img src="{{asset('frontend/images/calendar-alt-regular.svg')}}" alt="">
                                 </label>
                             </div>
+                        </dd>
+                    </dl>
+                    <dl class="form-group ms-order-8">
+                        <dt>
+                            <label>{{getTitle('mdtq')}}:</label>
+                        </dt>
+                        <dd>
+                            @foreach (getVisiting() as $visiting)
+                            <label class="enquiry clear-pd d-flex align-items-start justify-content-between">
+                                <div class="enquiry_name">
+                                    {{$visiting['name']}}
+                                </div>
+                                <input type="checkbox" name="muc_dich_tham_quan[]" value="{{$visiting['id']}}">
+                            </label>
+                            @endforeach
+                        </dd>
+                    </dl>
+                    <dl class="form-group ms-order-9">
+                        <dt>
+                            <label for="muc_dich_tham_quan_khac">{{getTitle('k')}}:</label>
+                        </dt>
+                        <dd>
+                            <input type="text" name="muc_dich_tham_quan_khac" id="muc_dich_tham_quan_khac" placeholder="{{getTitle('k')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group w-100 ms-order-10 placeholderCT textarea-cs">

@@ -44,6 +44,7 @@
 
     <!--hotspot other-->
     <style name="skin_empty" url="%SWFPATH%/images/cang.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0" onover="tween(scale,0);" onout="tween(scale,0);" onloaded="skin_hotspotstyle_setup();" />
+    <style name="skin_fly" url="%SWFPATH%/images/iconmaybay.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0.35" onover="tween(scale,0.35);" onout="tween(scale,0.35);" onloaded="skin_hotspotstyle_setup();" />
     <style name="skin_cang" url="%SWFPATH%/images/cang.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0.05" onover="tween(scale,0.05);" onout="tween(scale,0.05);" onloaded="skin_hotspotstyle_setup();" />
     <style name="skin_ql_cao_toc" url="%SWFPATH%/images/ql_cao_toc.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0.05" onover="tween(scale,0.05);" onout="tween(scale,0.05);" onloaded="skin_hotspotstyle_setup();" />
     <style name="skin_san_bay" url="%SWFPATH%/images/san_bay.png" edge="top" distorted="true" tooltip="" linkedscene="" linkedscene_lookat="" onclick="skin_hotspotstyle_click();" depth="1000" scale="0.05" onover="tween(scale,0.05);" onout="tween(scale,0.05);" onloaded="skin_hotspotstyle_setup();" />
