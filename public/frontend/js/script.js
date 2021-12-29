@@ -73,6 +73,8 @@ $(".nav-group").on("click", function (e)
 $(".dropdown li").click(function (e)
 {
     e.stopPropagation();
+    $(".dropdown li").removeClass("active");
+    $(this).addClass("active");
     if ($(this).data('scene'))
     {
         loadSceneMenu($(this).data('scene'));
@@ -332,16 +334,7 @@ $(".popup-form-contact form").on('reset', function (e)
 // register form
 $("#btn-reservation-contact").click(function ()
 {
-    // let popup = $(".popup-register");
-    // if (popup.hasClass("active"))
-    // {
-    //     popup.removeClass("active");
-    // } else
-    // {
-    //     $(".popup").removeClass("active");
-    //     popup.addClass("active");
-    // }
-    let popup = $(".popup-contact");
+    let popup = $(".popup-register");
     if (popup.hasClass("active"))
     {
         popup.removeClass("active");
@@ -349,8 +342,17 @@ $("#btn-reservation-contact").click(function ()
     {
         $(".popup").removeClass("active");
         popup.addClass("active");
-        $('nav').removeClass('open-nav');
     }
+    // let popup = $(".popup-contact");
+    // if (popup.hasClass("active"))
+    // {
+    //     popup.removeClass("active");
+    // } else
+    // {
+    //     $(".popup").removeClass("active");
+    //     popup.addClass("active");
+    //     $('nav').removeClass('open-nav');
+    // }
 });
 $(".popup-form-register form").submit(function (e)
 {

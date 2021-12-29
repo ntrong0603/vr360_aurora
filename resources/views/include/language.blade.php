@@ -7,8 +7,11 @@
             @foreach (getLanguage() as $lang)
             <li class="{{ \Session::get('website_language') == $lang->code ? 'active' : '' }}">
                 <a href="{{route('changeLanguage', ['language' => $lang->code])}}">
-                    {{-- <img src="{{asset('storage/language_image/'.$lang->photo)}}" alt="" srcset=""> --}}
+                    @if (!empty($lang->photo) && Storage::disk('language_image')->has($lang->photo))
+                    <img src="{{asset('storage/language_image/'.$lang->photo)}}" alt="" srcset="">
+                    @else
                     {{$lang->code}}
+                    @endif
                 </a>
             </li>
             @endforeach

@@ -12,19 +12,19 @@
             <a class="nav-group">{{$category['name']}}</a>
             @if (!empty($category['child']))
             <ul>
-                @foreach ($category['child'] as $child)
+                @foreach ($category['child'] as $key2 => $child)
                 @if($child['style_event'] == 1)
-                <li data-scene="{{$child['name_scene']}}" data-view="{{$child['name_hotspot']}}">
+                <li class="@if($key == 0 && $key2 == 0) active @endif" data-scene="{{$child['name_scene']}}" data-view="{{$child['name_hotspot']}}">
                     {{$child['name']}}
                 </li>
                 @endif
                 @if($child['style_event'] == 2)
-                <li data-content="{!!$child['content']!!}">
+                <li class="@if($key == 0 && $key2 == 0) active @endif" data-content="{!!$child['content']!!}">
                     {{$child['name']}}
                 </li>
                 @endif
                 @if($child['style_event'] == 3)
-                <li>
+                <li class="@if($key == 0 && $key2 == 0) active @endif">
                     <a href="{{$child['link']}}" target="_blank">{{$child['name']}}</a>
                 </li>
                 @endif

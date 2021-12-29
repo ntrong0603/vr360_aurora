@@ -36,7 +36,7 @@
         <hotspot name="utilities1" style="skin_cang" ath="162.748" atv="-1.160" onhover="showtext('tiện ich 1',hotspottextstyle);"/>
         <hotspot name="utilities2" style="skin_cang" ath="161.189" atv="-1.637" onhover="showtext('tiện ich 2',hotspottextstyle);"/>
         <hotspot name="utilities3" style="skin_cang" ath="159.620" atv="-1.974" onhover="showtext('tiện ich 3',hotspottextstyle);"/>
-        <hotspot name="utilities4" style="skin_thanh_pho" ath="103.427" atv="-1.996" onhover="showtext('tiện ich 4',hotspottextstyle);"/>
+        <hotspot name="utilities4" style="skin_thanh_pho" ath="103.427" atv="-1.3" onhover="showtext('tiện ich 4',hotspottextstyle);"/>
         <hotspot name="utilities5" style="skin_thanh_pho" ath="99.394" atv="-2.276" onhover="showtext('tiện ich 5',hotspottextstyle);"/>
         <hotspot name="utilities6" style="skin_thanh_pho" ath="95.286" atv="-2.366" onhover="showtext('tiện ich 6',hotspottextstyle);"/>
         <hotspot name="utilities7" style="skin_thanh_pho" ath="106.176" atv="-2.046" onhover="showtext('tiện ich 7',hotspottextstyle);"/>
