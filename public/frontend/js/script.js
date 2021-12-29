@@ -7,11 +7,12 @@ $(function ()
     });
 });
 
-var krpano = document.getElementById("krpanoSWFObject");
-let checkMobile = false;
-var loading = $(".loading");
-let check = false;
+const krpano = document.getElementById("krpanoSWFObject");
 const elMasterPlan = $(".master-plan");
+const viewVIP = ['scene_view_1', 'scene_view_2', 'scene_view_3', 'scene_view_4', 'scene_view_5', 'scene_view_6'];
+let checkMobile = false;
+let loading = $(".loading");
+let check = false;
 
 window.mobileCheck = function ()
 {
@@ -54,7 +55,7 @@ function loadSceneMenu(scene)
 }
 function lookAt(name)
 {
-    krpano.call("looktohotspot(" + name + ")");
+    krpano.call("looktohotspot(" + name + ", 40)");
 }
 $(".nav-group").on("click", function (e)
 {
@@ -96,8 +97,14 @@ function updateInfoScene()
         let scene = scenes[index];
         krpano.call(`set(hotspot['${scene['nameScene']}'].onhover, showtext('${scene['name']}',hotspottextstyle))`);
         krpano.call(`set(layer['${scene['nameScene']}'].onhover, showtext('${scene['name']}',hotspottextstyle))`);
-        krpano.call(`set(scene['${scene['nameScene']}'].title, '${scene['name']}')`);
         krpano.call(`set(layer['${scene['nameScene']}'].title, '${scene['name']}'] + "')`);
+        if (viewVIP.includes(scene['nameScene']))
+        {
+            krpano.call(`set(scene['${scene['nameScene']}'].title, '${scene['name']} (${arrText.pc3dmh})')`);
+        } else
+        {
+            krpano.call(`set(scene['${scene['nameScene']}'].title, '${scene['name']}')`);
+        }
 
         if (sceneName == scene['nameScene'])
         {

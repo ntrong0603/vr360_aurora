@@ -72,7 +72,12 @@
         var urlReservationLandContact="{{route('reservationLand')}}" ;
         var urlContact="{{route('contact')}}" ;
         var urlViewLand="{{route('updateView')}}" ;
-
+    </script>
+    <!-- text -->
+    <script>
+        var arrText = {
+            "pc3dmh": "{{getTitle('pc3dmh')}}"
+        };
     </script>
     @include('include.scene_info')
     @include('include.utilities_info')
