@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Ngành nghề kinh doanh:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservation->business}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservation->business->name}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -68,6 +68,12 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Múc đích tham quan:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" value="{{$reservation->visiting}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-2">Múc đích tham quan khác:</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" value="{{$reservation->muc_dich_tham_quan_khac}}" readonly>
                             </div>

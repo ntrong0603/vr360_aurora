@@ -108,14 +108,14 @@ class ContactController extends Controller
             $details["companyName"] = $companyName;
             $details["template"] = 'mail.visit';
             $details["subject"] = '[Đăng ký tham quan] Liên hệ từ khách hàng';
-            // if (!empty($details["nganh_nghe"])) {
-            //     $details["nganh_nghe"] = ((new Business())
-            //         ->select(['name'])
-            //         ->where('id', $details["nganh_nghe"])
-            //         ->first())['name'] ?? '';
-            // } else {
-            //     $details["nganh_nghe"] = '';
-            // }
+            if (!empty($details["nganh_nghe"])) {
+                $details["nganh_nghe"] = ((new Business())
+                    ->select(['name'])
+                    ->where('id', $details["nganh_nghe"])
+                    ->first())['name'] ?? '';
+            } else {
+                $details["nganh_nghe"] = '';
+            }
             if (!empty($details["quoc_gia"])) {
                 $details["quoc_gia"] = ((new Country())
                     ->select(['name'])
@@ -127,10 +127,15 @@ class ContactController extends Controller
             $visitModel = new Visiting();
             $visiting = '';
             if (!empty($request->muc_dich_tham_quan)) {
-                foreach ($request->muc_dich_tham_quan as $mucDich) {
-                    $visiting = $visiting . ($visitModel->find((int)$mucDich))->name . ',';
+                $countVisiting = count($request->muc_dich_tham_quan);
+                foreach ($request->muc_dich_tham_quan as $key => $mucDich) {
+                    $visiting = $visiting . ($visitModel->find((int)$mucDich))->name;
+                    if ($key + 1 < $countVisiting) {
+                        $visiting = $visiting . ', ';
+                    }
                 }
             }
+            $details['muc_dich_tham_quan'] = $visiting;
             try {
                 $contact                             = new Reservation();
                 $contact->ten_dk                     = $request->ten_dk;

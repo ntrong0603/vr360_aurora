@@ -361,20 +361,20 @@ $(".popup-form-register form").submit(function (e)
     $(".form-group").removeClass("errors");
     $(".errors-desc").remove();
     loading.css("display", "flex");
-    // var muc_dich_tham_quan = [];
-    // $(".popup-form-register input[name='muc_dich_tham_quan[]']:checked").each(function (e)
-    // {
-    //     muc_dich_tham_quan.push($(this).val());
-    // })
+    var muc_dich_tham_quan = [];
+    $(".popup-form-register input[name='muc_dich_tham_quan[]']:checked").each(function (e)
+    {
+        muc_dich_tham_quan.push($(this).val());
+    })
     var data = {
         ten_dk: $(".popup-form-register input[name='ten_dk']").val(),
         sdt: $(".popup-form-register input[name='sdt']").val(),
         email: $(".popup-form-register input[name='email']").val(),
 
         ten_doanh_nghiep: $(".popup-form-register input[name='ten_doanh_nghiep']").val(),
-        nganh_nghe: $(".popup-form-register input[name='nganh_nghe']").val(),
+        nganh_nghe: $(".popup-form-register select[name='nganh_nghe']").val(),
         quoc_gia: $(".popup-form-register select[name='quoc_gia']").val(),
-        // muc_dich_tham_quan: muc_dich_tham_quan,
+        muc_dich_tham_quan: muc_dich_tham_quan,
         muc_dich_tham_quan_khac: $(".popup-form-register input[name='muc_dich_tham_quan_khac']").val(),
         so_nguoi_tham_quan: $(".popup-form-register input[name='so_nguoi_tham_quan']").val(),
         tham_quan_tu_ngay: $(".popup-form-register input[name='tham_quan_tu_ngay']").val(),
@@ -540,17 +540,6 @@ document.addEventListener('DOMContentLoaded', function ()
         wzoom.prepare();
     });
 });
-$("#img-open-nav, #img-close-nav").on('click', function (e)
-{
-    var menu = $(this).parent().parent();
-    if (menu.hasClass('open-nav'))
-    {
-        menu.removeClass('open-nav');
-    } else
-    {
-        menu.addClass('open-nav');
-    }
-});
 $(document).ready(function ()
 {
     if (!window.mobileCheck)
@@ -558,4 +547,15 @@ $(document).ready(function ()
         var fixLeftMenu = $(".fix-left");
         fixLeftMenu.css('left', '-' + fixLeftMenu.width() + 'px');
     }
-})
+});
+$("#muc_dich_tham_quan_khac_checkbox").change(function (e)
+{
+    e.preventDefault();
+    if ($(this).is(':checked'))
+    {
+        $("#muc_dich_tham_quan_khac").removeAttr("readonly");
+    } else
+    {
+        $("#muc_dich_tham_quan_khac").attr("readonly", "readonly");
+    }
+});

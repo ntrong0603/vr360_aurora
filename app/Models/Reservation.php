@@ -65,18 +65,18 @@ class Reservation extends Model
         return $this->belongsTo(Country::class);
     }
 
-    // public function business()
-    // {
-    //     return $this->belongsTo(Business::class);
-    // }
+    public function business()
+    {
+        return $this->belongsTo(Business::class);
+    }
 
-    // public function datChoThue()
-    // {
-    //     return $this->belongsTo(Product::class, 'dat_cho_thue', 'id');
-    // }
+    public function datChoThue()
+    {
+        return $this->belongsTo(Product::class, 'dat_cho_thue', 'id');
+    }
 
-    // public function nhaXuongChoThue()
-    // {
-    //     return $this->belongsTo(Product::class, 'nha_xuong_cho_thue', 'id');
-    // }
+    public function nhaXuongChoThue()
+    {
+        return $this->belongsTo(Product::class, 'nha_xuong_cho_thue', 'id');
+    }
 }

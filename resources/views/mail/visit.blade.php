@@ -5,7 +5,7 @@
     <title>{{ $details['companyName'] }}</title>
     <style>
         #wrap {
-            border: 5px solid #982628;
+            border: 5px solid #b4d741;
             max-width: 500px;
             border-radius: 5px;
             padding: 15px;
@@ -75,17 +75,17 @@
                     {{ $details['nganh_nghe'] }}
                 </dd>
             </dl>
-            {{-- <dl>
+            <dl>
                 <dt>
                     Mục đích tham quan:
                 </dt>
                 <dd>
-                    {{  (!empty($details['muc_dich_tham_quan'])) ? implode(", ", $details['muc_dich_tham_quan']) : ''}}
+                    {{ $details['muc_dich_tham_quan']}}
                 </dd>
-            </dl> --}}
+            </dl>
             <dl>
                 <dt>
-                    Mục đích tham quan:
+                    Mục đích tham quan khac:
                 </dt>
                 <dd>
                     {{ $details['muc_dich_tham_quan_khac'] }}

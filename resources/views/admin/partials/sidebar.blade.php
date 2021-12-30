@@ -20,22 +20,22 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('contact.index') }}" class="nav-link {{ (request()->is('admin/contact*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý liên hệ khách hàng ({{countNewContact()}})
                         </p>
                     </a>
-                </li>
-                {{-- <li class="nav-item">
+                </li> --}}
+                <li class="nav-item">
                     <a href="{{ route('reservation.index') }}" class="nav-link {{ (request()->is('admin/reservation*') && !request()->is('admin/reservationRegister*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý đăng ký tham quan ({{countVisit()}})
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('reservationRegister.index') }}" class="nav-link {{ (request()->is('admin/reservationRegister*')) ? 'active' : '' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
@@ -92,14 +92,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="{{ route('business.index') }}" class="nav-link {{ (request()->is('admin/business*') && !request()->is('admin/businessStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý ngành kinh doanh
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('businessStyle.index') }}" class="nav-link {{ (request()->is('admin/businessStyle*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
@@ -108,14 +108,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="{{ route('visiting.index') }}" class="nav-link {{ (request()->is('admin/visiting*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý mục đích tham quan
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 {{-- <li class="nav-item">
                     <a href="{{ route('landUse.index') }}" class="nav-link {{ (request()->is('admin/landUse*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
@@ -123,8 +123,8 @@
                             Quản lý mục đích sử dụng
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="{{ route('enquiry.index') }}" class="nav-link {{ (request()->is('admin/enquiry*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>

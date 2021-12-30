@@ -5,7 +5,7 @@
     <title>{{ $details['companyName'] }}</title>
     <style>
         #wrap {
-            border: 5px solid #982628;
+            border: 5px solid #b4d741;
             max-width: 500px;
             border-radius: 5px;
             padding: 15px;
