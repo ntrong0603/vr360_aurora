@@ -81,7 +81,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Sản phẩm quan tâm:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="{{$reservationRegister->land->name ?? ''}}" readonly>
+                                <input type="text" class="form-control" value="{{$reservationRegister->land_name ?? ''}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
