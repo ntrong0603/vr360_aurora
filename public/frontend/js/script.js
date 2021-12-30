@@ -435,12 +435,17 @@ $("#btn-register-land").click(function ()
     }
 });
 $(".popup-form-register-land form").submit(function (e)
-{
+{ //
     e.preventDefault();
     e.stopPropagation();
     $(".form-group").removeClass("errors");
     $(".errors-desc").remove();
     loading.css("display", "flex");
+    var muc_dich_su_dung_register = [];
+    $(".popup-form-register-land input[name='muc_dich_su_dung_register[]']:checked").each(function (e)
+    {
+        muc_dich_su_dung_register.push($(this).val());
+    });
     var data = {
         ten_dk: $(".popup-form-register-land input[name='ten_dk_register']").val(),
         sdt: $(".popup-form-register-land input[name='sdt_register']").val(),
@@ -448,7 +453,7 @@ $(".popup-form-register-land form").submit(function (e)
         ten_doanh_nghiep: $(".popup-form-register-land input[name='ten_doanh_nghiep_register']").val(),
         nganh_nghe: $(".popup-form-register-land input[name='nganh_nghe_register']").val(),
         quoc_gia: $(".popup-form-register-land select[name='quoc_gia_register']").val(),
-        // muc_dich_su_dung: $(".popup-form-register-land select[name='muc_dich_su_dung_register']").val(),
+        muc_dich_su_dung: muc_dich_su_dung_register,
         muc_dich_su_dung_khac: $(".popup-form-register-land input[name='muc_dich_su_dung_khac_register']").val(),
         land_id: $(".popup-form-register-land select[name='land_id_register']").val(),
         content: $(".popup-form-register-land textarea[name='content_register']").val(),
@@ -477,7 +482,7 @@ $(".popup-form-register-land form").submit(function (e)
                 //<span class="errors-desc"></span>
                 $.each(e.responseJSON.errors, function (i, item)
                 {
-                    var iName = $("input[name='" + i + "']");
+                    var iName = $("input[name='" + i + "_register']");
                     var parent = iName.parent().parent();
                     parent.removeClass("errors");
                     parent.addClass("errors");
@@ -557,6 +562,17 @@ $("#muc_dich_tham_quan_khac_checkbox").change(function (e)
     } else
     {
         $("#muc_dich_tham_quan_khac").attr("readonly", "readonly");
+    }
+});
+$("#muc_dich_su_dung_khac_checkbox").change(function (e)
+{
+    e.preventDefault();
+    if ($(this).is(':checked'))
+    {
+        $("#muc_dich_su_dung_khac_register").removeAttr("readonly");
+    } else
+    {
+        $("#muc_dich_su_dung_khac_register").attr("readonly", "readonly");
     }
 });
 $('.select-box').select2();

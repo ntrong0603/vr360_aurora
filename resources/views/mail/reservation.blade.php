@@ -88,6 +88,14 @@
                     Mục đích sử dụng:
                 </dt>
                 <dd>
+                    {{ $details['muc_dich_su_dung_name'] }}
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Mục đích sử dụng khác:
+                </dt>
+                <dd>
                     {{ $details['muc_dich_su_dung_khac'] }}
                 </dd>
             </dl>

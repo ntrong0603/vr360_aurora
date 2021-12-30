@@ -116,14 +116,14 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="{{ route('landUse.index') }}" class="nav-link {{ (request()->is('admin/landUse*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Quản lý mục đích sử dụng
                         </p>
                     </a>
-                </li> --}}
+                </li>
                 {{-- <li class="nav-item">
                     <a href="{{ route('enquiry.index') }}" class="nav-link {{ (request()->is('admin/enquiry*')) ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>

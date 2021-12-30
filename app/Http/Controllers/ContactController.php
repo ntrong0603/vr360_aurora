@@ -214,17 +214,23 @@ class ContactController extends Controller
             } else {
                 $details["quoc_gia"] = '';
             }
-            // if (!empty($details["muc_dich_su_dung"])) {
-            //     $details["muc_dich_su_dung_name"] = ((new LandUse())
-            //         ->select(['name'])
-            //         ->where('id', $details["muc_dich_su_dung"])
-            //         ->first())['name'] ?? '';
-            // } else {
+            $landUseModel = new LandUse();
             $details["muc_dich_su_dung_name"] = '';
-            // }
+            $details["muc_dich_su_dung_id"] = '';
+            if (!empty($details["muc_dich_su_dung"])) {
+                $countlandUse = count($request->muc_dich_su_dung);
+                foreach ($request->muc_dich_su_dung as $key => $mucDich) {
+                    $details["muc_dich_su_dung_name"] .= ($landUseModel->find((int)$mucDich))->name;
+                    $details["muc_dich_su_dung_id"] .= $mucDich;
+                    if ($key + 1 < $countlandUse) {
+                        $details["muc_dich_su_dung_name"] .= ', ';
+                        $details["muc_dich_su_dung_id"] .= ', ';
+                    }
+                }
+            }
+
             $details["land_name"] = '';
             $details["land_id_group"] = '';
-
             if (!empty($details["land_id"])) {
                 foreach ($details["land_id"] as $key => $idLand) {
                     $details["land_name"] .= ((new Land())
@@ -246,7 +252,8 @@ class ContactController extends Controller
                 $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
                 $contact->country_id                 = $request->quoc_gia;
                 $contact->business                   = $request->nganh_nghe;
-                // $contact->land_use_id                = $request->muc_dich_su_dung;
+                $contact->land_use_id                = $details["muc_dich_su_dung_id"];
+                $contact->land_use_name              = $details["muc_dich_su_dung_name"];
                 $contact->muc_dich_su_dung_khac      = $request->muc_dich_su_dung_khac;
                 $contact->land_id                    = $details["land_id_group"];
                 $contact->land_name                    = $details["land_name"];

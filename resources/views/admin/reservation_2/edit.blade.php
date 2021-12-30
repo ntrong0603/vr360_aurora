@@ -75,6 +75,12 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2">Múc đích sử dụng:</label>
                             <div class="col-sm-4">
+                                <input type="text" class="form-control" value="{{$reservationRegister->land_use_name}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-2">Múc đích sử dụng khác:</label>
+                            <div class="col-sm-4">
                                 <input type="text" class="form-control" value="{{$reservationRegister->muc_dich_su_dung_khac}}" readonly>
                             </div>
                         </div>

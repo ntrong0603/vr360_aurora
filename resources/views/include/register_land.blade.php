@@ -70,19 +70,36 @@
                         </dt>
                         <dd>
                             <select name="muc_dich_su_dung_register" id="muc_dich_su_dung_register">
-                                <option value="">{{getTitle('c')}}</</option>
-                                @foreach (getLandUse() as $landUse)
+                                <option value="">{{getTitle('c')}}</< /option>
+                                    @foreach (getLandUse() as $landUse)
                                 <option value="{{$landUse['id']}}">{{$landUse['name']}}</option>
                                 @endforeach
                             </select>
                         </dd>
                     </dl> --}}
-                    <dl class="form-group ms-order-7">
+                    <dl class="form-group checkbox-inline">
                         <dt>
-                            <label for="muc_dich_su_dung_khac_register">{{getTitle('mdsd')}}:</label>
+                            <label>{{getTitle('mdsd')}}:</label>
                         </dt>
                         <dd>
-                            <input type="text" name="muc_dich_su_dung_khac_register" id="muc_dich_su_dung_khac_register" placeholder="{{getTitle('mdsd')}}" autocomplete="off">
+                            @foreach (getLandUse() as $landUse)
+                            <input type="checkbox" name="muc_dich_su_dung_register[]" id="muc_dich_su_dung_register_{{$landUse['id']}}" value="{{$landUse['id']}}">
+                            <label for="muc_dich_su_dung_register_{{$landUse['id']}}">
+                                {{$landUse['name']}}
+                            </label>
+                            @endforeach
+                            <input type="checkbox" name="muc_dich_su_dung_khac_checkbox" id="muc_dich_su_dung_khac_checkbox" value="0">
+                            <label for="muc_dich_su_dung_khac_checkbox">
+                                {{getTitle('k')}}
+                            </label>
+                        </dd>
+                    </dl>
+                    <dl class="form-group ms-order-7">
+                        <dt>
+                            <label for="muc_dich_su_dung_khac_register" style="visibility: hidden">{{getTitle('k')}}:</label>
+                        </dt>
+                        <dd>
+                            <input type="text" name="muc_dich_su_dung_khac_register" id="muc_dich_su_dung_khac_register" placeholder="{{getTitle('k')}}" autocomplete="off" readonly>
                         </dd>
                     </dl>
                     <dl class="form-group ms-order-3">
