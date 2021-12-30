@@ -2,10 +2,10 @@
     var scenes = [
         @foreach(getScene() as $scene)
         {
-            "name": "{{$scene['name']}}",
+            "name": `{{$scene['name']}}`,
             "content": `{!!$scene['content']!!}`,
             "nameScene": `{{$scene['nameScene']}}`,
-            "id": "{{$scene['id']}}",
+            "id": `{{$scene['id']}}`,
         },
         @endforeach
     ];

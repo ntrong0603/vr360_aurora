@@ -44,11 +44,12 @@
                             <label for="nganh_nghe">{{getTitle('nnkd')}}:</label>
                         </dt>
                         <dd>
-                            <select name="nganh_nghe" id="nganh_nghe" class="select-box">
+                            {{-- <select name="nganh_nghe" id="nganh_nghe" class="select-box">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
-                            </select>
+                            </select> --}}
+                            <input type="text" name="nganh_nghe" id="nganh_nghe" placeholder="{{getTitle('nnkd')}}" autocomplete="off">
                         </dd>
                     </dl>
                     <dl class="form-group">

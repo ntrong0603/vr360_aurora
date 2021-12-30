@@ -108,14 +108,14 @@ class ContactController extends Controller
             $details["companyName"] = $companyName;
             $details["template"] = 'mail.visit';
             $details["subject"] = '[Đăng ký tham quan] Liên hệ từ khách hàng';
-            if (!empty($details["nganh_nghe"])) {
-                $details["nganh_nghe"] = ((new Business())
-                    ->select(['name'])
-                    ->where('id', $details["nganh_nghe"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["nganh_nghe"] = '';
-            }
+            // if (!empty($details["nganh_nghe"])) {
+            //     $details["nganh_nghe"] = ((new Business())
+            //         ->select(['name'])
+            //         ->where('id', $details["nganh_nghe"])
+            //         ->first())['name'] ?? '';
+            // } else {
+            //     $details["nganh_nghe"] = '';
+            // }
             if (!empty($details["quoc_gia"])) {
                 $details["quoc_gia"] = ((new Country())
                     ->select(['name'])
@@ -143,7 +143,7 @@ class ContactController extends Controller
                 $contact->email                      = $request->email;
                 $contact->ten_doanh_nghiep           = $request->ten_doanh_nghiep;
                 $contact->country_id                 = $request->quoc_gia;
-                $contact->business_id                = $request->nganh_nghe;
+                $contact->business                = $request->nganh_nghe;
                 $contact->visiting                   = $visiting;
                 $contact->muc_dich_tham_quan_khac    = $request->muc_dich_tham_quan_khac;
                 $contact->so_nguoi_tham_quan         = $request->so_nguoi_tham_quan;

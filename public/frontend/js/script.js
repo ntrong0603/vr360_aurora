@@ -137,6 +137,7 @@ function updateInfoUtilities()
             krpano.call(`set(hotspot['${util['nameHotspot']}'].onhover, showimage('${util['photo']}',hotspottextstyle))`);
         }
         krpano.call(`set(hotspot['${util['nameHotspot']}'].onclick, js(showInfoUtil(${util['id']})))`);
+        console.log(util['nameHotspot']);
     }
 }
 
@@ -372,7 +373,7 @@ $(".popup-form-register form").submit(function (e)
         email: $(".popup-form-register input[name='email']").val(),
 
         ten_doanh_nghiep: $(".popup-form-register input[name='ten_doanh_nghiep']").val(),
-        nganh_nghe: $(".popup-form-register select[name='nganh_nghe']").val(),
+        nganh_nghe: $(".popup-form-register input[name='nganh_nghe']").val(),
         quoc_gia: $(".popup-form-register select[name='quoc_gia']").val(),
         muc_dich_tham_quan: muc_dich_tham_quan,
         muc_dich_tham_quan_khac: $(".popup-form-register input[name='muc_dich_tham_quan_khac']").val(),

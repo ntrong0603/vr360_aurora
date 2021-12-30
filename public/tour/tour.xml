@@ -392,7 +392,7 @@
         <image>
             <cube url="panos/cong_khu_cong_nghiep.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1152,2304,4608" />
         </image>
-        <hotspot name="scene_view_1" ath="-1.939" atv="-18.313" url="skin/hotspot2.png" onloaded="do_crop_animation(128,112,4);" scale='0.7' zoom="true" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
+        <hotspot name="scene_view_1" style="skin_fly" ath="-1.939" atv="-18.313" onclick="loadscene(scene_view_1,null,MERGE,OPENBLEND(1.0, -0.5, 0.3, 0.8, linear))" onhover="showtext('scene_view_1',hotspottextstyle);"/>
 
     </scene>
 

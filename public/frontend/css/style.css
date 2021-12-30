@@ -2057,8 +2057,6 @@ textarea {
   width: 41px;
   height: 41px;
   border-radius: 50%;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
   border: 2px solid white;
 }
 
@@ -2280,6 +2278,8 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .popup-register .popup-info form .form-group.checkbox-inline dd input,
