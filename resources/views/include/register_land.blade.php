@@ -57,7 +57,7 @@
                             <label for="quoc_gia_register">{{getTitle('dntqg')}}:</label>
                         </dt>
                         <dd>
-                            <select name="quoc_gia_register" id="quoc_gia_register">
+                            <select name="quoc_gia_register" id="quoc_gia_register" class="select-box">
                                 @foreach (getCountry() as $country)
                                 <option value="{{$country['id']}}">{{$country['name']}}</option>
                                 @endforeach
@@ -90,8 +90,7 @@
                             <label for="land_id_register">{{getTitle('spqt')}}:</label>
                         </dt>
                         <dd>
-                            <select name="land_id_register" id="land_id_register">
-                                <option value="">{{getTitle('c')}}</</option>
+                            <select name="land_id_register" id="land_id_register" multiple class="select-box">
                                 @foreach (getLand() as $land)
                                 @if ($land['style'] == 1)
                                 <option value="{{$land['id']}}">{{$land['name']}}</option>

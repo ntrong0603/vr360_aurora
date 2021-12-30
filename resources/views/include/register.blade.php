@@ -44,7 +44,7 @@
                             <label for="nganh_nghe">{{getTitle('nnkd')}}:</label>
                         </dt>
                         <dd>
-                            <select name="nganh_nghe" id="nganh_nghe">
+                            <select name="nganh_nghe" id="nganh_nghe" class="select-box">
                                 @foreach (getBusiness() as $business)
                                 <option value="{{$business['id']}}">{{$business['name']}}</option>
                                 @endforeach
@@ -56,7 +56,7 @@
                             <label for="quoc_gia">{{getTitle('dntqg')}}:</label>
                         </dt>
                         <dd>
-                            <select name="quoc_gia" id="quoc_gia">
+                            <select name="quoc_gia" id="quoc_gia" class="select-box">
                                 @foreach (getCountry() as $country)
                                 <option value="{{$country['id']}}">{{$country['name']}}</option>
                                 @endforeach
@@ -75,7 +75,7 @@
                         <dt>
                             <label for="tham_quan_tu_ngay">{{getTitle('tgdktq')}}:</label>
                         </dt>
-                        <dd style="display: flex; align-items: center; justify-content: space-between">
+                        <dd style="display: flex; align-items: center; justify-content: space-between; padding-top: 4px;">
                             <div class="flex-center-between" style="width: 49%;">
                                 <label for="tham_quan_tu_ngay" style="padding: 0; margin-bottom: -4px;">{{getTitle('t')}}: </label>
                                 <input type="text" name="tham_quan_tu_ngay" id="tham_quan_tu_ngay" placeholder="" autocomplete="off" style="padding-bottom: 0">

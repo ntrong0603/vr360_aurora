@@ -559,3 +559,4 @@ $("#muc_dich_tham_quan_khac_checkbox").change(function (e)
         $("#muc_dich_tham_quan_khac").attr("readonly", "readonly");
     }
 });
+$('.select-box').select2();

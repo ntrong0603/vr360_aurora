@@ -222,13 +222,21 @@ class ContactController extends Controller
             // } else {
             $details["muc_dich_su_dung_name"] = '';
             // }
+            $details["land_name"] = '';
+            $details["land_id_group"] = '';
+
             if (!empty($details["land_id"])) {
-                $details["land_name"] = ((new Land())
-                    ->select(['name'])
-                    ->where('id', $details["land_id"])
-                    ->first())['name'] ?? '';
-            } else {
-                $details["land_name"] = '';
+                foreach ($details["land_id"] as $key => $idLand) {
+                    $details["land_name"] .= ((new Land())
+                        ->select(['name'])
+                        ->where('id', $idLand)
+                        ->first())['name'] ?? '';
+                    $details["land_id_group"] .= $idLand;
+                    if ($key + 1 < count($details["land_id"])) {
+                        $details["land_name"] .= ", ";
+                        $details["land_id_group"] .= ", ";
+                    }
+                }
             }
             try {
                 $contact                             = new ReservationRegister();
@@ -240,7 +248,8 @@ class ContactController extends Controller
                 $contact->business                   = $request->nganh_nghe;
                 // $contact->land_use_id                = $request->muc_dich_su_dung;
                 $contact->muc_dich_su_dung_khac      = $request->muc_dich_su_dung_khac;
-                $contact->land_id                    = $request->land_id;
+                $contact->land_id                    = $details["land_id_group"];
+                $contact->land_name                    = $details["land_name"];
                 $contact->content                    = $request->content;
 
                 $contact->save();
