@@ -2122,6 +2122,7 @@ textarea {
                 &.checkbox-inline {
                     dd {
                         display: flex;
+                        flex-wrap: wrap;
 
                         input {
                             display: none !important;
