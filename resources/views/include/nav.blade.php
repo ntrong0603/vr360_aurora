@@ -4,7 +4,7 @@
         <img id="img-close-nav" src="{{asset('frontend/images/times-circle-regular.svg')}}" alt="">
     </button>
     <div class="logo-nav">
-        <img src="{{asset('storage/setting_image/'.getSetting('logo'))}}" alt="">
+        <a href="https://auroraip.vn/"><img src="{{asset('storage/setting_image/'.getSetting('logo'))}}" alt=""></a>
     </div>
     <ul class="nav-main">
         @foreach (getCategory() as $key => $category)
