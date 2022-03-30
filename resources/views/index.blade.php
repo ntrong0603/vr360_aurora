@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta name="description" content="{{getSetting(" keywork")}}">
     <meta name="keywords" content="{{getSetting(" description")}}" />
-    <link rel="shortcut icon" type="{{ asset('upload/images/'. getSetting(" logo"))}}" />
+    <link rel="shortcut icon" type="{{ asset('storage/setting_image/'.getSetting('logo'))}}" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css')}}" />

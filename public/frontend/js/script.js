@@ -137,7 +137,6 @@ function updateInfoUtilities()
             krpano.call(`set(hotspot['${util['nameHotspot']}'].onhover, showimage('${util['photo']}',hotspottextstyle))`);
         }
         krpano.call(`set(hotspot['${util['nameHotspot']}'].onclick, js(showInfoUtil(${util['id']})))`);
-        console.log(util['nameHotspot']);
     }
 }
 
