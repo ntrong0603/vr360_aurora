@@ -9,9 +9,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta name="description" content="{{getSetting(" keywork")}}">
-    <meta name="keywords" content="{{getSetting(" description")}}" />
-    <link rel="shortcut icon" type="{{ asset('storage/setting_image/'.getSetting('logo'))}}" />
+    <meta name="keywords" content="{{getSetting('keywork')}}">
+    <meta name="description" content="{{getSetting('description')}}" />
+    <link rel="icon" type="{{ asset('storage/setting_image/'.getSetting('logo'))}}"/>
+    <meta property="og:title" content="{{getSetting("title")}}" />
+    <meta property="og:description" content="{{getSetting('description')}}" />
+    <meta property="og:image" content="{{ asset('frontend/images/avatar.jpg')}}" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css')}}" />
